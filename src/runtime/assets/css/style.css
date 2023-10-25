@@ -1,0 +1,318 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  @font-face {
+    font-display: swap;
+    font-family: Source CodePro;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./../fonts/Source-codePro.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Poppins Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./../fonts/Poppins-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Poppins Medium;
+    font-style: medium;
+    font-weight: 500;
+    src: url(./../fonts/Poppins-Medium.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Inter-Bold;
+    font-style: bold;
+    font-weight: 700;
+    src: url(./../fonts/Inter-Bold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Inter-SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    src: url(./../fonts/Inter-SemiBold.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Inter-Medium;
+    font-style: medium;
+    font-weight: 500;
+    src: url(./../fonts/Inter-Medium.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Inter-Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./../fonts/Inter-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Inter-ExtraLight;
+    font-style: normal;
+    font-weight: 200;
+    src: url(./../fonts/Inter-ExtraLight.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Comme-Light;
+    font-style: normal;
+    font-weight: 300;
+    src: url(./../fonts/Comme-Light.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Comme-Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: url(./../fonts/Comme-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Comme-Medium;
+    font-style: normal;
+    font-weight: 500;
+    src: url(./../fonts/Comme-Medium.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: Comme-SemiBold;
+    font-style: normal;
+    font-weight: 600;
+    src: url(./../fonts/Comme-SemiBold.woff2) format("woff2");
+  }
+
+  body {
+    @apply !cb-font-inter-regular cb-break-words cb-text-black-core/[0.87];
+  }
+}
+
+@layer components {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s !important;
+  }
+
+  .cb-floating-input:-webkit-autofill,
+  .cb-floating-input:-webkit-autofill:hover,
+  .cb-floating-input:-webkit-autofill:focus,
+  .cb-floating-input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  .cb-cta-section {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
+
+  .cb-cta-box-shadow {
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .cb-content > p {
+    @apply cb-pb-8;
+  }
+
+  .cb-prose > * {
+    @apply cb-text-lg md:cb-text-[1.1875rem] md:cb-leading-8;
+  }
+
+  .cb-gradient-text {
+    @apply cb-bg-clip-text cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-text-transparent;
+  }
+
+  .cb-hoverable-text:hover {
+    @apply cb-bg-clip-text cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-text-transparent;
+  }
+
+  .cb-gradient-border {
+    border-image: linear-gradient(to bottom, #f2709c, #ff835b) 1;
+  }
+
+  .cb-gradient-border-btn {
+    @apply cb-border cb-border-solid cb-border-transparent cb-rounded-[0.6rem] cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-shadow-[inset_2px_1000px_1px_#fff] cb-p-[1rem] cb-text-center hover:cb-border hover:cb-border-solid hover:cb-border-transparent hover:cb-from-[#f2709c] hover:cb-to-[#ff9472] hover:cb-shadow-none active:cb-scale-[0.98];
+  }
+
+  .cb-gradient-border-btn > a > .fab {
+    @apply cb-text-[#f2709c];
+  }
+
+  .cb-gradient-border-btn > span {
+    @apply cb-my-0 cb-mx-1.5 cb-text-[#3d3d3d];
+  }
+
+  .cb-gradient-border-btn:hover > span,
+  .cb-gradient-border-btn:hover > span > span {
+    @apply cb-text-[#fff];
+  }
+
+  .cb-gradient-border-btn:hover > .fa,
+  .cb-gradient-border-btn:hover > a > .fab,
+  .cb-gradient-border-btn:hover > .arrow {
+    @apply cb-text-white;
+  }
+
+  .cb-footer-icon > path,
+  button:hover > div > .cb-footer-icon > path {
+    fill: url("#lgrad");
+  }
+
+  .cb-gradient-border-btn:hover > a > .cb-footer-icon > path,
+  button > div > .cb-footer-icon > path {
+    fill: #ffffff;
+  }
+
+  ul {
+    @apply cb-pl-4;
+  }
+
+  b,
+  strong {
+    @apply !cb-font-comme-medium cb-tracking-[0.01em] !cb-text-black-core/[1] cb-text-[1.0625rem] md:cb-text-[1.15625rem];
+  }
+
+  /* HighlightJS */
+  /* Tomorrow Night Theme */
+  /* https://jmblog.github.io/color-themes-for-google-code-highlightjs */
+  /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+  /* https://jmblog.github.io/color-themes-for-google-code-highlightjs */
+  pre .hljs-comment,
+  pre .hljs-title {
+    @apply cb-text-[#969896];
+  }
+
+  pre .hljs-variable,
+  pre .hljs-attribute,
+  pre .hljs-tag,
+  pre .hljs-regexp,
+  pre .ruby .hljs-constant,
+  pre .xml .hljs-tag .hljs-title,
+  pre .xml .hljs-pi,
+  pre .xml .hljs-doctype,
+  pre .html .hljs-doctype,
+  pre .css .id,
+  pre .css .hljs-class,
+  pre .css .hljs-pseudo {
+    @apply cb-text-[#e49176];
+  }
+
+  pre .hljs-number,
+  pre .hljs-preprocessor,
+  pre .hljs-built_in,
+  pre .hljs-literal,
+  pre .hljs-params,
+  pre .hljs-constant {
+    @apply cb-text-[#de935f];
+  }
+
+  pre .hljs-class,
+  pre .ruby .hljs-class .hljs-title,
+  pre .css .hljs-rules .hljs-attribute {
+    @apply cb-text-[#f0c674];
+  }
+
+  pre .hljs-string,
+  pre .hljs-value,
+  pre .hljs-inheritance,
+  pre .hljs-header,
+  pre .ruby .hljs-symbol,
+  pre .xml .hljs-cdata {
+    @apply cb-text-[#b5bd68];
+  }
+
+  pre .css .hljs-hexcolor {
+    @apply cb-text-[#8abeb7];
+  }
+
+  pre .hljs-function,
+  pre .python .hljs-decorator,
+  pre .python .hljs-title,
+  pre .ruby .hljs-function .hljs-title,
+  pre .ruby .hljs-title .hljs-keyword,
+  pre .perl .hljs-sub,
+  pre .javascript .hljs-title,
+  pre .coffeescript .hljs-title {
+    @apply cb-text-[#81a2be];
+  }
+
+  pre .hljs-keyword,
+  pre .javascript .hljs-function {
+    @apply cb-text-[#b294bb];
+  }
+
+  code::before,
+  code::after {
+    @apply cb-content-none !important;
+  }
+
+  .cb-prose h1,
+  .cb-prose h1 strong {
+    @apply !cb-font-comme-semibold cb-text-[#000] cb-text-[1.6875rem] md:cb-text-[1.78125rem] lg:cb-text-[1.95rem] xl:cb-text-[2.0625rem] !-cb-mb-2.5 !cb-tracking-tight !cb-leading-snug cb-mt-[3.75rem];
+  }
+
+  .cb-prose h2,
+  .cb-prose h2 strong {
+    @apply !cb-font-comme-semibold cb-text-[#000] xl:cb-text-[2.0625rem] !cb-mb-4 !cb-tracking-tight;
+  }
+
+  .cb-prose hr {
+    @apply !cb-my-6;
+  }
+
+  .cb-prose i,
+  .cb-prose a {
+    @apply !cb-font-comme-regular cb-text-lg cb-text-black-core/[0.87] cb-tracking-[0.03rem];
+  }
+
+  .cb-prose span a {
+    @apply !cb-font-comme-regular cb-text-lg cb-text-blue-700 cb-tracking-[0.03rem];
+  }
+
+  .cb-prose
+    :where(code, code strong):not(
+      :where([class~="not-prose"], blockquote code)
+    ) {
+    @apply cb-bg-gray-200 cb-py-0.5 cb-px-1 cb-rounded cb-font-[550] cb-tracking-wide !cb-font-source-codepro;
+  }
+
+  .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
+    @apply cb-bg-transparent cb-text-[#dbe0e0] cb-leading-normal cb-tracking-[-0.022em] !cb-break-normal;
+  }
+
+  .cb-prose
+    :where(blockquote, blockquote i):not(:where([class~="not-prose"] *)) {
+    @apply cb-not-italic !cb-text-[1.4rem] lg:!cb-text-[1.755rem] !cb-leading-[2.3rem] !cb-text-black-core/[0.75] cb-tracking-wide !cb-font-inter-extralight;
+  }
+
+  .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
+    @apply cb-not-italic !cb-text-[1.4rem] lg:!cb-text-[1.755rem] !cb-leading-[2.3rem] !cb-text-black-core/[0.75] cb-tracking-wide !cb-font-inter-regular;
+  }
+
+  .cb-prose
+    :where(blockquote p:first-of-type):not(
+      :where([class~="not-prose"] *)
+    )::before {
+    @apply cb-content-none;
+  }
+}
