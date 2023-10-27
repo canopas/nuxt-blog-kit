@@ -14,12 +14,6 @@ export const useTagListStore = defineStore("tag-list", {
   },
   actions: {
     async loadTagBlogs(slug) {
-      // No need of API call if items are already loaded
-      if (this.items != null && this.error == null) {
-        this.isLoading = false;
-        return;
-      }
-
       return new Promise((resolve) => {
         this.isLoading = true;
         this.error = null;

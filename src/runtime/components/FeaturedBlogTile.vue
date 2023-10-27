@@ -30,7 +30,7 @@
             <span>{{ post.published_on }}</span>
             <span
               class="cb-hidden lg:cb-inline-block after:cb-content-['\00B7'] after:cb-mx-1"
-            ></span>
+            />
             <span class="cb-hidden lg:cb-inline-block">
               {{ post.readingTime }} min read
             </span>
@@ -42,7 +42,7 @@
         <div
           class="cb-my-2 cb-text-[1.3125rem] cb-leading-7 md:cb-text-xl lg:cb-text-[1.4375rem] lg:cb-leading-8 cb-tracking-none cb-text-black-core/[0.87] hover:cb-underline cb-underline-offset-4 cb-transition-all hover:cb-scale-[0.96] cb-font-inter-semibold"
           @click="
-            mixpanel.track('tap_blog_title', {
+            mixpanel?.track('tap_blog_title', {
               Title: post.title,
             })
           "
@@ -54,12 +54,14 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import { toRefs } from "vue";
 
 const props = defineProps({
-  post: Object,
+  post: {
+    type: Object,
+    required: true,
+  },
   mixpanel: Object,
 });
 const { post, mixpanel } = toRefs(props);

@@ -1,9 +1,9 @@
 <template>
   <!-- Table of Contents  -->
   <table-of-contents
-    :indexContent="newIndexContent"
-    :headerHeight="headerHeight"
-    :contentRef="contentRef"
+    :index-content="newIndexContent"
+    :header-height="headerHeight"
+    :content-ref="contentRef"
   />
 
   <div
@@ -11,8 +11,8 @@
     class="cb-prose lg:cb-prose-lg xl:cb-w-full 2xl:cb-w-auto cb-scroll-smooth"
   >
     <div
-      v-html="newContent"
       class="!cb-tracking-wide cb-text-black-core/[0.80] cb-font-comme-light"
+      v-html="newContent"
     />
     <div class="cb-flex cb-flex-row cb-flex-wrap cb-mt-11">
       <tag-section :tags="post.tags" :mixpanel="mixpanel" />
@@ -23,24 +23,30 @@
 
 <script setup>
 import { toRefs, onMounted, onUnmounted, ref } from "vue";
-import hljs from "highlight.js";
 
 const props = defineProps({
-  content: String,
-  indexContent: String,
-  post: Object,
+  content: {
+    type: String,
+    required: true,
+  },
+  "index-content": {
+    type: String,
+    required: true,
+  },
+  post: {
+    type: Object,
+    required: true,
+  },
   mixpanel: Object,
-  loaded: Boolean,
 });
 
-const { content, indexContent, post, mixpanel, loaded } = toRefs(props);
+const { content, indexContent, post, mixpanel } = toRefs(props);
 const contentRef = ref(null);
-const activeId = ref(null);
 const headerHeight = ref(0);
 
 let firstHeadingId;
 
-let newContent = content.value
+const newContent = content.value
   ?.replace(
     /<img/g,
     '<img class="cb-mx-auto cb-aspect-w-2 sm:cb-object-cover" style="width:min-content;height:min-content"'
@@ -50,12 +56,12 @@ let newContent = content.value
 
 // table of contents formation
 let tocIndex = -1;
-let newIndexContent = indexContent.value?.replace(
+const newIndexContent = indexContent.value?.replace(
   /<a\s+href="(.*?)"/g,
   (match, href) => {
-    let match2 = /#([^\n]+-0)\b/g.exec(href);
+    const match2 = /#([^\n]+-0)\b/g.exec(href);
 
-    let classes =
+    const classes =
       "cb-index-content cb-text-ellipsis hover:cb-bg-gradient-to-r cb-from-pink-300 cb-to-orange-300 hover:cb-text-transparent hover:cb-bg-clip-text";
     if (match2 && match2[1]) {
       firstHeadingId = match2[1].replace("#", "");
@@ -67,7 +73,7 @@ let newIndexContent = indexContent.value?.replace(
 );
 
 const handleScroll = () => {
-  let classes = [
+  const classes = [
     "cb-relative",
     "cb-bg-gradient-to-r",
     "cb-bg-clip-text",
@@ -107,12 +113,7 @@ onMounted(() => {
   headerHeight.value =
     document.getElementsByTagName("header")["0"].clientHeight;
 
-  window.hljs = hljs;
-  hljs.highlightAll();
-
-  // loaded.value = false;
-
-  let element = document.getElementById(firstHeadingId);
+  const element = document.getElementById(firstHeadingId);
   if (element) {
     element.style.marginTop = "0";
   }

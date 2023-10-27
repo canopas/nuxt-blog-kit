@@ -18,7 +18,7 @@
         <PostList
           :data="posts"
           :slug="slug"
-          :tagName="tagName"
+          :tag-name="tagName"
           :mixpanel="mixpanel"
         />
       </div>
@@ -27,14 +27,17 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useAsyncData } from "#app";
+import { computed, ref, toRefs } from "vue";
+import { useAsyncData, useSeoMeta } from "#app";
 import { useTagListStore } from "../stores/tags";
 import config from "../config";
 
 const props = defineProps({
-  slug: String,
-  mixpanel: Object,
+  slug: {
+    type: String,
+    required: true,
+  },
+ mixpanel: Object,
 });
 
 const { slug, mixpanel } = toRefs(props);
@@ -42,17 +45,16 @@ const { slug, mixpanel } = toRefs(props);
 const store = useTagListStore();
 const posts = computed(() => store.items);
 const status = computed(() => store.status);
-let tagName = "";
+
+const tagName = ref("");
 
 await useAsyncData("tags", () => store.loadTagBlogs(slug.value));
 
 if (status.value !== config.SUCCESS) {
   emit("notfound");
 } else {
-  tagName = posts.value.length != 0 ? posts.value[0].tagName : "";
+  tagName.value = posts.value.length != 0 ? posts.value[0].tagName : "";
 }
-
-console.log(status.value, tagName);
 
 useSeoMeta({
   title: config.SEO_META_DATA.title,

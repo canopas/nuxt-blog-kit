@@ -17,7 +17,10 @@
 <script setup lang="ts">
 import { toRefs } from "vue";
 const props = defineProps({
-  message: String,
+  message: {
+    type: String,
+    required: true,
+  },
 });
 
 const { message } = toRefs(props);

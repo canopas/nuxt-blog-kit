@@ -5,9 +5,8 @@
         <!-- Header  -->
         <blog-detail-header
           :post="post"
-          :loaded="loaded"
           :mixpanel="mixpanel"
-          @showAlert="showAlertMessage"
+          @show-alert="showAlertMessage"
         />
 
         <div
@@ -21,14 +20,13 @@
           <!-- main article  -->
           <BlogContent
             :content="blogContent"
-            :indexContent="indexContent"
+            :index-content="indexContent"
             :post="post"
             :mixpanel="mixpanel"
-            :loaded="loaded"
           />
 
           <!-- Recommended Posts Section Desktop View -->
-          <div class="cb-relative cb-w-2/5" v-if="recommandedPosts.length != 0">
+          <div v-if="recommandedPosts.length != 0" class="cb-relative cb-w-2/5">
             <div class="xl:cb-sticky cb-top-28">
               <div class="cb-hidden xl:cb-block cb-w-full cb-h-fit">
                 <RecommandedPosts
@@ -43,8 +41,8 @@
 
       <!-- Recommended Posts Section Mobile,Tablet View -->
       <div
-        class="cb-blog-container cb-inline-block xl:cb-hidden cb-mt-10 lg:cb-mx-4"
         v-if="recommandedPosts.length != 0"
+        class="cb-blog-container cb-inline-block xl:cb-hidden cb-mt-10 lg:cb-mx-4"
       >
         <hr class="cb-mb-10" />
         <RecommandedPosts :posts="recommandedPosts" :mixpanel="mixpanel" />
@@ -57,8 +55,8 @@
     <!-- CTA -->
     <div class="cb-cta-section">
       <CTA1 v-if="CTACompName == 'CTA1'" />
-      <CTA2 v-if="CTACompName == 'CTA2'" />
-      <CTA3 v-if="CTACompName == 'CTA3'" />
+      <CTA2 v-if="CTACompName == 'CTA2'" :recaptcha-key="recaptchaKey" />
+      <CTA3 v-if="CTACompName == 'CTA3'" :recaptcha-key="recaptchaKey" />
       <CTA4 v-if="CTACompName == 'CTA4'" />
       <CTA5 v-if="CTACompName == 'CTA5'" />
     </div>
@@ -69,50 +67,55 @@
 import { toRefs, ref, computed } from "vue";
 import config from "../config";
 import { useAsyncData, useHead, useSeoMeta } from "#app";
-import { useBlogDetailStore, useOtherBlogStore } from "../stores/resources";
+import {
+  useBlogDetailStore,
+  useRecommandedBlogStore,
+} from "../stores/resources";
 import { filterPostsByCategoryAndTag } from "../utils";
 
 const props = defineProps({
-  slug: String,
-  mixpanel: Object,
+  slug: {
+    type: String,
+    required: true,
+  },
   showDrafts: Boolean,
+  mixpanel: Object,
+  "iframely-key": {
+    type: String,
+    required: true,
+  },
+  "recaptcha-key": {
+    type: String,
+    required: true,
+  },
 });
 
 const emit = defineEmits(["notfound"]);
 
-const { mixpanel, slug, showDrafts } = toRefs(props);
+const { mixpanel, slug, showDrafts, iframelyKey, recaptchaKey } = toRefs(props);
 
 const store = useBlogDetailStore();
 const postData = computed(() => store.item);
 const status = computed(() => store.status);
 
-const recStore = useOtherBlogStore();
-const otherPosts = computed(() => recStore.items);
+const recStore = useRecommandedBlogStore();
+const recommandedBlog = computed(() => recStore.items);
 
 const CTACompName = ref("");
 const showAlert = ref(false);
-const loaded = ref(false);
 const message = ref("");
 
 const post = ref(null);
 
-let blogContent, indexContent, published_on, published_time, recommandedPosts;
+let blogContent, indexContent, published_time, recommandedPosts;
 
 await useAsyncData("blog", () => store.loadResource(slug.value));
-
-setTimeout(() => {
-  loaded.value = true;
-}, 50);
 
 if (status.value !== config.SUCCESS) {
   emit("notfound");
 } else {
-  await useAsyncData("otherBlog", () =>
-    recStore.loadOtherBlog(slug.value, showDrafts)
-  );
-
   post.value = postData?.value;
-  let CTAData = post.value?.cta.data;
+  const CTAData = post.value?.cta.data;
 
   blogContent = config.SHOW_NEW_CONTENT
     ? post.value?.new_content || post.value?.content
@@ -121,12 +124,18 @@ if (status.value !== config.SUCCESS) {
     ? post.value?.new_toc || post.value?.toc
     : post.value?.toc;
 
-  recommandedPosts = filterPostsByCategoryAndTag(post.value, otherPosts.value);
-
-  published_on = post?.value?.published_on.replace(",", "");
   published_time = new Date(post?.value?.publishedAt).toLocaleTimeString();
 
   CTACompName.value = CTAData?.attributes.component_name;
+
+  await useAsyncData("recommandedBlog", () =>
+    recStore.loadRecommandedBlog(slug.value, showDrafts)
+  );
+
+  recommandedPosts = filterPostsByCategoryAndTag(
+    post.value,
+    recommandedBlog.value
+  );
 
   useHead({
     script: [
@@ -135,9 +144,7 @@ if (status.value !== config.SUCCESS) {
         type: "application/ld+json",
       },
       {
-        src:
-          "//cdn.iframe.ly/embed.js?card=small&key=" +
-          import.meta.env.VITE_IFRAMELY_KEY,
+        src: "//cdn.iframe.ly/embed.js?card=small&key=" + iframelyKey.value,
         onLoad: () => {
           // Load media preview
           document.querySelectorAll("oembed[url]").forEach((element) => {

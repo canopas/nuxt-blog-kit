@@ -27,9 +27,15 @@
             <ul
               class="cb-pl-0 cb-pt-6 md:cb-pt-4 lg:cb-pt-6 cb-text-black-core/[0.6] cb-text-base cb-leading-5 md:cb-text-[1.05rem] md:cb-leading-[1.34rem] lg:cb-text-[1.188rem] lg:cb-leading-6 xl:cb-text-[1.375rem] xl:cb-leading-[1.8125rem] cb-font-inter-semibold"
             >
-              <li v-for="(reason, index) in reasons" class="cb-flex" :key="index">
+              <li
+                v-for="(reason, index) in reasons"
+                :key="index"
+                class="cb-flex"
+              >
                 <span class="cb-pr-1">*</span>
-                <div class="sm:cb-w-[90%]">{{ reason }}</div>
+                <div class="sm:cb-w-[90%]">
+                  {{ reason }}
+                </div>
               </li>
             </ul>
             <div

@@ -7,10 +7,10 @@ A component library for canopas blogs website
 
 ```bash
 # Using yarn
-yarn add --dev canopas-blog-components
+yarn add --dev @canopassoftware/canopas-blog-components
 
 # Using npm
-npm install --save-dev canopas-blog-components
+npm install --save-dev @canopassoftware/canopas-blog-components
 ```
 
 2. Add `canopas-blog-components` to the `modules` section of `nuxt.config.ts`
@@ -18,35 +18,31 @@ npm install --save-dev canopas-blog-components
 ```js
 export default defineNuxtConfig({
   modules: [
-    'canopas-blog-components'
+    '@canopassoftware/canopas-blog-components'
   ]
 })
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use module in your Nuxt app ✨
 
-## Development
+Here are the examples,
 
-```bash
-# Install dependencies
-npm install
+```js
+For all blog list,
 
-# Generate type stubs
-npm run dev:prepare
+  <BlogList :showDrafts="true" />
 
-# Develop with the playground
-npm run dev
+For tag list,
+  <TagList :slug="slug" @notfound="<your-callback>" :showDrafts="true"  />
 
-# Build the playground
-npm run dev:build
 
-# Run ESLint
-npm run lint
+For Blog details,
+  <BlogDetail
+      :slug="slug"
+      @notfound="<your-callback>"
+      :showDrafts="true"
+      :iframely-key="IFRAMELY_KEY"
+      :recaptcha-key="RECAPTCHA_SITE_KEY"
+    />
 
-# Run Vitest
-npm run test
-npm run test:watch
-
-# Release new version
-npm run release
 ```

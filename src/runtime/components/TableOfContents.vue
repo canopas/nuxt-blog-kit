@@ -28,17 +28,26 @@
 import { toRefs } from "vue";
 
 const props = defineProps({
-  indexContent: String,
-  contentRef: Object,
-  headerHeight: Number
+  "index-content": {
+    type: String,
+    required: true
+  },
+  "content-ref": {
+    type: Object,
+    required: true
+  },
+  "header-height": {
+    type: Number,
+    required: true
+  },
 });
 
 const { indexContent, contentRef, headerHeight } = toRefs(props);
 
 function handleClick(event) {
   event.preventDefault();
-  let linkHref = event.target.getAttribute("href");
-  let element = contentRef.value.querySelector(linkHref);
+  const linkHref = event.target.getAttribute("href");
+  const element = contentRef.value.querySelector(linkHref);
   if (element) {
     window.scrollTo({
       top: element.offsetTop - (headerHeight.value ?? 0),

@@ -100,7 +100,7 @@
   }
 
   body {
-    @apply !cb-font-inter-regular cb-break-words cb-text-black-core/[0.87];
+    @apply cb-break-words cb-text-black-core/[0.87];
   }
 }
 
@@ -189,7 +189,7 @@
 
   b,
   strong {
-    @apply !cb-font-comme-medium cb-tracking-[0.01em] !cb-text-black-core/[1] cb-text-[1.0625rem] md:cb-text-[1.15625rem];
+    @apply !cb-font-comme-medium !cb-font-medium cb-tracking-[0.01em] !cb-text-black-core/[1] cb-text-[1.0625rem] md:cb-text-[1.15625rem];
   }
 
   /* HighlightJS */
@@ -278,6 +278,10 @@
 
   .cb-prose hr {
     @apply !cb-my-6;
+  }
+
+  .cb-prose h4 {
+    @apply !cb-font-comme-regular;
   }
 
   .cb-prose i,

@@ -1,9 +1,9 @@
 <template>
   <div class="cb-mt-4 md:cb-mt-6 xl:cb-mt-8">
     <div
-      class="cb-flex cb-flex-col cb-col-span-2 cb-mb-8 lg:cb-mb-10 cb-border-b-2"
       v-for="(post, i) in posts.slice(0, postLimit)"
       :key="i"
+      class="cb-flex cb-flex-col cb-col-span-2 cb-mb-8 lg:cb-mb-10 cb-border-b-2"
     >
       <nuxt-link :to="'/' + post.slug">
         <div
@@ -23,7 +23,7 @@
           <span class="cb-font-inter-medium">
             {{ post.authorName }}
           </span>
-          <span class="after:content-['\00B7']"></span>
+          <span class="after:content-['\00B7']" />
           <span class="cb-text-black-core/[0.65]">
             {{ post.published_on }}
           </span>
@@ -88,7 +88,11 @@
         v-else
         class="cb-flex cb-flex-row cb-flex-wrap cb-mb-10 cb-mt-2 cb-text-sm md:cb-text-[0.9375rem] xl:cb-text-base"
       >
-        <div class="cb-my-2.5 cb-mr-2" v-for="tag in post.tags" :key="tag.id">
+        <div
+          v-for="tag in post.tags"
+          :key="tag.id"
+          class="cb-my-2.5 cb-mr-2"
+        >
           <nuxt-link
             :to="'/tag/' + tag.slug"
             class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-px-2 cb-py-1.5 cb-font-normal cb-no-underline cb-capitalize"
@@ -105,14 +109,24 @@
 import { onMounted, onUnmounted, ref, toRefs } from "vue";
 
 const props = defineProps({
-  data: Object,
-  slug: String,
-  tagName: String,
+  data: {
+    type: Object,
+    required: true,
+  },
+  slug: {
+    type: String,
+    required: true,
+  },
+  "tag-name": {
+    type: String,
+    required: true,
+  },
   mixpanel: Object,
 });
 
 const { data, slug, tagName, mixpanel } = toRefs(props);
-let posts = ref([]);
+
+const posts = ref([]);
 
 let postLimit = 2;
 posts.value = data.value?.slice(0, postLimit);
@@ -122,7 +136,7 @@ const handleScroll = () => {
     window.innerHeight + document.documentElement.scrollTop >=
     document.documentElement.offsetHeight - 100
   ) {
-    let oldCount = postLimit;
+    const oldCount = postLimit;
     postLimit += 2;
     posts.value.push(...data.value.slice(oldCount, postLimit));
   }

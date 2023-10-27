@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "canopas-resources-website-playground",
+  "name": "canopas-blog-components-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

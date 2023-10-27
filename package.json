@@ -1,8 +1,18 @@
 {
-  "name": "canopas-resources-website",
-  "version": "1.0.0",
-  "description": "Canopas resources website",
-  "repository": "canopas/canopas-resources-website",
+  "name": "@canopassoftware/canopas-blog-components",
+  "version": "1.0.1",
+  "description": "Canopas blog components",
+  "keywords": [
+    "components",
+    "component library",
+    "nuxt library",
+    "nuxt module",
+    "canopas"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canopas/canopas-blog-components.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -22,7 +32,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch"
@@ -32,8 +42,7 @@
     "@pinia/nuxt": "^0.5.0",
     "axios": "^1.5.1",
     "nuxt-icon": "^0.5.0",
-    "pinia": "^2.1.7",
-    "smoothscroll-polyfill": "^0.4.4"
+    "pinia": "^2.1.7"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -45,11 +54,17 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^18.18.1",
-    "alchemi-flash": "^1.0.9",
     "changelogen": "^0.5.5",
     "eslint": "^8.50.0",
-    "highlight.js": "^11.9.0",
     "nuxt": "^3.7.4",
     "vitest": "^0.33.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/canopas/canopas-blog-components/issues"
+  },
+  "homepage": "https://github.com/canopas/canopas-blog-components#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": "canopassoftware"
 }

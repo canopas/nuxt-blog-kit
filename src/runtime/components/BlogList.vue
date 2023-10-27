@@ -22,12 +22,15 @@
             :key="featurePost.slug"
             class="cb-space-y-2"
           >
-            <featured-blog-tile :post="featurePost" :mixpanel="mixpanel" />
+            <featured-blog-tile
+              :post="featurePost"
+              :mixpanel="mixpanel"
+            />
           </div>
         </div>
         <div
-          class="cb-flex cb-justify-end cb-mt-10"
           v-if="featurePosts?.length > 6"
+          class="cb-flex cb-justify-end cb-mt-10"
         >
           <nuxt-link
             to="/featured"
@@ -47,9 +50,9 @@
       </div>
       <!-- all blogs -->
       <div
+        v-if="count > 0"
         class="cb-grid cb-gap-10 md:cb-gap-5 lg:cb-gap-10 md:cb-grid-cols-3 cb-mt-5"
         :class="count % 3 === 1 ? 'md:cb-col-span-1' : ''"
-        v-if="count > 0"
       >
         <div
           v-for="(post, index) in posts"
@@ -76,7 +79,7 @@
 
 <script setup>
 import { computed, onMounted, onUnmounted, ref, toRefs } from "vue";
-import { useAsyncData } from "#app";
+import { useAsyncData, useSeoMeta } from "#app";
 import { useBlogListStore } from "../stores/resources";
 import config from "../config";
 
@@ -88,7 +91,7 @@ const props = defineProps({
 const { mixpanel, showDrafts } = toRefs(props);
 
 let postLimit = 10;
-let posts = ref([]);
+const posts = ref([]);
 
 const store = useBlogListStore();
 const resources = computed(() => store.items);
@@ -97,7 +100,7 @@ const status = computed(() => store.status);
 await useAsyncData("blogs", () => store.loadResources(showDrafts));
 
 posts.value = resources.value?.slice(0, postLimit);
-let count = resources.value?.length || 0;
+const count = resources.value?.length || 0;
 const featurePosts = resources.value?.filter((post) => post.is_featured);
 
 const handleScroll = () => {
@@ -105,7 +108,7 @@ const handleScroll = () => {
     window.innerHeight + document.documentElement.scrollTop >=
     document.documentElement.offsetHeight - 100
   ) {
-    let oldCount = postLimit;
+    const oldCount = postLimit;
     postLimit += 5;
     posts.value.push(...resources.value.slice(oldCount, postLimit));
   }

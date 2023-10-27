@@ -14,12 +14,6 @@ export const useBlogListStore = defineStore("blog-list", {
   },
   actions: {
     async loadResources(showDrafts) {
-      // No need of API call if items are already loaded
-      if (this.items != null && this.error == null) {
-        this.isLoading = false;
-        return;
-      }
-
       return new Promise((resolve) => {
         this.isLoading = true;
         this.error = null;
@@ -63,12 +57,6 @@ export const useBlogDetailStore = defineStore("resources-detail", {
   },
   actions: {
     async loadResource(slug) {
-      // No need of API call if items are already loaded
-      if (this.item != null && this.item.slug == slug && this.error == null) {
-        this.isLoading = false;
-        return;
-      }
-
       return new Promise((resolve) => {
         this.isLoading = true;
         this.error = null;
@@ -83,6 +71,7 @@ export const useBlogDetailStore = defineStore("resources-detail", {
             resolve();
           })
           .catch((error) => {
+            console.error(error);
             this.error = error;
             this.isLoading = false;
             this.status = config.NOT_FOUND;
@@ -94,7 +83,7 @@ export const useBlogDetailStore = defineStore("resources-detail", {
 });
 
 // fetch posts other than this post by category name
-export const useOtherBlogStore = defineStore("other-blog", {
+export const useRecommandedBlogStore = defineStore("recommanded-blog", {
   state: () => {
     return {
       items: null,
@@ -104,13 +93,7 @@ export const useOtherBlogStore = defineStore("other-blog", {
     };
   },
   actions: {
-    async loadOtherBlog(slug, showDrafts) {
-      // No need of API call if items are already loaded
-      if (this.items != null && this.error == null) {
-        this.isLoading = false;
-        return;
-      }
-
+    async loadRecommandedBlog(slug, showDrafts) {
       return new Promise((resolve) => {
         this.isLoading = true;
         this.error = null;
@@ -159,12 +142,6 @@ export const useFeaturedBlogStore = defineStore("featured-blog", {
   },
   actions: {
     async loadFeaturedBlog(showDrafts) {
-      // No need of API call if items are already loaded
-      if (this.items != null && this.error == null) {
-        this.isLoading = false;
-        return;
-      }
-
       return new Promise((resolve) => {
         this.isLoading = true;
         this.error = null;

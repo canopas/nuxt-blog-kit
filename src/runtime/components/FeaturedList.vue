@@ -9,7 +9,7 @@
 
       <div class="cb-mt-6 md:cb-mt-10 xl:cb-mt-20">
         <PostList
-          :data="featurePosts"
+          :data="featuredPosts"
           :mixpanel="mixpanel"
         />
       </div>
@@ -19,8 +19,8 @@
 
 
 <script setup>
-import { computed, ref, toRefs } from "vue";
-import { useAsyncData } from "#app";
+import { computed, toRefs } from "vue";
+import { useAsyncData, useSeoMeta } from "#app";
 import { useFeaturedBlogStore } from "../stores/resources";
 import config from "../config";
 
@@ -30,9 +30,6 @@ const props = defineProps({
 });
 
 const { mixpanel, showDrafts } = toRefs(props);
-
-let postLimit = 10;
-let posts = ref([]);
 
 const store = useFeaturedBlogStore();
 const featuredPosts = computed(() => store.items);

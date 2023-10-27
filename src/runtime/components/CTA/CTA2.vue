@@ -2,7 +2,7 @@
   <div
     class="cb-relative -cb-bottom-5 sm:-cb-bottom-2 cb-overflow-hidden xl:cb-mt-32 cb-px-0 cb-font-inter-medium cb-z-[1]"
   >
-    <div class="cb-absolute cb-w-full cb-h-[8%] sm:cb-h-[6%] cb-bg-white md:cb-hidden"></div>
+    <div class="cb-absolute cb-w-full cb-h-[8%] sm:cb-h-[6%] cb-bg-white md:cb-hidden" />
 
     <img
       v-if="width < 600"
@@ -25,26 +25,29 @@
     </div>
     <div class="cb-blog-container cb-text-center">
       <div>
-        <form @submit="submitForm" method="POST">
+        <form
+          method="POST"
+          @submit="submitForm"
+        >
           <div class="cb-py-5 vpx-8 lg:cb-px-20 xl:cb-px-44">
             <div class="cb-grid cb-grid-cols-1 md:cb-grid-cols-2 cb-gap-4">
               <div
                 class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
               >
                 <input
-                  type="text"
                   id="username"
+                  v-model="name"
+                  type="text"
                   class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   name="username"
                   required
                   autoComplete="given-username"
-                  v-model="name"
                   placeholder=" "
                   @input="
                     showNameValidationError =
                       $event.target.value.trim().length === 0
                   "
-                />
+                >
                 <label
                   htmlFor="username"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -54,7 +57,7 @@
 
                 <span
                   v-if="showNameValidationError"
-                  class="error gradient-text"
+                  class="cb-error cb-gradient-text"
                 >
                   Name is required
                 </span>
@@ -62,20 +65,20 @@
 
               <div class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
                 <input
+                  id="email"
+                  v-model="email"
                   class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   type="text"
                   name="email"
-                  id="email"
                   required
                   autoComplete="given-email"
-                  v-model="email"
+                  placeholder=" "
                   @input="
                     showEmailValidationError =
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidEmailError = isValidEmail(email)"
-                  placeholder=" "
-                />
+                >
                 <label
                   htmlFor="email"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -85,33 +88,33 @@
 
                 <span
                   v-if="showEmailValidationError"
-                  class="error gradient-text"
+                  class="cb-error cb-gradient-text"
                 >
                   Email is required
                 </span>
                 <span
-                  class="error gradient-text"
                   v-if="email.trim().length != 0 && showValidEmailError"
+                  class="cb-error cb-gradient-text"
                 >
                   Please enter valid email address
                 </span>
               </div>
               <div class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
                 <input
-                  type="text"
                   id="phonenumber"
+                  v-model="phoneNumber"
+                  type="text"
                   class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   name="phonenumber"
                   required
                   autoComplete="given-phonenumber"
-                  v-model="phoneNumber"
+                  placeholder=" "
                   @input="
                     showPhoneNumberValidationError =
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidPhoneNumberError = isValidPhone(phoneNumber)"
-                  placeholder=" "
-                />
+                >
                 <label
                   htmlFor="phonenumber"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -120,17 +123,17 @@
                 </label>
 
                 <span
-                  class="error gradient-text"
                   v-if="showPhoneNumberValidationError"
+                  class="cb-error cb-gradient-text"
                 >
                   Phone number is required
                 </span>
 
                 <span
-                  class="error gradient-text"
                   v-if="
                     phoneNumber.trim().length != 0 && showValidPhoneNumberError
                   "
+                  class="cb-error cb-gradient-text"
                 >
                   Please enter valid Phone number
                 </span>
@@ -139,15 +142,15 @@
                 class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
               >
                 <textarea
-                  class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   id="project"
+                  v-model="projectInfo"
+                  class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   name="project"
                   rows="3"
                   required
                   autoComplete="given-project-info"
-                  v-model="projectInfo"
                   placeholder=" "
-                ></textarea>
+                />
                 <label
                   htmlFor="project"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -156,8 +159,8 @@
                 </label>
 
                 <span
-                  class="error gradient-text"
                   v-if="showProjectInfoValidationError"
+                  class="cb-error cb-gradient-text"
                 >
                   This field is required
                 </span>
@@ -166,13 +169,16 @@
 
             <div class="cb-flex cb-justify-center cb-mt-10 md:cb-mt-12">
               <img
-                :src="loaderImage"
                 v-if="showLoader"
+                :src="loaderImage"
                 class="cb-w-16 cb-h-16"
                 alt="loader-image"
-              />
+              >
 
-              <div class="relative" v-else>
+              <div
+                v-else
+                class="relative"
+              >
                 <div
                   v-if="showErrorMessage"
                   class="cb-absolute -cb-top-8 sm:-cb-top-[1.875rem] md:-cb-top-[2.875rem] cb-text-center -cb-right-16 sm:-cb-right-44 md:-cb-right-60 lg:-cb-right-72 xl:-cb-right-72 2xl:-cb-right-[20.5rem] cb-w-[190%] sm:cb-w-max"
@@ -210,7 +216,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs} from "vue";
 import axios from "axios";
 import { isValidEmail, isValidPhone } from "./../../utils";
 import bg400 from "../../assets/images/cta/second-cta-400.svg";
@@ -233,12 +239,21 @@ const errorMessage = ref("Something went wrong on our side");
 const showLoader = ref(false);
 const showErrorMessage = ref(false);
 
+const props = defineProps({
+  "recaptcha-key": {
+    type: String,
+    required: true,
+  },
+});
+
+const { recaptchaKey } = toRefs(props);
+
 onMounted(() => {
-  let recaptchaScript = document.createElement("script");
+  const recaptchaScript = document.createElement("script");
   recaptchaScript.setAttribute(
     "src",
     "https://www.google.com/recaptcha/enterprise.js?render=" +
-      import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+      recaptchaKey.value,
   );
   recaptchaScript.setAttribute("async", "true");
   recaptchaScript.setAttribute("defer", "true");
@@ -269,12 +284,12 @@ const submitForm = (event) => {
 
   grecaptcha.enterprise.ready(() => {
     grecaptcha.enterprise
-      .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+      .execute(recaptchaKey.value, {
         action: "verify",
       })
       .then((token) => {
         if (!validateForm()) {
-          let formData = {
+          const formData = {
             name: name.value,
             email: email.value,
             project_info: projectInfo.value

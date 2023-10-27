@@ -31,25 +31,27 @@
         <div
           class="cb-relative cb-top-14 lg:cb-top-20 xl:cb-top-[5.5rem] cb-h-fit cb-w-full cb-bg-white cb-cta-box-shadow cb-text-center cb-font-poppins-regular"
         >
-          <form @submit="submitForm" method="POST">
-            <div class="cb-pt-[3rem] md:cb-pt-20 lg:cb-pt-24 cb-pb-10 lg:cb-pb-14 cb-px-8">
+          <form method="POST" @submit="submitForm">
+            <div
+              class="cb-pt-[3rem] md:cb-pt-20 lg:cb-pt-24 cb-pb-10 lg:cb-pb-14 cb-px-8"
+            >
               <div class="cb-grid cb-grid-cols-1 md:cb-grid-cols-2 cb-gap-4">
                 <div
                   class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
                 >
                   <input
-                    type="text"
                     id="username"
+                    v-model="name"
+                    type="text"
                     class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
                     name="username"
                     required
                     autoComplete="given-username"
-                    v-model="name"
+                    placeholder=" "
                     @input="
                       showNameValidationError =
                         $event.target.value.trim().length === 0
                     "
-                    placeholder=" "
                   />
                   <label
                     htmlFor="username"
@@ -59,28 +61,30 @@
                   </label>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="showNameValidationError"
+                    class="cb-error cb-gradient-text"
                   >
                     Name is required
                   </span>
                 </div>
 
-                <div class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
+                <div
+                  class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+                >
                   <input
+                    id="email"
+                    v-model="email"
                     class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
                     type="text"
                     name="email"
-                    id="email"
                     required
                     autoComplete="given-email"
-                    v-model="email"
+                    placeholder=" "
                     @input="
                       showEmailValidationError =
                         $event.target.value.trim().length === 0
                     "
                     @blur="showValidEmailError = isValidEmail(email)"
-                    placeholder=" "
                   />
                   <label
                     htmlFor="email"
@@ -90,28 +94,31 @@
                   </label>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="showEmailValidationError"
+                    class="cb-error cb-gradient-text"
                   >
                     Email is required
                   </span>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="email.trim().length != 0 && showValidEmailError"
+                    class="cb-error cb-gradient-text"
                   >
                     Please enter valid email address
                   </span>
                 </div>
-                <div class="cb-elative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
+                <div
+                  class="cb-elative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+                >
                   <input
-                    type="text"
                     id="phonenumber"
+                    v-model="phoneNumber"
+                    type="text"
                     class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
                     name="phonenumber"
                     required
                     autoComplete="given-phonenumber"
-                    v-model="phoneNumber"
+                    placeholder=" "
                     @input="
                       showPhoneNumberValidationError =
                         $event.target.value.trim().length === 0
@@ -119,7 +126,6 @@
                     @blur="
                       showValidPhoneNumberError = isValidPhone(phoneNumber)
                     "
-                    placeholder=" "
                   />
                   <label
                     htmlFor="phonenumber"
@@ -129,18 +135,18 @@
                   </label>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="showPhoneNumberValidationError"
+                    class="cb-error cb-gradient-text"
                   >
                     Phone number is required
                   </span>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="
                       phoneNumber.trim().length != 0 &&
                       showValidPhoneNumberError
                     "
+                    class="cb-error cb-gradient-text"
                   >
                     Please enter valid Phone number
                   </span>
@@ -149,15 +155,15 @@
                   class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
                 >
                   <textarea
-                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
                     id="project"
+                    v-model="projectInfo"
+                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
                     name="project"
                     rows="3"
                     required
                     autoComplete="given-project-info"
-                    v-model="projectInfo"
                     placeholder=" "
-                  ></textarea>
+                  />
                   <label
                     htmlFor="project"
                     class="cb-absolute cb-top-1 lg:cb-top-[1.6rem] cb-left-0 cb-mb-5 cb-z-[2] cb-text-black-900/[.8] cb-text-[1.07rem] cb-leading-[1.1875rem] lg:cb-text-[1.35rem] md:cb-leading-[1.6875rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-black-900 peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -166,8 +172,8 @@
                   </label>
 
                   <span
-                    class="cb-error cb-gradient-text"
                     v-if="showProjectInfoValidationError"
+                    class="cb-error cb-gradient-text"
                   >
                     This field is required
                   </span>
@@ -182,7 +188,7 @@
                   alt="loader-image"
                 />
 
-                <div class="relative" v-else>
+                <div v-else class="relative">
                   <div
                     v-if="showErrorMessage"
                     class="cb-absolute -cb-top-8 sm:-cb-top-[1.875rem] md:-cb-top-[2.875rem] cb-text-center -cb-right-16 sm:-vright-44 md:-cb-right-60 lg:-cb-right-72 xl:-cb-right-72 2xl:-cb-right-[20.5rem] cb-w-[190%] sm:cb-w-max"
@@ -217,19 +223,18 @@
       </div>
       <div
         class="cb-bg-black-900 cb-w-full cb-h-[84px] md:cb-h-[70px] lg:cb-h-[83px] xl:cb-h-[94px]"
-      ></div>
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import axios from "axios";
 import { isValidEmail, isValidPhone } from "./../../utils";
 import config from "./../../config";
 import loaderImage from "../../assets/images/small-loader.svg";
 
-const width = 680;
 const name = ref("");
 const email = ref("");
 const projectInfo = ref("");
@@ -244,12 +249,21 @@ const errorMessage = ref("Something went wrong on our side");
 const showLoader = ref(false);
 const showErrorMessage = ref(false);
 
+const props = defineProps({
+  "recaptcha-key": {
+    type: String,
+    required: true,
+  },
+});
+
+const { recaptchaKey } = toRefs(props);
+
 onMounted(() => {
-  let recaptchaScript = document.createElement("script");
+  const recaptchaScript = document.createElement("script");
   recaptchaScript.setAttribute(
     "src",
     "https://www.google.com/recaptcha/enterprise.js?render=" +
-      import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+      recaptchaKey.value
   );
   recaptchaScript.setAttribute("async", "true");
   recaptchaScript.setAttribute("defer", "true");
@@ -280,12 +294,12 @@ const submitForm = (event) => {
 
   grecaptcha.enterprise.ready(() => {
     grecaptcha.enterprise
-      .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+      .execute(recaptchaKey.value, {
         action: "verify",
       })
       .then((token) => {
         if (!validateForm()) {
-          let formData = {
+          const formData = {
             name: name.value,
             email: email.value,
             project_info: projectInfo.value

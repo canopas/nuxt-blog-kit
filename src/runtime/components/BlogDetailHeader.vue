@@ -50,7 +50,7 @@
             <span> {{ post.readingTime }} min read</span>
 
             <div v-if="post.publishedAt == null">
-              <span class="after:cb-content-['\00B7'] after:cb-mx-1"></span>
+              <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
               <span class="cb-text-green-600 cb-capitalize"> draft </span>
             </div>
           </div>
@@ -160,23 +160,29 @@
   </div>
 </template>
 
-<script setup >
+<script setup>
 import { toRefs, ref } from "vue";
 import config from "../config";
 
 const props = defineProps({
-  loaded: Boolean,
-  post: Object,
+  post: {
+    type: Object,
+    required: true,
+  },
   mixpanel: Object,
 });
 
-const emit = defineEmits(["showAlert"]);
+const emit = defineEmits(["show-alert"]);
 
-const { post, loaded, mixpanel } = toRefs(props);
+const { post, mixpanel } = toRefs(props);
 
-const message = ref("");
+const loaded = ref(false);
 
-let published_on = post?.value?.published_on.replace(",", "");
+setTimeout(() => {
+  loaded.value = true;
+}, 50);
+
+const published_on = post?.value?.published_on.replace(",", "");
 
 function copyLink() {
   mixpanel?.value?.track("tap_copy_link");
@@ -186,7 +192,7 @@ function copyLink() {
   el.select();
   document.execCommand("copy");
   document.body.removeChild(el);
-  emit("showAlert", "Link Copied");
+  emit("show-alert", "Link Copied");
 }
 
 async function shareBlog() {
@@ -197,11 +203,13 @@ async function shareBlog() {
       text: post?.value?.meta_description,
       url: config.WEBSITE_URL + "/resources/" + post?.value?.slug,
     });
-  } catch (err) {}
+  } catch (err) {
+    console.error(err)
+  }
 }
 
 function openUrl(url, event) {
-  mixpanel.value.track(event);
+  mixpanel?.value?.track(event);
   window.open(url, "_blank");
 }
 </script>

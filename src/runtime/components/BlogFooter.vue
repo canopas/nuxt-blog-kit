@@ -27,14 +27,14 @@
           >
             <div class="cb-w-56 md:cb-w-72">
               <input
+                id="subscribeEmail"
+                v-model="email"
                 class="cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 md:cb-py-3 cb-pl-3 cb-text-white cb-floating-input focus:cb-outline-none"
                 placeholder="Enter Your E-mail"
-                id="subscribeEmail"
                 type="email"
-                v-model="email"
-                @blur="showValidEmailError = isValidEmail(email)"
                 required
-              />
+                @blur="showValidEmailError = isValidEmail(email)"
+              >
             </div>
 
             <button
@@ -60,8 +60,8 @@
           </form>
 
           <span
-            class="cb-error"
             v-if="email.trim().length != 0 && showValidEmailError"
+            class="cb-error"
           >
             Please enter valid email address
           </span>
@@ -81,9 +81,9 @@
               <nuxt-link
                 :href="config.FACEBOOK_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_facebook')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_facebook')"
               >
                 <Icon
                   name="fa6-brands:facebook-f"
@@ -98,9 +98,9 @@
               <nuxt-link
                 :href="config.INSTAGRAM_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_instagram')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_instagram')"
               >
                 <Icon
                   name="fa6-brands:instagram"
@@ -115,9 +115,9 @@
               <nuxt-link
                 :href="config.TWITTER_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_twitter')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_twitter')"
               >
                 <Icon
                   name="fa6-brands:x-twitter"
@@ -132,9 +132,9 @@
               <nuxt-link
                 :href="config.BLOG_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_medium')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_medium')"
               >
                 <Icon
                   name="fa-brands:medium-m"
@@ -149,9 +149,9 @@
               <nuxt-link
                 :href="config.LINKEDIN_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_linkedin')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_linkedin')"
               >
                 <Icon
                   name="fa-brands:linkedin-in"
@@ -160,15 +160,15 @@
               </nuxt-link>
             </li>
 
-           <li
+            <li
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
                 :href="config.YOUTUBE_URL"
                 target="_blank"
-                @click="handleIconClick('tap_footer_youtube')"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                @click="handleIconClick('tap_footer_youtube')"
               >
                 <Icon
                   name="fa-brands:youtube"
@@ -184,16 +184,34 @@
         class="cb-mb-8 md:cb-mb-9 cb-text-xs cb-leading-[0.9375rem] md:cb-text-[0.84375rem] md:cb-leading-[1.03125rem] lg:cb-text-[0.9375rem] lg:cb-leading-[1.125rem] cb-text-white/[.87] cb-text-center"
       >
         <div class="cb-w-3 cb-h-3 md:cb-w-4 md:cb-h-4 cb-mr-1 cb-inline-block">
-          <Icon name="fa-regular:copyright" class="cb-w-full cb-h-full cb-mt-0.5" />
+          <Icon
+            name="fa-regular:copyright"
+            class="cb-w-full cb-h-full cb-mt-0.5"
+          />
         </div>
         {{ new Date().getFullYear() }} Canopas Software LLP. All rights
         reserved.
       </div>
 
-      <svg width="0" height="0">
-        <linearGradient id="lgrad" x1="100%" y1="100%" x2="0%" y2="0%">
-          <stop offset="-24.42%" style="stop-color: #ff835b; stop-opacity: 1" />
-          <stop offset="101.76%" style="stop-color: #f2709c; stop-opacity: 1" />
+      <svg
+        width="0"
+        height="0"
+      >
+        <linearGradient
+          id="lgrad"
+          x1="100%"
+          y1="100%"
+          x2="0%"
+          y2="0%"
+        >
+          <stop
+            offset="-24.42%"
+            style="stop-color: #ff835b; stop-opacity: 1"
+          />
+          <stop
+            offset="101.76%"
+            style="stop-color: #f2709c; stop-opacity: 1"
+          />
         </linearGradient>
       </svg>
     </div>
@@ -203,7 +221,9 @@
       class="cb-fixed cb-bottom-[5%] cb-inset-x-[5%] sm:cb-inset-x-[20%] xl:vinset-x-[27%] cb-flex cb-flex-rows cb-justify-between cb-items-center cb-w-[90%] sm:cb-w-7/12 xl:cb-w-5/12 cb-z-[500] cb-rounded-[10px] cb-from-[#ff835b] cb-to-[#f2709c] cb-bg-gradient-to-r cb-py-5 cb-font-inter-semibold cb-text-center cb-text-white md:cb-text-xl"
       role="alert"
     >
-      <p class="cb-block sm:cb-inline cb-mx-7">Subscribe Successfully!</p>
+      <p class="cb-block sm:cb-inline cb-mx-7">
+        Subscribe Successfully!
+      </p>
       <Icon
         name="fa6-solid:xmark"
         class="cb-w-5 cb-h-5 cb-mr-5 hover:cb-cursor-pointer"
@@ -231,16 +251,11 @@ const showAlert = ref(false);
 const showValidEmailError = ref(false);
 
 const handleIconClick = (icon) => {
-  mixpanel.value.track(icon);
+  mixpanel?.value?.track(icon);
 };
 
 const handleSubscription = async (event) => {
   event.preventDefault();
-
-  console.log(
-    showValidEmailError.value,
-    config.STRAPI_URL + "/v1/user/subscribeUser?populate=deep"
-  );
 
   if (!showValidEmailError.value) {
     await axios
@@ -254,7 +269,7 @@ const handleSubscription = async (event) => {
         }, 2000);
       })
       .catch((err) => {
-        console.log("Error:", err);
+        console.error("Error: ", err);
       });
 
     email.value = "";
