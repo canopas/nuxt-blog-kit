@@ -100,7 +100,7 @@
   }
 
   body {
-    @apply cb-break-words cb-text-black-core/[0.87];
+    @apply cb-text-black-core/[0.87];
   }
 }
 

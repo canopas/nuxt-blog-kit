@@ -72,40 +72,43 @@ const newIndexContent = indexContent.value?.replace(
   }
 );
 
+const classes = [
+  "cb-relative",
+  "cb-bg-gradient-to-r",
+  "cb-bg-clip-text",
+  "cb-text-transparent",
+  "after:cb-absolute",
+  "after:cb-left-0",
+  "after:cb-bottom-0",
+  "after:cb-w-full",
+  "after:cb-h-px",
+  "after:cb-bg-gradient-to-r",
+];
+
 const handleScroll = () => {
-  const classes = [
-    "cb-relative",
-    "cb-bg-gradient-to-r",
-    "cb-bg-clip-text",
-    "cb-text-transparent",
-    "after:cb-absolute",
-    "after:cb-left-0",
-    "after:cb-bottom-0",
-    "after:cb-w-full",
-    "after:cb-h-px",
-    "after:cb-bg-gradient-to-r",
-  ];
-  let id = "";
-  if (contentRef.value) {
-    const headers = contentRef.value.querySelectorAll("h1, h2");
-    const indices = document.querySelectorAll(".cb-index-content");
+  if (window.innerWidth > 1200) {
+    let id = "";
+    if (contentRef.value) {
+      const headers = contentRef.value.querySelectorAll("h1, h2");
+      const indices = document.querySelectorAll(".cb-index-content");
 
-    indices.forEach((element) => {
-      element.classList.remove(...classes);
-    });
+      indices.forEach((element) => {
+        element.classList.remove(...classes);
+      });
 
-    headers.forEach((header, index) => {
-      const documentHeight = document.body.scrollHeight;
-      const currentScroll = window.scrollY + window.innerHeight;
-      if (
-        currentScroll > documentHeight ||
-        header.offsetTop - window.pageYOffset <= 200
-      ) {
-        id = "link-" + index;
-      }
-    });
+      headers.forEach((header, index) => {
+        const documentHeight = document.body.scrollHeight;
+        const currentScroll = window.scrollY + window.innerHeight;
+        if (
+          currentScroll > documentHeight ||
+          header.offsetTop - window.pageYOffset <= 200
+        ) {
+          id = "link-" + index;
+        }
+      });
 
-    document.getElementById(id).classList.add(...classes);
+      document.getElementById(id).classList.add(...classes);
+    }
   }
 };
 

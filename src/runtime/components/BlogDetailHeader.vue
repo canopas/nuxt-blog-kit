@@ -25,7 +25,7 @@
     <div
       class="cb-flex cb-flex-col cb-justify-between cb-space-y-5 md:cb-text-white"
     >
-      <div class="cb-flex cb-flex-col cb-space-y-5">
+      <div class="cb-flex cb-flex-col cb-space-y-5 cb-font-inter-regular">
         <h1
           class="cb-text-[2rem] lg:cb-text-[2.50rem] xl:cb-text-[2.6875rem] cb-font-normal cb-leading-tight cb-tracking-none"
         >
@@ -39,10 +39,10 @@
         <div
           class="cb-flex cb-flex-row cb-items-center cb-space-x-4 cb-text-base cb-tracking-wide md:cb-text-white/[0.65]"
         >
-          <div class="cb-w-5 cb-h-5">
+          <div class="cb-w-5">
             <Icon
               class="cb-w-full cb-h-full cb-text-sm"
-              name="fa6-solid:clock"
+              name="fa6-regular:clock"
             />
           </div>
           <div>
@@ -204,7 +204,7 @@ async function shareBlog() {
       url: config.WEBSITE_URL + "/resources/" + post?.value?.slug,
     });
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
