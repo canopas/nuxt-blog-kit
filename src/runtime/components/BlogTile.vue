@@ -89,12 +89,12 @@
             <div>
               <span>{{ post.published_on }}</span>
               <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
-              <span>{{ post.readingTime }} min read</span>
+              <span>{{ post.readingTime }} min read </span>
 
-              <div v-if="post.publishedAt == null">
+              <span v-if="post.publishedAt == null">
                 <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
                 <span class="cb-text-green-700 cb-capitalize"> draft </span>
-              </div>
+              </span>
             </div>
           </div>
         </nuxt-link>

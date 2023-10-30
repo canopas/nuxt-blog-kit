@@ -108,7 +108,7 @@
                   </span>
                 </div>
                 <div
-                  class="cb-elative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+                  class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
                 >
                   <input
                     id="phonenumber"

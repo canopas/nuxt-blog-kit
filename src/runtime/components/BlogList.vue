@@ -97,7 +97,7 @@ const store = useBlogListStore();
 const resources = computed(() => store.items);
 const status = computed(() => store.status);
 
-await useAsyncData("blogs", () => store.loadResources(showDrafts));
+await useAsyncData("blogs", () => store.loadResources(showDrafts.value));
 
 posts.value = resources.value?.slice(0, postLimit);
 const count = resources.value?.length || 0;

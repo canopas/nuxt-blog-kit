@@ -67,7 +67,7 @@
                 <input
                   id="email"
                   v-model="email"
-                  class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
+                  class="cb-block cb-peer cb-my-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-white/[.6] cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-lg md:cb-text-xl lg:cb-text-2xl cb-text-white cb-placeholder-white/[.6] cb-floating-input focus:cb-outline-none active:cb-outline-none"
                   type="text"
                   name="email"
                   required
