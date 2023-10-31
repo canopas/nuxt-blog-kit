@@ -281,7 +281,7 @@
   }
 
   .cb-prose h4 {
-    @apply !cb-font-comme-regular;
+    @apply !cb-font-comme-semibold;
   }
 
   .cb-prose i,

@@ -5,7 +5,7 @@
         v-if="indexContent != null"
         class="cb-w-full cb-h-fit cb-border cb-border-1 cb-border-black-900 cb-rounded-[12px]"
       >
-        <div class="cb-rounded-t-[12px] cb-bg-gray-100 cb-py-5 cb-pl-4">
+        <div class="cb-rounded-t-[12px] cb-bg-gray-100 cb-py-5 cb-pl-4 cb-font-inter-regular">
           Table of contents
         </div>
         <div
