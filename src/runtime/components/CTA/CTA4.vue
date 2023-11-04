@@ -46,10 +46,10 @@
             </div>
             <nuxt-link :to="'/contact'">
               <div
-                class="flex items-center mt-5 md:mt-4 lg:mt-5 mx-auto md:mx-0 w-max rounded-full border border-solid border-transparent bg-gradient-to-r from-[#f2709c] to-[#ff9472] hover:shadow-[inset_2px_1000px_1px_#fff] text-center font-normal text-base leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] xl:text-[1.1875rem] xl:leading-[1.4375rem] font-inter-semibold font-semibold !tracking-[0] text-white active:scale-[0.98]"
+                class="cb-flex cb-items-center cb-mt-5 md:cb-mt-4 lg:cb-mt-5 cb-mx-auto md:cb-mx-0 cb-w-max cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-center cb-font-normal cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.09375rem] md:cb-leading-[1.3125rem] xl:cb-text-[1.1875rem] xl:cb-leading-[1.4375rem] cb-font-inter-semibold cb-font-semibold !cb-tracking-[0] cb-text-white active:cb-scale-[0.98]"
               >
                 <span
-                  class="py-[0.7rem] px-[1.2rem] hoverable-text inline-block"
+                  class="cb-py-[0.7rem] cb-px-[1.2rem] cb-hoverable-text cb-inline-block"
                 >
                   Talk to our experts
                 </span>

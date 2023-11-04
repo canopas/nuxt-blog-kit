@@ -113,8 +113,10 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  headerHeight.value =
-    document.getElementsByTagName("header")["0"].clientHeight;
+  setTimeout(() => {
+    headerHeight.value =
+      document.getElementsByTagName("header")[0].clientHeight;
+  }, 100);
 
   const element = document.getElementById(firstHeadingId);
   if (element) {
