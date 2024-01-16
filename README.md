@@ -71,8 +71,41 @@ For Blog details,
     />
 
 ```
-
 <br>
+
+# Steps to Run the component 
+
+## Install dependencies
+
+
+```bash
+yarn install 
+```
+#### To initialize the Nuxt repo :
+```bash
+npx nuxi prepare
+```
+## To create output.css file
+``` bash
+yarn prepack
+```
+- Copy `output.css` file from `.dist/` folder and paste inside the `src` folder
+## Start component in dev mode using :
+
+```bash
+yarn dev 
+```
+## Compiles and minifies for production :
+
+```bash
+yarn dev:build 
+```
+```bash
+yarn generate
+```
+You can access the page by pointing a web browser at http://localhost:3000
+
+ <br > 
 
 # LICENSE
 

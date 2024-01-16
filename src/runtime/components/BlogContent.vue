@@ -41,7 +41,7 @@ const props = defineProps({
 });
 
 const { content, indexContent, post, mixpanel } = toRefs(props);
-const contentRef = ref(null);
+const contentRef = ref({});
 const headerHeight = ref(0);
 
 let firstHeadingId;
@@ -106,8 +106,9 @@ const handleScroll = () => {
           id = "link-" + index;
         }
       });
-
-      document.getElementById(id).classList.add(...classes);
+      if(id !== ""){
+        document.getElementById(id).classList.add(...classes);
+      }
     }
   }
 };
