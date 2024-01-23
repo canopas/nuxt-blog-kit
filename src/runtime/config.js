@@ -1,5 +1,5 @@
 export default Object.freeze({
-  STRAPI_URL: "https://bq465hjg3t-admin.canopas.com/",
+  STRAPI_URL: "https://bq465hjg3t-admin.canopas.com",
   API_BASE: "https://prod-stack-api.canopas.com",
   WEBSITE_URL: "https://canopas.com",
 
