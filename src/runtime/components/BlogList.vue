@@ -83,7 +83,7 @@ import config from "../config";
 const props = defineProps({
   mixpanel: Object,
   showDrafts: Boolean,
-  showResources: Boolean,
+  showResources: { type: Boolean, required: false, default: true },
 });
 
 const { mixpanel, showDrafts, showResources } = toRefs(props);
@@ -98,7 +98,7 @@ const status = computed(() => store.status);
 await useAsyncData("blogs", () => store.loadResources(showDrafts.value));
 
 const filteredPosts = resources.value.filter(
-  (post) => post.is_resource == showResources.value
+  (post) => !post.is_resource || post.is_resource == showResources.value
 );
 
 posts.value = filteredPosts?.slice(0, postLimit);
