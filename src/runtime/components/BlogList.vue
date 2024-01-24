@@ -22,10 +22,7 @@
             :key="featurePost.slug"
             class="cb-space-y-2"
           >
-            <featured-blog-tile
-              :post="featurePost"
-              :mixpanel="mixpanel"
-            />
+            <featured-blog-tile :post="featurePost" :mixpanel="mixpanel" />
           </div>
         </div>
         <div
@@ -86,9 +83,10 @@ import config from "../config";
 const props = defineProps({
   mixpanel: Object,
   showDrafts: Boolean,
+  showResources: Boolean,
 });
 
-const { mixpanel, showDrafts } = toRefs(props);
+const { mixpanel, showDrafts, showResources } = toRefs(props);
 
 let postLimit = 10;
 const posts = ref([]);
@@ -99,9 +97,13 @@ const status = computed(() => store.status);
 
 await useAsyncData("blogs", () => store.loadResources(showDrafts.value));
 
-posts.value = resources.value?.slice(0, postLimit);
-const count = resources.value?.length || 0;
-const featurePosts = resources.value?.filter((post) => post.is_featured);
+const filteredPosts = resources.value.filter(
+  (post) => post.is_resource == showResources.value
+);
+
+posts.value = filteredPosts?.slice(0, postLimit);
+const count = filteredPosts?.length || 0;
+const featurePosts = filteredPosts?.filter((post) => post.is_featured);
 
 const handleScroll = () => {
   if (
@@ -110,7 +112,7 @@ const handleScroll = () => {
   ) {
     const oldCount = postLimit;
     postLimit += 5;
-    posts.value.push(...resources.value.slice(oldCount, postLimit));
+    posts.value.push(...filteredPosts.slice(oldCount, postLimit));
   }
 };
 
