@@ -3,8 +3,7 @@ import Avatar from "./assets/images/user.png";
 import icon from "./assets/images/icon.svg";
 
 function setPostFields(post, slug) {
-  const publishedDate =
-    post.attributes.published_on || post.attributes.publishedAt;
+  const publishedDate = post.attributes.published_on;
 
   const [date] = formateDate(publishedDate);
 

@@ -49,7 +49,7 @@
             <span>{{ published_on }}</span> ·{{ " " }}
             <span> {{ post.readingTime }} min read</span>
 
-            <span v-if="post.publishedAt == null">
+            <span v-if="post.published_on == null">
               <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
               <span class="cb-text-green-600 cb-capitalize"> draft </span>
             </span>
