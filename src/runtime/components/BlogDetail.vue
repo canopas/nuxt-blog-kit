@@ -124,7 +124,7 @@ if (status.value !== config.SUCCESS) {
     ? post.value?.new_toc || post.value?.toc
     : post.value?.toc;
 
-  published_time = new Date(post?.value?.publishedAt).toLocaleTimeString();
+  published_time = new Date(post?.value?.published_on).toLocaleTimeString();
 
   CTACompName.value = CTAData?.attributes.component_name;
 
