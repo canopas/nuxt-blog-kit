@@ -106,7 +106,7 @@ const handleScroll = () => {
           id = "link-" + index;
         }
       });
-      if(id !== ""){
+      if (id !== "") {
         document.getElementById(id).classList.add(...classes);
       }
     }
@@ -141,3 +141,13 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 </script>
+
+<style>
+.image {
+  width: 100% !important;
+}
+
+code {
+  user-select: text;
+}
+</style>

@@ -10,12 +10,7 @@
         />
 
         <div
-          class="cb-flex cb-flex-col xl:cb-flex-row cb-space-y-20 xl:cb-space-y-0 cb-mx-2 lg:cb-mx-24 cb-rounded-3xl cb-text-lg"
-          :class="
-            recommandedPosts.length != 0
-              ? 'xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12 xl:cb-mx-0'
-              : 'xl:cb-space-x-10 2xl:cb-space-x-20 xl:cb-mx-8 2xl:cb-mx-20 3xl:cb-mx-32'
-          "
+          class="cb-flex cb-flex-col xl:cb-flex-row cb-space-y-20 xl:cb-space-y-0 cb-mx-2 lg:cb-mx-24 cb-rounded-3xl cb-text-lg xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12 xl:cb-mx-0"
         >
           <!-- main article  -->
           <BlogContent
@@ -26,8 +21,11 @@
           />
 
           <!-- Recommended Posts Section Desktop View -->
-          <div v-if="recommandedPosts.length != 0" class="cb-relative cb-w-2/5">
-            <div class="xl:cb-sticky cb-top-28">
+          <div class="cb-relative cb-w-2/5">
+            <div
+              v-if="recommandedPosts.length != 0"
+              class="xl:cb-sticky cb-top-28"
+            >
               <div class="cb-hidden xl:cb-block cb-w-full cb-h-fit">
                 <RecommandedPosts
                   :posts="recommandedPosts"
@@ -148,7 +146,9 @@ if (status.value !== config.SUCCESS) {
         onLoad: () => {
           // Load media preview
           document.querySelectorAll("oembed[url]").forEach((element) => {
-            iframely.load(element, element.attributes.url.value);
+            if (!element.getAttribute("data-loaded")) {
+              iframely.load(element, element.attributes.url.value);
+            }
           });
         },
       },
@@ -222,5 +222,3 @@ function showAlertMessage(msg) {
   }, 2000);
 }
 </script>
-
- 
