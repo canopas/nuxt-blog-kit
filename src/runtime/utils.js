@@ -112,7 +112,7 @@ function filterPostsByCategoryAndTag(post, posts) {
 
   return relatedPosts.filter(
     (p) =>
-      !post.is_resource || !p.is_resource || p.is_resource == post.is_resource,
+      p.is_resource == post.is_resource,
   );
 }
 

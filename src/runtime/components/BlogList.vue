@@ -97,9 +97,9 @@ const status = computed(() => store.status);
 
 await useAsyncData("blogs", () => store.loadResources(showDrafts.value));
 
-const filteredPosts = resources.value.filter(
-  (post) => !post.is_resource || post.is_resource == showResources.value
-);
+const filteredPosts = resources.value.filter((post) => {
+  return post.is_resource == showResources.value;
+});
 
 posts.value = filteredPosts?.slice(0, postLimit);
 const count = filteredPosts?.length || 0;
