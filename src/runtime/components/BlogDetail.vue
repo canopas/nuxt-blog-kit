@@ -80,11 +80,11 @@ const props = defineProps({
   mixpanel: Object,
   "iframely-key": {
     type: String,
-    required: true,
+    // required: true,
   },
   "recaptcha-key": {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 
@@ -130,10 +130,12 @@ if (status.value !== config.SUCCESS) {
     recStore.loadRecommandedBlog(slug.value, showDrafts)
   );
 
-  recommandedPosts = filterPostsByCategoryAndTag(
-    post.value,
-    recommandedBlog.value
-  );
+  // recommandedPosts = filterPostsByCategoryAndTag(
+  //   post.value,
+  //   recommandedBlog.value
+  // );
+
+  recommandedPosts = post.value.recommandedPosts;
 
   useHead({
     script: [
