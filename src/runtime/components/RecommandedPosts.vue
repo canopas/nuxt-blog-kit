@@ -96,7 +96,6 @@ const props = defineProps({
 });
 
 const { posts, mixpanel } = toRefs(props);
-
 posts?.value?.forEach((post) => {
   post.published_on = new Date(post.published_on).toLocaleDateString("en-US", {
     month: "short",

@@ -3,42 +3,50 @@ import Avatar from "./assets/images/user.png";
 import icon from "./assets/images/icon.svg";
 
 function setPostFields(post, slug) {
-  const publishedDate = post.attributes.published_on;
+  post = post.attributes ? post.attributes : post;
+  const publishedDate = post.published_on;
+  let date = "Draft";
 
-  const [date] = formateDate(publishedDate);
+  if (publishedDate) {
+    [date] = formateDate(publishedDate);
+  }
 
-  post.attributes.published_on = date || "Draft";
+  post.published_on = date;
+  
+  post.readingTime = getReadingTime(post.content);
 
-  post.attributes.readingTime = getReadingTime(post.attributes.content);
+  post.image_url = post.image?.data?.attributes.url || icon;
+  post.alternativeText =
+    post.image?.data?.attributes.alternativeText || post.title;
 
-  post.attributes.image_url =
-    post.attributes.image.data?.attributes.url || icon;
-  post.attributes.alternativeText =
-    post.attributes.image.data?.attributes.alternativeText ||
-    post.attributes.title;
-
-  const author = post.attributes.author.data?.attributes;
-  post.attributes.authorName = author?.name || "author";
-  post.attributes.authorImage = author?.image.data
+  const author = post.author.data?.attributes;
+  post.authorName = author?.name || "author";
+  post.authorImage = author?.image.data
     ? author.image.data?.attributes.url
     : Avatar;
-  post.attributes.authorAltText = author
-    ? author.username + " image"
-    : "author";
-  post.attributes.authorBio = author?.bio || "";
-  post.attributes.authorRole = author?.role || "Editor for Canopas";
+  post.authorAltText = author ? author.username + " image" : "author";
+  post.authorBio = author?.bio || "";
+  post.authorRole = author?.role || "Editor for Canopas";
 
-  if (slug && post.attributes.tags[0]) {
-    post.attributes.tags.map((tag) => {
+  if (slug && post.tags[0]) {
+    post.tags.map((tag) => {
       if (tag.slug == slug) {
         post.tagName = tag.name;
       }
     });
   }
 
-  let newPost = post.attributes;
+  let newPost = post;
   newPost.id = post.id;
   newPost.tagName = post.tagName;
+  newPost.recommandedPosts = post.recommandedPosts;
+
+  if (newPost.recommandedPosts) {
+    newPost.recommandedPosts.forEach((p) => {
+      p = setPostFields(p);
+    });
+  }
+
   return newPost;
 }
 
@@ -47,7 +55,7 @@ function getReadingTime(content) {
   if (!content) return;
   const numberOfWords = content
     .replace(/<\/?[^>]+(>|$)/g, "")
-    .split(/\s/g).length;
+    .split(/\s/g)?.length;
   return Math.ceil(numberOfWords / config.WORDS_PER_MINUTE);
 }
 
@@ -110,10 +118,7 @@ function filterPostsByCategoryAndTag(post, posts) {
     }
   }
 
-  return relatedPosts.filter(
-    (p) =>
-      p.is_resource == post.is_resource,
-  );
+  return relatedPosts.filter((p) => p.is_resource == post.is_resource);
 }
 
 export {

@@ -67,9 +67,7 @@ import config from "../config";
 import { useAsyncData, useHead, useSeoMeta } from "#app";
 import {
   useBlogDetailStore,
-  useRecommandedBlogStore,
 } from "../stores/resources";
-import { filterPostsByCategoryAndTag } from "../utils";
 
 const props = defineProps({
   slug: {
@@ -95,9 +93,6 @@ const { mixpanel, slug, showDrafts, iframelyKey, recaptchaKey } = toRefs(props);
 const store = useBlogDetailStore();
 const postData = computed(() => store.item);
 const status = computed(() => store.status);
-
-const recStore = useRecommandedBlogStore();
-const recommandedBlog = computed(() => recStore.items);
 
 const CTACompName = ref("");
 const showAlert = ref(false);
@@ -129,11 +124,6 @@ if (status.value !== config.SUCCESS) {
   await useAsyncData("recommandedBlog", () =>
     recStore.loadRecommandedBlog(slug.value, showDrafts)
   );
-
-  // recommandedPosts = filterPostsByCategoryAndTag(
-  //   post.value,
-  //   recommandedBlog.value
-  // );
 
   recommandedPosts = post.value.recommandedPosts;
 

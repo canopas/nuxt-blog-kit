@@ -15,10 +15,10 @@
         </h1>
       </div>
       <div class="cb-mt-4 md:cb-mt-6 xl:cb-mt-8">
-        <PostList
+         <PostList
           :data="posts"
           :slug="slug"
-          :tag-name="tagName"
+          :tagName="tagName"
           :mixpanel="mixpanel"
         />
       </div>
@@ -37,7 +37,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
- mixpanel: Object,
+  mixpanel: Object,
 });
 
 const { slug, mixpanel } = toRefs(props);

@@ -88,11 +88,7 @@
         v-else
         class="cb-flex cb-flex-row cb-flex-wrap cb-mb-10 cb-mt-2 cb-text-sm md:cb-text-[0.9375rem] xl:cb-text-base"
       >
-        <div
-          v-for="tag in post.tags"
-          :key="tag.id"
-          class="cb-my-2.5 cb-mr-2"
-        >
+        <div v-for="tag in post.tags" :key="tag.id" class="cb-my-2.5 cb-mr-2">
           <nuxt-link
             :to="'/tag/' + tag.slug"
             class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-px-2 cb-py-1.5 cb-font-normal cb-no-underline cb-capitalize"
@@ -117,7 +113,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  "tag-name": {
+  tagName: {
     type: String,
     required: true,
   },
