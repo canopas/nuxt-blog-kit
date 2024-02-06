@@ -2,7 +2,6 @@
 
 Welcome to the `blog-components` library, a component library for [**canopas blogs website**](https://canopas.com/resources).
 
-
 ## About
 
 The `blog-components` is an open-source library developed and maintained by Canopas. Crafted using `vue.js` and `tailwindcss` a lightweight and highly efficient CSS platform on top of `Nuxt 3` framework, showcasing a commitment to robust and advanced web development practices. For preview visit [**_canopas blogs page_**](https://canopas.com/resources) .
@@ -16,6 +15,7 @@ The `blog-components` is an open-source library developed and maintained by Cano
 #### Blogs Detail UI
 
 ![Blog Detail UI](https://github.com/canopas/canopas-blog/assets/69897605/bf24fbb5-9771-495a-a553-1c54e0b271d7)
+
 ## Prerequisites
 
 Prior to integrating `blog-components` into your project, please ensure that `tailwindcss` is installed and properly configured within your project environment.
@@ -27,13 +27,13 @@ Prior to integrating `blog-components` into your project, please ensure that `ta
 ### Using yarn :
 
 ```bash
-yarn add --dev @canopassoftware/canopas-blog-components
+yarn add --dev @canopassoftware/blog-components
 ```
 
 ### Using npm :
 
 ```bash
-npm install --save-dev @canopassoftware/canopas-blog-components
+npm install --save-dev @canopassoftware/blog-components
 ```
 
 <br>
@@ -42,9 +42,7 @@ npm install --save-dev @canopassoftware/canopas-blog-components
 
 ```js
 export default defineNuxtConfig({
-  modules: [
-    "@canopassoftware/canopas-blog-components"
-  ],
+  modules: ["@canopassoftware/blog-components"],
 });
 ```
 
@@ -52,60 +50,129 @@ That's it! You can now use module in your Nuxt app ✨
 
 Here are the examples,
 
+### Blog list
+
+Blog list component to show all blogs.
+
 ```js
-For all blog list,
+  <BlogList
+      :posts="posts"
+      :featurePosts="featurePosts"
+      :count="count"
+      :status="status"
+    />
+```
 
-  <BlogList :showDrafts="true" />
+- **:posts="posts"**
 
-For tag list,
-  <TagList :slug="slug" @notfound="<your-callback>" :showDrafts="true"  />
+  - required
+  - posts to be dispayed
 
+- **:featurePosts="featuredPosts"**
 
-For Blog details,
+  - featured blog posts
+
+- **:count="count"**
+
+  - Number of posts for UI adjustment
+
+- **:status="status"**
+  - status of API response
+
+<br>
+
+### Blog list by tag
+
+Tag list component to show posts by given tag.
+
+```js
+  <TagList
+    :slug="slug"
+    :posts="posts"
+  />
+```
+
+- **:slug:"slug"**
+  - required
+  - tag name
+- **:posts="posts"**
+  - required
+  - posts by given tag
+
+<br>
+
+### Blog details
+
+Component to show blog detail by slug
+
+```js
+
   <BlogDetail
       :slug="slug"
-      @notfound="<your-callback>"
-      :showDrafts="true"
-      :iframely-key="IFRAMELY_KEY"
-      :recaptcha-key="RECAPTCHA_SITE_KEY"
+      :post="post"
+      :recommandedPosts="recommandedPosts"
+      :websiteUrl="your-website-url"
+      :contactApiUrl="your-contact-api-url"
     />
 
 ```
+
+- **:post="post"**
+  - required
+  - slug of post
+- **:post="post"**
+
+  - required
+  - post detail of given slug
+
+- **:recommandedPosts="recommandedPosts"**
+
+  - recommanded posts, which are similar to given post
+
+- **:websiteUrl="websiteUrl"**
+
+  - For sharing on social media, you can pass your website's url
+
+- **:contactApiUrl="contactApiUrl"**
+  - This api is used for CTA forms. It is not required, if you don't want to add CTAs.
+
 <br>
 
-# Steps to Run the component 
+### Blog footer
 
-## Install dependencies
+Footer component
 
+```js
 
-```bash
-yarn install 
-```
-#### To initialize the Nuxt repo :
-```bash
-npx nuxi prepare
-```
-## To create output.css file
-``` bash
-yarn prepack
-```
-- Copy `output.css` file from `.dist/` folder and paste inside the `src` folder
-## Start component in dev mode using :
+    <BlogFooter
+      :socialMediaData="socialMediaData"
+      :apiUrl="subscription-api-url"
+      :companyName="your-company-name"
+    />
 
-```bash
-yarn dev 
 ```
-## Compiles and minifies for production :
 
-```bash
-yarn dev:build 
-```
-```bash
-yarn generate
-```
-You can access the page by pointing a web browser at http://localhost:3000
+- **:socialMediaData="socialMediaData"**
+  - required
+  - JSON object of your social media handles
+    ```
+    const socialMediaData = {
+        facebook: your-facebook-url,
+        instagram: your-instagram-url,
+        twitter: your-twitter-url,
+        blog: your-blog-url,
+        linkedin: your-linkedin-url,
+        youtube: your-youtube-url,
+    };
+    ```
+- **:apiUrl="subscription-api-url"**
+  - required
+  - Subscription api url
 
- <br > 
+- **:companyName="companyName"**
+  - your companyName
+
+<br>
 
 # LICENSE
 

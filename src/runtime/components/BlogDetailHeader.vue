@@ -94,10 +94,8 @@
               @click="
                 openUrl(
                   'https://www.facebook.com/sharer/sharer.php?u=' +
-                    encodeURIComponent(
-                      config.WEBSITE_URL + '/resources/' + post.slug
-                    ),
-                  'tap_share_facebook'
+                    encodeURIComponent(websiteUrl + post.slug),
+                  'tap_share_facebook',
                 )
               "
             />
@@ -108,10 +106,8 @@
               @click="
                 openUrl(
                   'https://www.linkedin.com/sharing/share-offsite/?url=' +
-                    encodeURIComponent(
-                      config.WEBSITE_URL + '/resources/' + post.slug
-                    ),
-                  'tap_share_linkedin'
+                    encodeURIComponent(websiteUrl + post.slug),
+                  'tap_share_linkedin',
                 )
               "
             />
@@ -124,10 +120,8 @@
                   'https://twitter.com/intent/tweet?text=' +
                     encodeURIComponent(post.title) +
                     '&url=' +
-                    encodeURIComponent(
-                      config.WEBSITE_URL + '/resources/' + post.slug
-                    ),
-                  'tap_share_twitter'
+                    encodeURIComponent(websiteUrl + post.slug),
+                  'tap_share_twitter',
                 )
               "
             />
@@ -140,10 +134,8 @@
                   'https://www.reddit.com/submit?url=' +
                     encodeURIComponent(post.title) +
                     '&url=' +
-                    encodeURIComponent(
-                      config.WEBSITE_URL + '/resources/' + post.slug
-                    ),
-                  'tap_share_reddit'
+                    encodeURIComponent(websiteUrl + post.slug),
+                  'tap_share_reddit',
                 )
               "
             />
@@ -162,11 +154,14 @@
 
 <script setup>
 import { toRefs, ref } from "vue";
-import config from "../config";
 
 const props = defineProps({
   post: {
     type: Object,
+    required: true,
+  },
+  websiteUrl: {
+    type: String,
     required: true,
   },
   mixpanel: Object,
@@ -174,7 +169,7 @@ const props = defineProps({
 
 const emit = defineEmits(["show-alert"]);
 
-const { post, mixpanel } = toRefs(props);
+const { post, websiteUrl, mixpanel } = toRefs(props);
 
 const loaded = ref(false);
 
@@ -201,7 +196,7 @@ async function shareBlog() {
     await navigator.share({
       title: post?.value?.title,
       text: post?.value?.meta_description,
-      url: config.WEBSITE_URL + "/resources/" + post?.value?.slug,
+      url: websiteUrl + post?.value?.slug,
     });
   } catch (err) {
     console.error(err);

@@ -29,7 +29,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  "index-content": {
+  indexContent: {
     type: String,
     required: true,
   },

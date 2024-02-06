@@ -232,7 +232,6 @@
 import { onMounted, ref, toRefs } from "vue";
 import axios from "axios";
 import { isValidEmail, isValidPhone } from "./../../utils";
-import config from "./../../config";
 import loaderImage from "../../assets/images/small-loader.svg";
 
 const name = ref("");
@@ -250,20 +249,24 @@ const showLoader = ref(false);
 const showErrorMessage = ref(false);
 
 const props = defineProps({
-  "recaptcha-key": {
+  recaptchaKey: {
+    type: String,
+    required: true,
+  },
+  contactApiUrl: {
     type: String,
     required: true,
   },
 });
 
-const { recaptchaKey } = toRefs(props);
+const { recaptchaKey, contactApiUrl } = toRefs(props);
 
 onMounted(() => {
   const recaptchaScript = document.createElement("script");
   recaptchaScript.setAttribute(
     "src",
     "https://www.google.com/recaptcha/enterprise.js?render=" +
-      recaptchaKey.value
+      recaptchaKey.value,
   );
   recaptchaScript.setAttribute("async", "true");
   recaptchaScript.setAttribute("defer", "true");
@@ -309,11 +312,11 @@ const submitForm = (event) => {
             token,
           };
           axios
-            .post(config.API_BASE + "/api/send-contact-mail", formData)
+            .post(contactApiUrl + "/api/send-contact-mail", formData)
             .then(() => {
               localStorage.setItem(
                 "client-name",
-                JSON.stringify(formData.name)
+                JSON.stringify(formData.name),
               );
               window.location.href = "/thank-you";
               resetForm();
@@ -349,4 +352,3 @@ const resetForm = () => {
   phoneNumber.value = "";
 };
 </script>
-

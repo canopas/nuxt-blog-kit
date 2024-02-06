@@ -33,7 +33,9 @@
           <div
             class="cb-flex cb-items-center cb-mt-10 cb-mx-auto md:cb-mx-0 cb-w-max cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-center cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-font-inter-semibold cb-tracking-normal cb-text-white cb-active:scale-[0.98]"
           >
-            <span class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block">
+            <span
+              class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block"
+            >
               Get Free Consultation
             </span>
           </div>
@@ -72,7 +74,9 @@
           <div
             class="cb-flex cb-items-center cb-mt-10 cb-mx-auto md:cb-mx-0 cb-w-max cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-center cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-font-inter-semibold cb-tracking-normal cb-text-white active:cb-scale-[0.98]"
           >
-            <span class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block">
+            <span
+              class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block"
+            >
               Get Free Consultation
             </span>
           </div>

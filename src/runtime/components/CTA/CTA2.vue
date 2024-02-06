@@ -2,20 +2,22 @@
   <div
     class="cb-relative -cb-bottom-5 sm:-cb-bottom-2 cb-overflow-hidden xl:cb-mt-32 cb-px-0 cb-font-inter-medium cb-z-[1]"
   >
-    <div class="cb-absolute cb-w-full cb-h-[8%] sm:cb-h-[6%] cb-bg-white md:cb-hidden" />
+    <div
+      class="cb-absolute cb-w-full cb-h-[8%] sm:cb-h-[6%] cb-bg-white md:cb-hidden"
+    />
 
     <img
       v-if="width < 600"
       :src="bg400"
       class="cb-absolute cb-w-full -cb-z-[1]"
-      alt="canopas-contact-footer"
+      alt="contact-footer"
     />
 
     <img
       v-else
       :src="bg2400"
       class="cb-absolute cb-top-0 cb-left-0 cb-w-full cb-h-full xl2:cb-h-[unset] -cb-z-[1] cb-object-cover xl2:cb-object-fill"
-      alt="canopas-contact-footer"
+      alt="contact-footer"
     />
 
     <div
@@ -25,10 +27,7 @@
     </div>
     <div class="cb-blog-container cb-text-center">
       <div>
-        <form
-          method="POST"
-          @submit="submitForm"
-        >
+        <form method="POST" @submit="submitForm">
           <div class="cb-py-5 vpx-8 lg:cb-px-20 xl:cb-px-44">
             <div class="cb-grid cb-grid-cols-1 md:cb-grid-cols-2 cb-gap-4">
               <div
@@ -47,7 +46,7 @@
                     showNameValidationError =
                       $event.target.value.trim().length === 0
                   "
-                >
+                />
                 <label
                   htmlFor="username"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -63,7 +62,9 @@
                 </span>
               </div>
 
-              <div class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
+              <div
+                class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+              >
                 <input
                   id="email"
                   v-model="email"
@@ -78,7 +79,7 @@
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidEmailError = isValidEmail(email)"
-                >
+                />
                 <label
                   htmlFor="email"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -99,7 +100,9 @@
                   Please enter valid email address
                 </span>
               </div>
-              <div class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left">
+              <div
+                class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+              >
                 <input
                   id="phonenumber"
                   v-model="phoneNumber"
@@ -114,7 +117,7 @@
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidPhoneNumberError = isValidPhone(phoneNumber)"
-                >
+                />
                 <label
                   htmlFor="phonenumber"
                   class="cb-absolute cb-top-4 cb-left-0 cb-mb-5 cb-z-[2] cb-text-white/[.6] cb-text-base cb-leading-[1.1875rem] md:cb-text-[1.375rem] md:cb-leading-[1.6875rem] lg:cb-text-[1.75rem] lg:cb-leading-[2.125rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-white peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
@@ -173,12 +176,9 @@
                 :src="loaderImage"
                 class="cb-w-16 cb-h-16"
                 alt="loader-image"
-              >
+              />
 
-              <div
-                v-else
-                class="relative"
-              >
+              <div v-else class="relative">
                 <div
                   v-if="showErrorMessage"
                   class="cb-absolute -cb-top-8 sm:-cb-top-[1.875rem] md:-cb-top-[2.875rem] cb-text-center -cb-right-16 sm:-cb-right-44 md:-cb-right-60 lg:-cb-right-72 xl:-cb-right-72 2xl:-cb-right-[20.5rem] cb-w-[190%] sm:cb-w-max"
@@ -216,12 +216,11 @@
 </template>
 
 <script setup>
-import { onMounted, ref, toRefs} from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import axios from "axios";
 import { isValidEmail, isValidPhone } from "./../../utils";
 import bg400 from "../../assets/images/cta/second-cta-400.svg";
 import bg2400 from "../../assets/images/cta/second-cta-2400.svg";
-import config from "./../../config";
 import loaderImage from "../../assets/images/small-loader.svg";
 
 const width = 680;
@@ -240,13 +239,17 @@ const showLoader = ref(false);
 const showErrorMessage = ref(false);
 
 const props = defineProps({
-  "recaptcha-key": {
+  recaptchaKey: {
+    type: String,
+    required: true,
+  },
+  contactApiUrl: {
     type: String,
     required: true,
   },
 });
 
-const { recaptchaKey } = toRefs(props);
+const { recaptchaKey, contactApiUrl } = toRefs(props);
 
 onMounted(() => {
   const recaptchaScript = document.createElement("script");
@@ -299,11 +302,11 @@ const submitForm = (event) => {
             token,
           };
           axios
-            .post(config.API_BASE +"/api/send-contact-mail", formData)
+            .post(contactApiUrl + "/api/send-contact-mail", formData)
             .then(() => {
               localStorage.setItem(
                 "client-name",
-                JSON.stringify(formData.name)
+                JSON.stringify(formData.name),
               );
               window.location.href = "/thank-you";
               resetForm();

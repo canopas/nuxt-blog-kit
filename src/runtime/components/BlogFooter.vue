@@ -7,7 +7,7 @@
       width="200"
       class="cb-absolute cb-top-[15px] sm:cb-top-0 cb-left-0 cb-w-full cb-h-full xl2:cb-h-[unset] -cb-z-[1] cb-object-cover xl2:cb-object-fill"
       :src="bg"
-      alt="canopas-footer"
+      alt="footer"
     />
     <div class="cb-blog-container lg:cb-px-20 2xl:cb-px-32">
       <div
@@ -34,7 +34,7 @@
                 type="email"
                 required
                 @blur="showValidEmailError = isValidEmail(email)"
-              >
+              />
             </div>
 
             <button
@@ -79,7 +79,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mr-1 md:cb-mr-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.FACEBOOK_URL"
+                :href="socialMediaData.facebook"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -96,7 +96,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.INSTAGRAM_URL"
+                :href="socialMediaData.instagram"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -113,7 +113,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.TWITTER_URL"
+                :href="socialMediaData.twitter"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -130,7 +130,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.BLOG_URL"
+                :href="socialMediaData.blog"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -147,7 +147,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.LINKEDIN_URL"
+                :href="socialMediaData.linkedin"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -164,7 +164,7 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="config.YOUTUBE_URL"
+                :href="socialMediaData.youtube"
                 target="_blank"
                 aria-label="footerLink"
                 class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
@@ -189,29 +189,13 @@
             class="cb-w-full cb-h-full cb-mt-0.5"
           />
         </div>
-        {{ new Date().getFullYear() }} Canopas Software LLP. All rights
-        reserved.
+        {{ new Date().getFullYear() }} {{ companyName }} All rights reserved.
       </div>
 
-      <svg
-        width="0"
-        height="0"
-      >
-        <linearGradient
-          id="lgrad"
-          x1="100%"
-          y1="100%"
-          x2="0%"
-          y2="0%"
-        >
-          <stop
-            offset="-24.42%"
-            style="stop-color: #ff835b; stop-opacity: 1"
-          />
-          <stop
-            offset="101.76%"
-            style="stop-color: #f2709c; stop-opacity: 1"
-          />
+      <svg width="0" height="0">
+        <linearGradient id="lgrad" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop offset="-24.42%" style="stop-color: #ff835b; stop-opacity: 1" />
+          <stop offset="101.76%" style="stop-color: #f2709c; stop-opacity: 1" />
         </linearGradient>
       </svg>
     </div>
@@ -221,9 +205,7 @@
       class="cb-fixed cb-bottom-[5%] cb-inset-x-[5%] sm:cb-inset-x-[20%] xl:vinset-x-[27%] cb-flex cb-flex-rows cb-justify-between cb-items-center cb-w-[90%] sm:cb-w-7/12 xl:cb-w-5/12 cb-z-[500] cb-rounded-[10px] cb-from-[#ff835b] cb-to-[#f2709c] cb-bg-gradient-to-r cb-py-5 cb-font-inter-semibold cb-text-center cb-text-white md:cb-text-xl"
       role="alert"
     >
-      <p class="cb-block sm:cb-inline cb-mx-7">
-        Subscribe Successfully!
-      </p>
+      <p class="cb-block sm:cb-inline cb-mx-7">Subscribe Successfully!</p>
       <Icon
         name="fa6-solid:xmark"
         class="cb-w-5 cb-h-5 cb-mr-5 hover:cb-cursor-pointer"
@@ -235,16 +217,27 @@
 
 <script setup>
 import { ref, toRefs } from "vue";
-import config from "../config";
 import { isValidEmail } from "./../utils";
 import axios from "axios";
 import bg from "../assets/images/footer/new-bg.svg";
 
 const props = defineProps({
   mixpanel: Object,
+  apiUrl: {
+    type: String,
+    required: true,
+  },
+  socialMediaData: {
+    type: Object,
+    required: true,
+  },
+  companyName: {
+    type: String,
+    required: true,
+  },
 });
 
-const { mixpanel } = toRefs(props);
+const { mixpanel, apiUrl, socialMediaData, companyName } = toRefs(props);
 
 const email = ref("");
 const showAlert = ref(false);
@@ -259,7 +252,7 @@ const handleSubscription = async (event) => {
 
   if (!showValidEmailError.value) {
     await axios
-      .post(config.STRAPI_URL + "/v1/user/subscribeUser?populate=deep", {
+      .post(apiUrl.value + "/v1/user/subscribeUser?populate=deep", {
         email: email.value,
       })
       .then(() => {

@@ -23,10 +23,6 @@
           <span class="cb-font-inter-medium">
             {{ post.authorName }}
           </span>
-          <span class="after:content-['\00B7']" />
-          <span class="cb-text-black-core/[0.65]">
-            {{ post.published_on }}
-          </span>
         </div>
         <div
           class="cb-grid cb-grid-cols-2 md:cb-grid-cols-3 cb-gap-10 md:cb-gap-12 xl:cb-gap-16 cb-mt-4"
@@ -72,12 +68,10 @@
         <div
           class="cb-flex cb-flex-row cb-flex-wrap cb-space-x-2 cb-items-center cb-mb-10 md:cb-mb-14 cb-w-full cb-text-sm md:cb-text-[0.9375rem] xl:cb-text-base"
         >
-          <nuxt-link
-            :to="'/tag/' + slug"
-            class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-px-2.5 cb-py-1 cb-font-normal cb-no-underline cb-capitalize"
-          >
-            {{ tagName }}
-          </nuxt-link>
+          <span class="cb-text-black-core/[0.65]">
+            {{ post.published_on }}
+          </span>
+          <span class="after:cb-content-['\00B7'] after:cb-mx-0.5" />
           <span class="cb-text-black-core/[0.65]">
             {{ post.readingTime }} min read
           </span>
@@ -88,11 +82,7 @@
         v-else
         class="cb-flex cb-flex-row cb-flex-wrap cb-mb-10 cb-mt-2 cb-text-sm md:cb-text-[0.9375rem] xl:cb-text-base"
       >
-        <div
-          v-for="tag in post.tags"
-          :key="tag.id"
-          class="cb-my-2.5 cb-mr-2"
-        >
+        <div v-for="tag in post.tags" :key="tag.id" class="cb-my-2.5 cb-mr-2">
           <nuxt-link
             :to="'/tag/' + tag.slug"
             class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-px-2 cb-py-1.5 cb-font-normal cb-no-underline cb-capitalize"
@@ -117,14 +107,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  "tag-name": {
-    type: String,
-    required: true,
-  },
   mixpanel: Object,
 });
 
-const { data, slug, tagName, mixpanel } = toRefs(props);
+const { data, slug, mixpanel } = toRefs(props);
 
 const posts = ref([]);
 
