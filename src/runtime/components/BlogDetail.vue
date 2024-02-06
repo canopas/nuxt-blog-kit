@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import { toRefs } from "vue";
+import { toRefs, ref } from "vue";
 const props = defineProps({
   slug: {
     type: String,
