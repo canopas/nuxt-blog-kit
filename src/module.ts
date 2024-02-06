@@ -27,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.modules.push(
       "@nuxtjs/tailwindcss",
       "@pinia/nuxt",
-      "nuxt-icon"
+      "nuxt-icon",
     );
 
     nuxt.hook("nitro:config", async (nitroConfig) => {
@@ -41,10 +41,6 @@ export default defineNuxtModule<ModuleOptions>({
     await installModule("@nuxtjs/tailwindcss", {
       cssPath: options.css ? resolver.resolve("./runtime/fonts") : false,
       configPath: resolver.resolve("./runtime/tailwind.config.js"),
-    });
-
-    await installModule("@pinia/nuxt", {
-      importsDir: resolver.resolve("../stores"),
     });
 
     await installModule("nuxt-icon");

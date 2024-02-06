@@ -25,7 +25,9 @@
     </div>
     <div class="cb-items-center !cb-text-black-core/[0.65] mt-2">
       <nuxt-link :to="'/' + post.slug">
-        <div class="cb-flex cb-flex-row cb-justify-between cb-text-sm cb-tracking-wide">
+        <div
+          class="cb-flex cb-flex-row cb-justify-between cb-text-sm cb-tracking-wide"
+        >
           <div>
             <span>{{ post.published_on }}</span>
             <span

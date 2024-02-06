@@ -75,59 +75,28 @@
 
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref, toRefs } from "vue";
-import { useAsyncData, useSeoMeta } from "#app";
-import { useBlogListStore } from "../stores/resources";
+import { toRefs } from "vue";
 import config from "../config";
 
 const props = defineProps({
   mixpanel: Object,
   showDrafts: Boolean,
-  showResources: { type: Boolean, required: false, default: true },
+  posts: {
+    type: Array,
+    required: true,
+  },
+  featurePosts: {
+    type: Object,
+  },
+  count: {
+    type: Number,
+    default:1,
+  },
+  status: {
+    type: Number,
+    default:200,
+  },
 });
 
-const { mixpanel, showDrafts, showResources } = toRefs(props);
-
-let postLimit = 10;
-const posts = ref([]);
-
-const store = useBlogListStore();
-const resources = computed(() => store.items);
-const status = computed(() => store.status);
-
-await useAsyncData("blogs", () => store.loadResources(showDrafts.value));
-
-const filteredPosts = resources.value.filter((post) => {
-  return post.is_resource == showResources.value;
-});
-
-posts.value = filteredPosts?.slice(0, postLimit);
-const count = filteredPosts?.length || 0;
-const featurePosts = filteredPosts?.filter((post) => post.is_featured);
-
-const handleScroll = () => {
-  if (
-    window.innerHeight + document.documentElement.scrollTop >=
-    document.documentElement.offsetHeight - 100
-  ) {
-    const oldCount = postLimit;
-    postLimit += 5;
-    posts.value.push(...filteredPosts.slice(oldCount, postLimit));
-  }
-};
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-
-useSeoMeta({
-  title: config.SEO_META_DATA.title,
-  description: config.SEO_META_DATA.description,
-  author: config.SEO_META_DATA.authorName,
-});
+const { mixpanel, posts, featurePosts, count, status } = toRefs(props);
 </script>
-

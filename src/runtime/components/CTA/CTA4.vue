@@ -3,7 +3,9 @@
     <div
       class="cb-mt-5 lg:cb-mt-[150px] xl:cb-mt-[170px] 2xl:cb-mt-[250px] 3xl:cb-mt-[280px] cb-bg-[#F8F8F8] cb-font-inter-regular"
     >
-      <div class="cb-blog-container cb-flex cb-flex-col md:cb-flex-row 3xl:cb-w-[82.5rem]">
+      <div
+        class="cb-blog-container cb-flex cb-flex-col md:cb-flex-row 3xl:cb-w-[82.5rem]"
+      >
         <div class="md:cb-relative cb-order-2 md:cb-order-first md:cb-w-1/2">
           <img
             :src="cta2400"

@@ -320,7 +320,7 @@
     @apply cb-content-none;
   }
 
-  .grecaptcha-badge{
-    @apply cb-invisible
+  .grecaptcha-badge {
+    @apply cb-invisible;
   }
 }

@@ -100,8 +100,6 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs } from "vue";
-
 const props = defineProps({
   post: {
     type: Object,
@@ -109,7 +107,7 @@ const props = defineProps({
   },
   count: {
     type: Number,
-    required: true,
+    default: 1,
   },
   index: {
     type: Number,
@@ -117,6 +115,4 @@ const props = defineProps({
   },
   mixpanel: Object,
 });
-const { post, count, index, mixpanel } = toRefs(props);
 </script>
-

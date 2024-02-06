@@ -4,10 +4,8 @@
       class="cb-blog-container cb-w-[90%] sm:cb-w-[70%] lg:cb-w-1/2 2xl:cb-w-2/5 cb-h-fit-content cb-min-h-[50vh] cb-my-16 cb-rounded-[12px] cb-bg-white cb-shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] cb-p-6"
     >
       <div class="cb-text-center">
-        <h1 class="cb-mb-3 cb-text-3xl">
-          Unsubscribe
-        </h1>
-        <hr>
+        <h1 class="cb-mb-3 cb-text-3xl">Unsubscribe</h1>
+        <hr />
         <p class="cb-my-3">
           {{ email }}
         </p>
@@ -18,11 +16,11 @@
             class="cb-w-full cb-h-full cb-rounded-full cb-object-cover cb-inset-0"
             :src="emailTemplate"
             alt="email"
-          >
+          />
         </div>
 
         <p class="cb-mb-4 cb-text-base cb-text-neutral-600">
-          are you sure you wish to unsubscribe from Canopas blog?
+          are you sure you wish to unsubscribe from {{ companyTitle }} blog?
         </p>
         <div class="cb-flex cb-justify-center cb-space-x-3">
           <button
@@ -35,10 +33,7 @@
               yes
             </div>
           </button>
-          <nuxt-link
-            :href="'/resources'"
-            @click="handleLogout"
-          >
+          <nuxt-link :href="'/resources'" @click="handleLogout">
             <button
               class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] hover:cb-cursor-pointer"
             >
@@ -71,18 +66,27 @@
 
 <script setup>
 import emailTemplate from "../assets/images/emailTemplate.webp";
-import config from "../config";
 import axios from "axios";
-import { ref, onMounted } from "vue";
-
+import { ref, onMounted, toRefs } from "vue";
+const props = defineProps({
+  companyTitle: {
+    type: String,
+    required: true,
+  },
+  apiUrl: {
+    type: String,
+    required: true,
+  },
+});
+const { companyTitle, apiUrl } = toRefs(props);
 const showAlert = ref(false);
 const email = ref("");
 
 const userUnsubscribe = async (e) => {
   if (e.target.innerHTML == "yes") {
-    if (email) {
+    if (email.value) {
       await axios
-        .put(`${config.STRAPI_URL}/v1/user/unSubscribeUser?email=${email.value}`)
+        .put(`${apiUrl}/v1/user/unSubscribeUser?email=${email.value}`)
         .then(() => {
           showAlert.value = false;
         });
@@ -112,5 +116,3 @@ onMounted(() => {
   }, 100);
 });
 </script>
-
-
