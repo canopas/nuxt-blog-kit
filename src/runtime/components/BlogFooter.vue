@@ -130,23 +130,6 @@
               class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
             >
               <nuxt-link
-                :href="socialMediaData.blog"
-                target="_blank"
-                aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
-                @click="handleIconClick('tap_footer_medium')"
-              >
-                <Icon
-                  name="fa-brands:medium-m"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
-                />
-              </nuxt-link>
-            </li>
-
-            <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
-            >
-              <nuxt-link
                 :href="socialMediaData.linkedin"
                 target="_blank"
                 aria-label="footerLink"

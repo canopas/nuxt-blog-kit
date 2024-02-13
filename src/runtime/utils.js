@@ -9,4 +9,4 @@ function isValidEmail(email) {
   return !emailRegx.test(email);
 }
 
-export { isValidPhone,isValidEmail };
+export { isValidPhone, isValidEmail };

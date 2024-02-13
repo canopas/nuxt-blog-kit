@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cb-grid cb-grid-flow-row xl:cb-grid-flow-col cb-gap-10 xl:cb-gap-8 cb-w-90 cb-h-90 cb-rounded-3xl md:cb-bg-[#14161E] md:cb-py-20 md:cb-px-10 xl:cb-py-14 xl:cb-px-8"
+    class="cb-grid cb-grid-flow-row xl:cb-grid-flow-col cb-gap-10 xl:cb-gap-8 cb-w-full cb-h-full cb-rounded-3xl md:cb-bg-[#14161E] md:cb-py-20 md:cb-px-10 xl:cb-py-14 xl:cb-px-8"
   >
     <div
       class="md:cb-blog-container cb-w-full xl:cb-w-[35rem] 2xl:cb-w-[42rem] cb-h-auto sm:cb-h-72 md:cb-h-[21rem] lg:cb-h-[30rem] xl:cb-h-[19rem] 2xl:cb-h-[23rem]"
@@ -95,7 +95,7 @@
                 openUrl(
                   'https://www.facebook.com/sharer/sharer.php?u=' +
                     encodeURIComponent(websiteUrl + post.slug),
-                  'tap_share_facebook',
+                  'tap_share_facebook'
                 )
               "
             />
@@ -107,7 +107,7 @@
                 openUrl(
                   'https://www.linkedin.com/sharing/share-offsite/?url=' +
                     encodeURIComponent(websiteUrl + post.slug),
-                  'tap_share_linkedin',
+                  'tap_share_linkedin'
                 )
               "
             />
@@ -121,7 +121,7 @@
                     encodeURIComponent(post.title) +
                     '&url=' +
                     encodeURIComponent(websiteUrl + post.slug),
-                  'tap_share_twitter',
+                  'tap_share_twitter'
                 )
               "
             />
@@ -135,7 +135,7 @@
                     encodeURIComponent(post.title) +
                     '&url=' +
                     encodeURIComponent(websiteUrl + post.slug),
-                  'tap_share_reddit',
+                  'tap_share_reddit'
                 )
               "
             />
