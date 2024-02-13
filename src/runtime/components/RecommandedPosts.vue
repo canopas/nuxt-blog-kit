@@ -25,7 +25,7 @@
                   width="30"
                   height="30"
                   class="cb-absolute cb-top-2/4 cb-left-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
-                  :src="post.authorImage"
+                  :src="post.author.image.url"
                   :alt="post.authorAltText"
                 />
               </div>
@@ -67,7 +67,7 @@
             <img
               width="100"
               height="100"
-              :src="post.image_url || ''"
+              :src="post.image.url || ''"
               :alt="post.alternativeText || ''"
               loading="eager"
               :class="
