@@ -4,14 +4,20 @@
     :index-content="newIndexContent"
     :header-height="headerHeight"
     :content-ref="contentRef"
+    :is_resource="post.is_resource"
   />
 
   <div
     ref="contentRef"
-    class="cb-prose lg:cb-prose-lg xl:cb-w-full 2xl:cb-w-auto cb-scroll-smooth"
+    class="cb-prose lg:cb-prose-lg cb-scroll-smooth"
+    :class="
+      post.is_resource
+        ? 'xl:cb-w-full 2xl:cb-w-auto'
+        : 'xl:cb-w-[75%] cb-w-full cb-max-w-[85ch]'
+    "
   >
     <div
-      class="!cb-tracking-wide cb-text-black-core/[0.80] cb-font-comme-light"
+      class="!cb-tracking-wide cb-text-black-core/[0.80] cb-font-comme-light cb-select-text"
       v-html="newContent"
     />
     <div class="cb-flex cb-flex-row cb-flex-wrap cb-mt-11">

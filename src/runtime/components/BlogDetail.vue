@@ -8,10 +8,12 @@
           :post="post"
           :mixpanel="mixpanel"
           @show-alert="showAlertMessage"
+          class="cb-select-text"
         />
 
         <div
           class="cb-flex cb-flex-col xl:cb-flex-row cb-space-y-20 xl:cb-space-y-0 cb-mx-2 lg:cb-mx-24 cb-rounded-3xl cb-text-lg xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12 xl:cb-mx-0"
+          :class="post.is_resource ? '' : 'sm:px-10'"
         >
           <!-- main article  -->
           <BlogContent
@@ -22,14 +24,14 @@
           />
 
           <!-- Recommended Posts Section Desktop View -->
-          <div class="cb-relative cb-w-2/5">
+          <div v-if="post.is_resource" class="cb-relative cb-w-2/5">
             <div
-              v-if="recommandedPosts.length != 0"
+              v-if="post.recommandedPosts.length != 0"
               class="xl:cb-sticky cb-top-28"
             >
               <div class="cb-hidden xl:cb-block cb-w-full cb-h-fit">
                 <RecommandedPosts
-                  :posts="recommandedPosts"
+                  :posts="post.recommandedPosts"
                   :mixpanel="mixpanel"
                 />
               </div>
@@ -40,11 +42,11 @@
 
       <!-- Recommended Posts Section Mobile,Tablet View -->
       <div
-        v-if="recommandedPosts.length != 0"
+        v-if="post.recommandedPosts && post.recommandedPosts.length != 0"
         class="cb-blog-container cb-inline-block xl:cb-hidden cb-mt-10 lg:cb-mx-4"
       >
         <hr class="cb-mb-10" />
-        <RecommandedPosts :posts="recommandedPosts" :mixpanel="mixpanel" />
+        <RecommandedPosts :posts="post.recommandedPosts" :mixpanel="mixpanel" />
       </div>
 
       <!-- alerts  -->
@@ -85,7 +87,6 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  recommandedPosts: Array,
   websiteUrl: String,
   contactApiUrl: String,
 });

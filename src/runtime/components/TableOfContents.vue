@@ -1,6 +1,7 @@
 <template>
   <div
-    class="cb-relative cb-w-full xl:cb-w-[45%] cb-tracking-tight cb-text-black-core/[0.87]"
+    class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
+    :class="is_resource ? 'xl:cb-w-[45%]' : 'xl:cb-w-[25%]'"
   >
     <div class="xl:cb-sticky cb-top-[7.5rem] cb-flex cb-flex-col">
       <div
@@ -45,9 +46,13 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  is_resource: {
+    type: Boolean,
+    required: true,
+  },
 });
 
-const { indexContent, contentRef, headerHeight } = toRefs(props);
+const { indexContent, contentRef, headerHeight, is_resource } = toRefs(props);
 
 function handleClick(event) {
   event.preventDefault();
