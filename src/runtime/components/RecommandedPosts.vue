@@ -52,14 +52,14 @@
             <div
               class="cb-font-inter-regular cb-hidden xl:cb-block cb-text-black-core/[0.65] cb-text-[0.875rem] !cb-tracking-wide"
             >
-              <span>{{ post.readingTime }} min read | </span>
+              <span>{{ post.reading_time }} min read | </span>
               <span>Published on {{ post.published_on }}</span>
             </div>
           </div>
           <div
             class="xl:cb-hidden cb-mb-1.5 xl:cb-mt-2 cb-max-w-xs xl:cb-h-16"
             :class="
-              post.image?.data == null
+              post.image == null
                 ? 'cb-h-[5.084rem] md:cb-h-[6.96rem] lg:cb-h-[8.9rem] cb-bg-black-900'
                 : 'cb-aspect-w-2 md:cb-aspect-h-1 cb-h-[5.084rem] cb-border cb-border-1'
             "
@@ -71,7 +71,7 @@
               :alt="post.alternativeText || ''"
               loading="eager"
               :class="
-                post.image?.data == null
+                post.image == null
                   ? 'cb-w-auto cb-h-4/5 cb-mx-auto cb-my-[5%] xl:cb-my-[7%]'
                   : 'cb-w-full cb-h-full'
               "
