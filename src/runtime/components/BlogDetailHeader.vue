@@ -12,7 +12,7 @@
         :alt="post.alternativeText || ''"
         loading="eager"
         :class="[
-          post.image.data == null
+          post.image == null
             ? 'cb-w-[45%] cb-h-4/5 cb-mx-auto cb-my-[5%]'
             : 'cb-mx-auto cb-rounded-2xl lg:cb-rounded-3xl cb-object-cover',
           loaded
@@ -47,7 +47,7 @@
           </div>
           <div>
             <span>{{ published_on }}</span> ·{{ " " }}
-            <span> {{ post.readingTime }} min read</span>
+            <span> {{ post.reading_time }} min read</span>
 
             <span v-if="post.published_on == null">
               <span class="after:cb-content-['\00B7'] after:cb-mx-1" />

@@ -2,7 +2,7 @@
   <div>
     <div
       class="cb-w-auto cb-h-auto cb-border cb-border-1 cb-border-gray-300 cb-transition-all cb-aspect-auto hover:cb-scale-105 md:cb-h-[7.742rem] lg:cb-h-[10.085rem] xl:cb-h-[12.195rem] 2xl:cb-h-[14.304em]"
-      :class="post.image.data == null ? 'bg-black-900' : ''"
+      :class="post.image == null ? 'bg-black-900' : ''"
     >
       <nuxt-link
         :to="'/' + post.slug"
@@ -16,7 +16,7 @@
           loading="lazy"
           class="object-cover"
           :class="
-            post.image.data == null
+            post.image == null
               ? 'cb-w-[45%] cb-h-4/5 cb-mx-auto cb-my-[5%]'
               : 'cb-w-full cb-h-full'
           "
@@ -34,7 +34,7 @@
               class="cb-hidden lg:cb-inline-block after:cb-content-['\00B7'] after:cb-mx-1"
             />
             <span class="cb-hidden lg:cb-inline-block">
-              {{ post.readingTime }} min read
+              {{ post.reading_time }} min read
             </span>
           </div>
           <span class="cb-text-green-700 cb-capitalize cb-line-clamp-1">
@@ -56,7 +56,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { toRefs } from "vue";
 
 const props = defineProps({

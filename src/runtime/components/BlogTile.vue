@@ -5,7 +5,7 @@
       index === 0 && count && count % 3 === 1
         ? 'md:cb-w-3/5 lg:cb-w-2/4 md:cb-h-[14.7rem] lg:cb-h-[16.51rem] xl:cb-h-[19.67rem] 2xl:cb-h-[22.836rem]'
         : 'md:cb-h-[7.742rem] lg:cb-h-[10.085rem] xl:cb-h-[12.195rem] 2xl:cb-h-[14.304em]',
-      post.image?.data == null ? 'bg-black-900' : '',
+      post.image == null ? 'bg-black-900' : '',
     ]"
   >
     <nuxt-link
@@ -19,7 +19,7 @@
         :alt="post.alternativeText || ''"
         :loading="index === 0 && count && count % 3 === 1 ? 'eager' : 'lazy'"
         :class="
-          post.image?.data == null
+          post.image == null
             ? 'cb-w-[46%] cb-h-4/5 cb-mx-auto cb-my-[5%]'
             : 'cb-w-full cb-h-full'
         "
@@ -86,7 +86,7 @@
           <div>
             <span>{{ post.published_on }}</span>
             <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
-            <span>{{ post.readingTime }} min read </span>
+            <span>{{ post.reading_time }} min read </span>
 
             <span v-if="post.published_on == null">
               <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
@@ -99,7 +99,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   post: {
     type: Object,

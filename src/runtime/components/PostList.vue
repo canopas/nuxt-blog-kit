@@ -47,7 +47,7 @@
           <div
             class="cb-hidden md:cb-block cb-relative md:cb-mt-[-20px] xl:cb-mt-[-11px] cb-max-w-xs cb-max-h-full cb-overflow-hidden"
             :class="
-              post.image.data == null
+              post.image == null
                 ? 'md:cb-h-[8.125rem] lg:cb-h-[8.0831rem] xl:cb-h-[8.75rem] 2xl:cb-h-[10.5em] cb-bg-black-900'
                 : 'md:cb-w-auto cb-h-[8.125rem] md:cb-h-[11.5rem]'
             "
@@ -73,7 +73,7 @@
           </span>
           <span class="after:cb-content-['\00B7'] after:cb-mx-0.5" />
           <span class="cb-text-black-core/[0.65]">
-            {{ post.readingTime }} min read
+            {{ post.reading_time }} min read
           </span>
         </div>
       </div>
