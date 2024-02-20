@@ -166,6 +166,7 @@ Footer component
     };
     ```
 - **:apiUrl="subscription-api-url"**
+
   - required
   - Subscription api url
 

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="cb-blog-container cb-mt-16 cb-mb-10 md:cb-mb-24">
+    <div class="cb-blog-container cb-mb-10 cb-mt-16 md:cb-mb-24">
       <div :key="post.id" class="cb-flex cb-flex-col cb-space-y-20">
         <!-- Header  -->
         <blog-detail-header
@@ -12,24 +12,19 @@
         />
 
         <div
-          class="cb-flex cb-flex-col xl:cb-flex-row cb-space-y-20 xl:cb-space-y-0 cb-mx-2 lg:cb-mx-24 cb-rounded-3xl cb-text-lg xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12 xl:cb-mx-0"
+          class="cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-rounded-3xl cb-text-lg lg:cb-mx-24 xl:cb-mx-0 xl:cb-flex-row xl:cb-space-x-6 xl:cb-space-y-0 2xl:cb-space-x-8 3xl:cb-space-x-12"
           :class="post.is_resource ? '' : 'sm:px-10'"
         >
           <!-- main article  -->
-          <BlogContent
-            :content="blogContent"
-            :indexContent="indexContent"
-            :post="post"
-            :mixpanel="mixpanel"
-          />
+          <BlogContent :post="post" :mixpanel="mixpanel" />
 
           <!-- Recommended Posts Section Desktop View -->
           <div v-if="post.is_resource" class="cb-relative cb-w-2/5">
             <div
               v-if="post.recommandedPosts.length != 0"
-              class="xl:cb-sticky cb-top-28"
+              class="cb-top-28 xl:cb-sticky"
             >
-              <div class="cb-hidden xl:cb-block cb-w-full cb-h-fit">
+              <div class="cb-hidden cb-h-fit cb-w-full xl:cb-block">
                 <RecommandedPosts
                   :posts="post.recommandedPosts"
                   :mixpanel="mixpanel"
@@ -43,7 +38,7 @@
       <!-- Recommended Posts Section Mobile,Tablet View -->
       <div
         v-if="post.recommandedPosts && post.recommandedPosts.length != 0"
-        class="cb-blog-container cb-inline-block xl:cb-hidden cb-mt-10 lg:cb-mx-4"
+        class="cb-blog-container cb-mt-10 cb-inline-block lg:cb-mx-4 xl:cb-hidden"
       >
         <hr class="cb-mb-10" />
         <RecommandedPosts :posts="post.recommandedPosts" :mixpanel="mixpanel" />
@@ -99,9 +94,6 @@ const showAlert = ref(false);
 const message = ref("");
 
 const CTAData = post.value?.cta.data;
-
-const blogContent = post.value?.content;
-const indexContent = post.value?.toc;
 
 CTACompName.value = CTAData?.attributes.component_name;
 

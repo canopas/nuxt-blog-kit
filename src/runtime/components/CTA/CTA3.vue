@@ -1,27 +1,27 @@
 <template>
   <div>
     <hr class="md:cb-hidden" />
-    <div class="cb-relative cb-top-5 md:cb-top-0.5 cb-w-full cb-h-auto">
+    <div class="cb-relative cb-top-5 cb-h-auto cb-w-full md:cb-top-0.5">
       <div
-        class="cb-blog-container cb-flex cb-flex-col md:cb-flex-row md:cb-space-x-6 lg:cb-space-x-0 md:-cb-mt-[60px] xl:cb-px-20 3xl:cb-px-32"
+        class="cb-blog-container cb-flex cb-flex-col md:-cb-mt-[60px] md:cb-flex-row md:cb-space-x-6 lg:cb-space-x-0 xl:cb-px-20 3xl:cb-px-32"
       >
-        <div class="cb-mt-10 md:cb-mt-40 cb-basis-7/12 lg:cb-basis-3/5">
+        <div class="cb-mt-10 cb-basis-7/12 md:cb-mt-40 lg:cb-basis-3/5">
           <div
-            class="cb-flex cb-flex-col cb-items-center md:cb-items-stretch cb-space-y-4 md:cb-w-[16.2rem] lg:cb-w-80 2xl:cb-w-[22.23rem]"
+            class="cb-flex cb-flex-col cb-items-center cb-space-y-4 md:cb-w-[16.2rem] md:cb-items-stretch lg:cb-w-80 2xl:cb-w-[22.23rem]"
           >
             <div
-              class="cb-text-[1.2rem] lg:cb-text-2xl 2xl:cb-text-[1.75rem] cb-leading-7 2xl:cb-leading-[2.3rem] cb-font-poppins-regular"
+              class="cb-font-poppins-regular cb-text-[1.2rem] cb-leading-7 lg:cb-text-2xl 2xl:cb-text-[1.75rem] 2xl:cb-leading-[2.3rem]"
             >
               Talk to an expert
             </div>
             <div
-              class="md:cb-grid cb-grid-rows-2 cb-justify-items-stretch cb-text-[2.3rem] sm:cb-text-5xl lg:cb-text-[3.4rem] lg:cb-text-[3.7rem] 2xl:cb-text-[4.125rem] cb-font-poppins-medium cb-uppercase"
+              class="cb-grid-rows-2 cb-justify-items-stretch cb-font-poppins-medium cb-text-[2.3rem] cb-uppercase sm:cb-text-5xl md:cb-grid lg:cb-text-[3.4rem] lg:cb-text-[3.7rem] 2xl:cb-text-[4.125rem]"
             >
               <span class="cb-mr-3 md:cb-mr-0">get in</span>
               <span class="md:cb-justify-self-end">touch</span>
             </div>
             <div
-              class="cb-text-center md:cb-text-left cb-text-[0.9rem] lg:cb-text-base 2xl:cb-text-xl cb-leading-5 cb-font-poppins-regular"
+              class="cb-text-center cb-font-poppins-regular cb-text-[0.9rem] cb-leading-5 md:cb-text-left lg:cb-text-base 2xl:cb-text-xl"
             >
               Our team is happy to answer your questions. Fill out the form and
               we’ll get back to you as soon as possible
@@ -29,21 +29,21 @@
           </div>
         </div>
         <div
-          class="cb-relative cb-top-14 lg:cb-top-20 xl:cb-top-[5.5rem] cb-h-fit cb-w-full cb-bg-white cb-cta-box-shadow cb-text-center cb-font-poppins-regular"
+          class="cb-cta-box-shadow cb-relative cb-top-14 cb-h-fit cb-w-full cb-bg-white cb-text-center cb-font-poppins-regular lg:cb-top-20 xl:cb-top-[5.5rem]"
         >
           <form method="POST" @submit="submitForm">
             <div
-              class="cb-pt-[3rem] md:cb-pt-20 lg:cb-pt-24 cb-pb-10 lg:cb-pb-14 cb-px-8"
+              class="cb-px-8 cb-pb-10 cb-pt-[3rem] md:cb-pt-20 lg:cb-pb-14 lg:cb-pt-24"
             >
-              <div class="cb-grid cb-grid-cols-1 md:cb-grid-cols-2 cb-gap-4">
+              <div class="cb-grid cb-grid-cols-1 cb-gap-4 md:cb-grid-cols-2">
                 <div
-                  class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
+                  class="cb-relative cb-pt-3 cb-text-left md:cb-col-span-2 md:cb-mb-5 lg:cb-pt-10"
                 >
                   <input
                     id="username"
                     v-model="name"
                     type="text"
-                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
+                    class="cb-text-md cb-peer cb-mx-0 cb-mb-2 cb-block cb-w-full cb-appearance-none cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-text-black-900 cb-placeholder-white/[.6] cb-transition cb-ease-in-out focus:cb-outline-none active:cb-outline-none md:cb-text-lg lg:cb-text-xl"
                     name="username"
                     required
                     autoComplete="given-username"
@@ -55,7 +55,7 @@
                   />
                   <label
                     htmlFor="username"
-                    class="cb-absolute cb-top-1 lg:cb-top-[1.6rem] cb-left-0 cb-mb-5 cb-z-[2] cb-text-black-900/[.8] cb-text-[1.07rem] cb-leading-[1.1875rem] lg:cb-text-[1.35rem] md:cb-leading-[1.6875rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-black-900 peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
+                    class="cb-absolute cb-left-0 cb-top-1 cb-z-[2] cb-mb-5 cb-origin-[0] -cb-translate-y-4 cb-scale-75 cb-transform cb-text-[1.07rem] cb-leading-[1.1875rem] cb-text-black-900/[.8] cb-duration-300 peer-placeholder-shown:cb-translate-y-0 peer-placeholder-shown:cb-scale-100 peer-focus:-cb-translate-y-4 peer-focus:cb-scale-75 peer-focus:cb-text-black-900 md:cb-leading-[1.6875rem] lg:cb-top-[1.6rem] lg:cb-text-[1.35rem]"
                   >
                     Name*
                   </label>
@@ -69,12 +69,12 @@
                 </div>
 
                 <div
-                  class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+                  class="cb-relative cb-pt-3 cb-text-left md:cb-mb-5 lg:cb-pt-9"
                 >
                   <input
                     id="email"
                     v-model="email"
-                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
+                    class="cb-text-md cb-peer cb-mx-0 cb-mb-2 cb-block cb-w-full cb-appearance-none cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-text-black-900 cb-placeholder-white/[.6] cb-transition cb-ease-in-out focus:cb-outline-none active:cb-outline-none md:cb-text-lg lg:cb-text-xl"
                     type="text"
                     name="email"
                     required
@@ -88,7 +88,7 @@
                   />
                   <label
                     htmlFor="email"
-                    class="cb-absolute cb-top-1 lg:cb-top-[1.6rem] cb-left-0 cb-mb-5 cb-z-[2] cb-text-black-900/[.8] cb-text-[1.07rem] cb-leading-[1.1875rem] lg:cb-text-[1.35rem] md:cb-leading-[1.6875rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-black-900 peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
+                    class="cb-absolute cb-left-0 cb-top-1 cb-z-[2] cb-mb-5 cb-origin-[0] -cb-translate-y-4 cb-scale-75 cb-transform cb-text-[1.07rem] cb-leading-[1.1875rem] cb-text-black-900/[.8] cb-duration-300 peer-placeholder-shown:cb-translate-y-0 peer-placeholder-shown:cb-scale-100 peer-focus:-cb-translate-y-4 peer-focus:cb-scale-75 peer-focus:cb-text-black-900 md:cb-leading-[1.6875rem] lg:cb-top-[1.6rem] lg:cb-text-[1.35rem]"
                   >
                     Email*
                   </label>
@@ -108,13 +108,13 @@
                   </span>
                 </div>
                 <div
-                  class="cb-relative md:cb-mb-5 cb-pt-3 lg:cb-pt-9 cb-text-left"
+                  class="cb-relative cb-pt-3 cb-text-left md:cb-mb-5 lg:cb-pt-9"
                 >
                   <input
                     id="phonenumber"
                     v-model="phoneNumber"
                     type="text"
-                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
+                    class="cb-text-md cb-peer cb-mx-0 cb-mb-2 cb-block cb-w-full cb-appearance-none cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-text-black-900 cb-placeholder-white/[.6] cb-transition cb-ease-in-out focus:cb-outline-none active:cb-outline-none md:cb-text-lg lg:cb-text-xl"
                     name="phonenumber"
                     required
                     autoComplete="given-phonenumber"
@@ -129,7 +129,7 @@
                   />
                   <label
                     htmlFor="phonenumber"
-                    class="cb-absolute cb-top-1 lg:cb-top-[1.6rem] cb-left-0 cb-mb-5 cb-z-[2] cb-text-black-900/[.8] cb-text-[1.07rem] cb-leading-[1.1875rem] lg:cb-text-[1.35rem] md:cb-leading-[1.6875rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-black-900 peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
+                    class="cb-absolute cb-left-0 cb-top-1 cb-z-[2] cb-mb-5 cb-origin-[0] -cb-translate-y-4 cb-scale-75 cb-transform cb-text-[1.07rem] cb-leading-[1.1875rem] cb-text-black-900/[.8] cb-duration-300 peer-placeholder-shown:cb-translate-y-0 peer-placeholder-shown:cb-scale-100 peer-focus:-cb-translate-y-4 peer-focus:cb-scale-75 peer-focus:cb-text-black-900 md:cb-leading-[1.6875rem] lg:cb-top-[1.6rem] lg:cb-text-[1.35rem]"
                   >
                     Phone number*
                   </label>
@@ -152,12 +152,12 @@
                   </span>
                 </div>
                 <div
-                  class="cb-relative md:cb-col-span-2 md:cb-mb-5 cb-pt-3 lg:cb-pt-10 cb-text-left"
+                  class="cb-relative cb-pt-3 cb-text-left md:cb-col-span-2 md:cb-mb-5 lg:cb-pt-10"
                 >
                   <textarea
                     id="project"
                     v-model="projectInfo"
-                    class="cb-block cb-peer cb-mb-2 cb-mx-0 cb-w-full cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-transition cb-ease-in-out cb-appearance-none cb-text-md md:cb-text-lg lg:cb-text-xl cb-text-black-900 cb-placeholder-white/[.6] focus:cb-outline-none active:cb-outline-none"
+                    class="cb-text-md cb-peer cb-mx-0 cb-mb-2 cb-block cb-w-full cb-appearance-none cb-rounded-none cb-border-b cb-border-black-900 cb-bg-transparent cb-px-0 cb-text-black-900 cb-placeholder-white/[.6] cb-transition cb-ease-in-out focus:cb-outline-none active:cb-outline-none md:cb-text-lg lg:cb-text-xl"
                     name="project"
                     rows="3"
                     required
@@ -166,7 +166,7 @@
                   />
                   <label
                     htmlFor="project"
-                    class="cb-absolute cb-top-1 lg:cb-top-[1.6rem] cb-left-0 cb-mb-5 cb-z-[2] cb-text-black-900/[.8] cb-text-[1.07rem] cb-leading-[1.1875rem] lg:cb-text-[1.35rem] md:cb-leading-[1.6875rem] cb-transform -cb-translate-y-4 cb-origin-[0] cb-scale-75 cb-duration-300 peer-focus:cb-text-black-900 peer-placeholder-shown:cb-scale-100 peer-placeholder-shown:cb-translate-y-0 peer-focus:cb-scale-75 peer-focus:-cb-translate-y-4"
+                    class="cb-absolute cb-left-0 cb-top-1 cb-z-[2] cb-mb-5 cb-origin-[0] -cb-translate-y-4 cb-scale-75 cb-transform cb-text-[1.07rem] cb-leading-[1.1875rem] cb-text-black-900/[.8] cb-duration-300 peer-placeholder-shown:cb-translate-y-0 peer-placeholder-shown:cb-scale-100 peer-focus:-cb-translate-y-4 peer-focus:cb-scale-75 peer-focus:cb-text-black-900 md:cb-leading-[1.6875rem] lg:cb-top-[1.6rem] lg:cb-text-[1.35rem]"
                   >
                     Project detail*
                   </label>
@@ -180,24 +180,24 @@
                 </div>
               </div>
 
-              <div class="cb-flex cb-mt-6 lg:cb-mt-10">
+              <div class="cb-mt-6 cb-flex lg:cb-mt-10">
                 <img
                   v-if="showLoader"
                   :src="loaderImage"
-                  class="cb-w-16 cb-h-16"
+                  class="cb-h-16 cb-w-16"
                   alt="loader-image"
                 />
 
                 <div v-else class="relative">
                   <div
                     v-if="showErrorMessage"
-                    class="cb-absolute -cb-top-8 sm:-cb-top-[1.875rem] md:-cb-top-[2.875rem] cb-text-center -cb-right-16 sm:-vright-44 md:-cb-right-60 lg:-cb-right-72 xl:-cb-right-72 2xl:-cb-right-[20.5rem] cb-w-[190%] sm:cb-w-max"
+                    class="sm:-vright-44 cb-absolute -cb-right-16 -cb-top-8 cb-w-[190%] cb-text-center sm:-cb-top-[1.875rem] sm:cb-w-max md:-cb-right-60 md:-cb-top-[2.875rem] lg:-cb-right-72 xl:-cb-right-72 2xl:-cb-right-[20.5rem]"
                   >
                     <span
-                      class="cb-flex cb-text-center cb-gradient-text"
+                      class="cb-gradient-text cb-flex cb-text-center"
                       :class="
                         errorMessage === 'Invalid Recaptcha score'
-                          ? 'sm:!cb-mr-[7rem] md:!cb-mr-[12rem] lg:!cb-mr-[15rem] xl:!cb-mr-[16rem] 2xl:!cb-mr-[17rem] !cb-text-2xl'
+                          ? '!cb-text-2xl sm:!cb-mr-[7rem] md:!cb-mr-[12rem] lg:!cb-mr-[15rem] xl:!cb-mr-[16rem] 2xl:!cb-mr-[17rem]'
                           : ''
                       "
                     >
@@ -207,10 +207,10 @@
 
                   <button
                     id="submit"
-                    class="cb-border-2 cb-border-solid cb-border-transparent cb-bg-black-900 cb-text-white hover:cb-border-black-900 hover:cb-bg-white hover:cb-text-black-900 cb-font-inter-bold"
+                    class="cb-border-2 cb-border-solid cb-border-transparent cb-bg-black-900 cb-font-inter-bold cb-text-white hover:cb-border-black-900 hover:cb-bg-white hover:cb-text-black-900"
                   >
                     <span
-                      class="cb-py-[0.6rem] cb-px-4 lg:cb-px-[1.8rem] lg:cb-py-[0.8rem] cb-text-base lg:cb-text-[1.1875rem] cb-inline-block"
+                      class="cb-inline-block cb-px-4 cb-py-[0.6rem] cb-text-base lg:cb-px-[1.8rem] lg:cb-py-[0.8rem] lg:cb-text-[1.1875rem]"
                     >
                       Get Free Consultation
                     </span>
@@ -222,7 +222,7 @@
         </div>
       </div>
       <div
-        class="cb-bg-black-900 cb-w-full cb-h-[84px] md:cb-h-[70px] lg:cb-h-[83px] xl:cb-h-[94px]"
+        class="cb-h-[84px] cb-w-full cb-bg-black-900 md:cb-h-[70px] lg:cb-h-[83px] xl:cb-h-[94px]"
       />
     </div>
   </div>

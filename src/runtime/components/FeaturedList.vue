@@ -1,10 +1,10 @@
 <template>
   <section
-    class="cb-blog-container cb-min-h-[50vh] cb-my-10 md:cb-my-16 cb-mx-2 sm:cb-mx-auto"
+    class="cb-blog-container cb-mx-2 cb-my-10 cb-min-h-[50vh] sm:cb-mx-auto md:cb-my-16"
   >
     <div class="md:cb-mx-8 xl:cb-mx-20 3xl:cb-px-24">
       <h1
-        class="cb-my-6 md:cb-my-10 cb-text-[1.5rem] md:cb-text-[1.875rem] xl:cb-text-[2.25rem] cb-leading-7 cb-tracking-none cb-capitalize cb-font-inter-semibold"
+        class="cb-tracking-none cb-my-6 cb-font-inter-semibold cb-text-[1.5rem] cb-capitalize cb-leading-7 md:cb-my-10 md:cb-text-[1.875rem] xl:cb-text-[2.25rem]"
       >
         Featured Blogs
       </h1>

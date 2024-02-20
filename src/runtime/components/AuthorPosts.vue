@@ -7,21 +7,9 @@
       :class="i == posts.length - 1 ? 'cb-border-b-0' : 'cb-border-b-2'"
     >
       <div class="cb-flex cb-flex-col cb-gap-4 md:cb-basis-8/12">
-        <nuxt-link
-          :to="'/author/' + post.authorSlug"
-          class="cb-relative cb-flex cb-items-center cb-gap-4 cb-overflow-hidden"
-        >
-          <img
-            width="30"
-            height="30"
-            class="cb-rounded-full cb-object-cover"
-            :src="post.authorImage"
-            :alt="post.authorAltText"
-          />
-          <span class="cb-font-inter-medium">
-            {{ post.authorName }}
-          </span>
-        </nuxt-link>
+        <span class="cb-font-inter-medium">
+          {{ post.published_on }}
+        </span>
         <nuxt-link :to="'/' + post.slug">
           <div class="cb-flex">
             <div class="">
@@ -43,24 +31,9 @@
             </div>
           </div>
         </nuxt-link>
-
-        <div class="cb-flex cb-flex-col cb-justify-center cb-gap-6">
-          <div
-            class="cb-flex cb-flex-wrap cb-items-center cb-space-x-2 cb-text-sm md:cb-text-[0.9375rem] xl:cb-text-base"
-          >
-            <span class="cb-text-black-core/[0.65]">
-              {{ post.published_on }}
-            </span>
-            <span class="after:cb-mx-0.5 after:cb-content-['\00B7']" />
-            <span class="cb-text-black-core/[0.65]">
-              {{ post.reading_time }} min read
-            </span>
-          </div>
+        <div class="cb-flex cb-flex-col cb-justify-center cb-gap-4">
           <div class="cb-flex cb-flex-wrap cb-gap-x-2 cb-gap-y-8">
-            <div
-              v-for="tag in post.tags.filter((tag) => tag.slug !== slug)"
-              :key="tag.id"
-            >
+            <div v-for="tag in post.tags.slice(0, 2)" :key="tag.id">
               <nuxt-link
                 :to="'/tag/' + tag.slug"
                 class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-p-3 cb-font-normal cb-capitalize cb-no-underline"
@@ -69,6 +42,9 @@
               </nuxt-link>
             </div>
           </div>
+          <span class="cb-text-black-core/[0.65]">
+            {{ post.reading_time }} min read
+          </span>
         </div>
       </div>
       <div
@@ -91,10 +67,6 @@
 const props = defineProps({
   posts: {
     type: Object,
-    required: true,
-  },
-  slug: {
-    type: String,
     required: true,
   },
   mixpanel: Object,
