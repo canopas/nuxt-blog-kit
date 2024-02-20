@@ -1,6 +1,6 @@
 {
   "name": "@canopassoftware/blog-components",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Blog components",
   "keywords": [
     "components",
@@ -56,7 +56,6 @@
     "@types/node": "^18.18.1",
     "changelogen": "^0.5.5",
     "eslint": "^8.50.0",
-    "medium-zoom": "^1.1.0",
     "nuxt": "^3.7.4",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
