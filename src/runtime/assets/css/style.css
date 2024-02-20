@@ -43,11 +43,11 @@
   }
 
   .cb-gradient-text {
-    @apply cb-bg-clip-text cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-text-transparent;
+    @apply cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-bg-clip-text cb-text-transparent;
   }
 
   .cb-hoverable-text:hover {
-    @apply cb-bg-clip-text cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-text-transparent;
+    @apply cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-bg-clip-text cb-text-transparent;
   }
 
   .cb-gradient-border {
@@ -55,7 +55,7 @@
   }
 
   .cb-gradient-border-btn {
-    @apply cb-border cb-border-solid cb-border-transparent cb-rounded-[0.6rem] cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-shadow-[inset_2px_1000px_1px_#fff] cb-p-[1rem] cb-text-center hover:cb-border hover:cb-border-solid hover:cb-border-transparent hover:cb-from-[#f2709c] hover:cb-to-[#ff9472] hover:cb-shadow-none active:cb-scale-[0.98];
+    @apply cb-rounded-[0.6rem] cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-via-[#ff909c] cb-to-[#ff9472] cb-p-[1rem] cb-text-center cb-shadow-[inset_2px_1000px_1px_#fff] hover:cb-border hover:cb-border-solid hover:cb-border-transparent hover:cb-from-[#f2709c] hover:cb-to-[#ff9472] hover:cb-shadow-none active:cb-scale-[0.98];
   }
 
   .cb-gradient-border-btn > a > .fab {
@@ -63,7 +63,7 @@
   }
 
   .cb-gradient-border-btn > span {
-    @apply cb-my-0 cb-mx-1.5 cb-text-[#3d3d3d];
+    @apply cb-mx-1.5 cb-my-0 cb-text-[#3d3d3d];
   }
 
   .cb-gradient-border-btn:hover > span,
@@ -93,7 +93,7 @@
 
   b,
   strong {
-    @apply !cb-font-comme-medium !cb-font-medium cb-tracking-[0.01em] !cb-text-black-core/[1] cb-text-[1.0625rem] md:cb-text-[1.15625rem];
+    @apply !cb-font-comme-medium cb-text-[1.0625rem] !cb-font-medium cb-tracking-[0.01em] !cb-text-black-core/[1] md:cb-text-[1.15625rem];
   }
 
   /* HighlightJS */
@@ -172,12 +172,12 @@
 
   .cb-prose h1,
   .cb-prose h1 strong {
-    @apply !cb-font-comme-semibold cb-text-[#000] cb-text-[1.6875rem] md:cb-text-[1.78125rem] lg:cb-text-[1.95rem] xl:cb-text-[2.0625rem] !-cb-mb-2.5 !cb-tracking-tight !cb-leading-snug cb-mt-[3.75rem];
+    @apply !-cb-mb-2.5 cb-mt-[3.75rem] !cb-font-comme-semibold cb-text-[1.6875rem] !cb-leading-snug !cb-tracking-tight cb-text-[#000] md:cb-text-[1.78125rem] lg:cb-text-[1.95rem] xl:cb-text-[2.0625rem];
   }
 
   .cb-prose h2,
   .cb-prose h2 strong {
-    @apply !cb-font-comme-semibold cb-text-[#000] xl:cb-text-[2.0625rem] !cb-mb-4 !cb-tracking-tight;
+    @apply !cb-mb-4 !cb-font-comme-semibold !cb-tracking-tight cb-text-[#000] xl:cb-text-[2.0625rem];
   }
 
   .cb-prose hr {
@@ -190,31 +190,31 @@
 
   .cb-prose i,
   .cb-prose a {
-    @apply !cb-font-comme-regular cb-text-lg cb-text-black-core/[0.87] cb-tracking-[0.03rem];
+    @apply !cb-font-comme-regular cb-text-lg cb-tracking-[0.03rem] cb-text-black-core/[0.87];
   }
 
   .cb-prose span a {
-    @apply !cb-font-comme-regular cb-text-lg cb-text-blue-700 cb-tracking-[0.03rem];
+    @apply !cb-font-comme-regular cb-text-lg cb-tracking-[0.03rem] cb-text-blue-700;
   }
 
   .cb-prose
     :where(code, code strong):not(
       :where([class~="not-prose"], blockquote code)
     ) {
-    @apply cb-bg-gray-200 cb-py-0.5 cb-px-1 cb-rounded cb-font-[550] cb-tracking-wide !cb-font-source-codepro;
+    @apply cb-rounded cb-bg-gray-200 cb-px-1 cb-py-0.5 !cb-font-source-codepro cb-font-[550] cb-tracking-wide;
   }
 
   .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
-    @apply cb-bg-transparent cb-text-[#dbe0e0] cb-leading-normal cb-tracking-[-0.022em] !cb-break-normal;
+    @apply !cb-break-normal cb-bg-transparent cb-leading-normal cb-tracking-[-0.022em] cb-text-[#dbe0e0];
   }
 
   .cb-prose
     :where(blockquote, blockquote i):not(:where([class~="not-prose"] *)) {
-    @apply cb-not-italic !cb-text-[1.4rem] lg:!cb-text-[1.755rem] !cb-leading-[2.3rem] !cb-text-black-core/[0.75] cb-tracking-wide !cb-font-inter-extralight;
+    @apply !cb-font-inter-extralight !cb-text-[1.4rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-[1.755rem];
   }
 
   .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
-    @apply cb-not-italic !cb-text-[1.4rem] lg:!cb-text-[1.755rem] !cb-leading-[2.3rem] !cb-text-black-core/[0.75] cb-tracking-wide !cb-font-inter-regular;
+    @apply !cb-font-inter-regular !cb-text-[1.4rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-[1.755rem];
   }
 
   .cb-prose

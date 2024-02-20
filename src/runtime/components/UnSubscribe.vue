@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="cb-blog-container cb-w-[90%] sm:cb-w-[70%] lg:cb-w-1/2 2xl:cb-w-2/5 cb-h-fit-content cb-min-h-[50vh] cb-my-16 cb-rounded-[12px] cb-bg-white cb-shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] cb-p-6"
+      class="cb-h-fit-content cb-blog-container cb-my-16 cb-min-h-[50vh] cb-w-[90%] cb-rounded-[12px] cb-bg-white cb-p-6 cb-shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] sm:cb-w-[70%] lg:cb-w-1/2 2xl:cb-w-2/5"
     >
       <div class="cb-text-center">
         <h1 class="cb-mb-3 cb-text-3xl">Unsubscribe</h1>
@@ -9,11 +9,11 @@
         <p class="cb-my-3">
           {{ email }}
         </p>
-        <div class="cb-w-1/2 cb-h-auto cb-mx-[24%]">
+        <div class="cb-mx-[24%] cb-h-auto cb-w-1/2">
           <img
             width="100"
             height="100"
-            class="cb-w-full cb-h-full cb-rounded-full cb-object-cover cb-inset-0"
+            class="cb-inset-0 cb-h-full cb-w-full cb-rounded-full cb-object-cover"
             :src="emailTemplate"
             alt="email"
           />
@@ -24,10 +24,10 @@
         </p>
         <div class="cb-flex cb-justify-center cb-space-x-3">
           <button
-            class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] hover:cb-cursor-pointer"
+            class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-cursor-pointer hover:cb-shadow-[inset_2px_1000px_1px_#fff]"
           >
             <div
-              class="cb-px-[1.35rem] cb-py-[0.3rem] cb-align-middle cb-text-center cb-tracking-wider cb-hoverable-text cb-capitalize"
+              class="cb-hoverable-text cb-px-[1.35rem] cb-py-[0.3rem] cb-text-center cb-align-middle cb-capitalize cb-tracking-wider"
               @click="userUnsubscribe"
             >
               yes
@@ -35,10 +35,10 @@
           </button>
           <nuxt-link :href="'/resources'" @click="handleLogout">
             <button
-              class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] hover:cb-cursor-pointer"
+              class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-cursor-pointer hover:cb-shadow-[inset_2px_1000px_1px_#fff]"
             >
               <div
-                class="cb-px-[1.35rem] cb-py-[0.3rem] cb-align-middle cb-text-center cb-tracking-wider cb-hoverable-text cb-capitalize"
+                class="cb-hoverable-text cb-px-[1.35rem] cb-py-[0.3rem] cb-text-center cb-align-middle cb-capitalize cb-tracking-wider"
               >
                 no
               </div>
@@ -50,14 +50,14 @@
 
     <div
       v-if="alerts"
-      class="cb-absolute cb-bottom-10 cb-flex cb-flex-rows cb-inset-x-[5%] sm:cb-inset-x-[20%] md:cb-inset-x-[25%] xl:cb-inset-x-[30%] cb-justify-between cb-items-center cb-w-[90%] sm:cb-w-7/12 md:cb-w-6/12 xl:cb-w-5/12 cb-z-10 cb-rounded-[10px] cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-py-5 cb-text-white"
+      class="cb-absolute cb-inset-x-[5%] cb-bottom-10 cb-z-10 cb-flex cb-w-[90%] cb-items-center cb-justify-between cb-rounded-[10px] cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-py-5 cb-text-white sm:cb-inset-x-[20%] sm:cb-w-7/12 md:cb-inset-x-[25%] md:cb-w-6/12 xl:cb-inset-x-[30%] xl:cb-w-5/12"
     >
-      <p class="cb-mx-7 cb-tracking-wider md:cb-text-xl cb-font-medium">
+      <p class="cb-mx-7 cb-font-medium cb-tracking-wider md:cb-text-xl">
         Unsubscribe Successfully!
       </p>
       <Icon
         name="fa6-solid:xmark"
-        class="cb-w-5 cb-h-5 cb-mr-5 hover:cb-cursor-pointer"
+        class="cb-mr-5 cb-h-5 cb-w-5 hover:cb-cursor-pointer"
         @click="showAlert = false"
       />
     </div>

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="cb-my-4 cb-w-auto cb-h-auto cb-border cb-border-1 cb-border-gray-300 cb-transition-all cb-aspect-auto hover:cb-scale-105"
+    class="cb-border-1 cb-aspect-auto cb-my-4 cb-h-auto cb-w-auto cb-border cb-border-gray-300 cb-transition-all hover:cb-scale-105"
     :class="[
       index === 0 && count && count % 3 === 1
-        ? 'md:cb-w-3/5 lg:cb-w-2/4 md:cb-h-[14.7rem] lg:cb-h-[16.51rem] xl:cb-h-[19.67rem] 2xl:cb-h-[22.836rem]'
+        ? 'md:cb-h-[14.7rem] md:cb-w-3/5 lg:cb-h-[16.51rem] lg:cb-w-2/4 xl:cb-h-[19.67rem] 2xl:cb-h-[22.836rem]'
         : 'md:cb-h-[7.742rem] lg:cb-h-[10.085rem] xl:cb-h-[12.195rem] 2xl:cb-h-[14.304em]',
       post.image == null ? 'bg-black-900' : '',
     ]"
@@ -20,23 +20,22 @@
         :loading="index === 0 && count && count % 3 === 1 ? 'eager' : 'lazy'"
         :class="
           post.image == null
-            ? 'cb-w-[46%] cb-h-4/5 cb-mx-auto cb-my-[5%]'
-            : 'cb-w-full cb-h-full'
+            ? 'cb-mx-auto cb-my-[5%] cb-h-4/5 cb-w-[46%] cb-object-cover'
+            : 'cb-h-full cb-w-full'
         "
-        class="cb-object-cover"
       />
     </nuxt-link>
   </div>
 
   <div
-    class="cb-flex cb-flex-col cb-flex-[1_0_0%] cb-space-y-2"
+    class="cb-flex cb-flex-[1_0_0%] cb-flex-col cb-space-y-2"
     :class="index === 0 && count && count % 3 === 1 ? '' : 'cb-justify-between'"
   >
     <div
-      class="cb-text-[1.3125rem] cb-leading-7 sm:cb-text-[1.375rem] sm:cb-leading-[1.875rem] cb-tracking-none cb-text-black-core/[0.87] hover:cb-underline cb-underline-offset-4 cb-transition-all hover:cb-scale-[0.96] cb-font-inter-semibold"
+      class="cb-tracking-none cb-font-inter-semibold cb-text-[1.3125rem] cb-leading-7 cb-text-black-core/[0.87] cb-underline-offset-4 cb-transition-all hover:cb-scale-[0.96] hover:cb-underline sm:cb-text-[1.375rem] sm:cb-leading-[1.875rem]"
       :class="
         index === 0 && count && count % 3 === 1
-          ? 'md:cb-text-2xl xl:cb-text-3xl md:cb-font-bold xl:cb-leading-10'
+          ? 'md:cb-text-2xl md:cb-font-bold xl:cb-text-3xl xl:cb-leading-10'
           : 'md:cb-text-xl lg:cb-text-[1.4375rem] lg:cb-leading-8'
       "
     >
@@ -52,7 +51,7 @@
       </nuxt-link>
     </div>
     <div
-      class="cb-text-[1.0625rem] md:cb-text-base lg:cb-text-lg cb-tracking-wide cb-text-black-core/[0.65]"
+      class="cb-text-[1.0625rem] cb-tracking-wide cb-text-black-core/[0.65] md:cb-text-base lg:cb-text-lg"
     >
       <nuxt-link :to="'/' + post.slug">
         <p class="cb-line-clamp-3">
@@ -61,36 +60,36 @@
       </nuxt-link>
     </div>
     <div
-      class="cb-flex cb-flex-row cb-items-center cb-pt-3 cb-text-sm xl:cb-text-lg cb-text-black-core/[0.65]"
+      class="cb-flex cb-items-center cb-pt-3 cb-text-sm cb-text-black-core/[0.65] xl:cb-text-lg"
     >
       <div
-        class="cb-relative cb-w-10 md:cb-w-[41px] cb-h-10 cb-max-w-full cb-max-h-full cb-overflow-hidden"
+        class="cb-relative cb-h-10 cb-max-h-full cb-w-10 cb-max-w-full cb-overflow-hidden md:cb-w-[41px]"
       >
         <nuxt-link :to="'/' + post.slug">
           <img
             width="40"
             height="40"
-            class="cb-absolute cb-top-2/4 cb-left-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
+            class="cb-absolute cb-left-2/4 cb-top-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
             :src="post.authorImage"
             :alt="post.authorAltText"
             loading="lazy"
           />
         </nuxt-link>
       </div>
-      <nuxt-link :to="'/' + post.slug">
+      <nuxt-link :to="'/author/' + post.authorSlug">
         <div class="cb-pl-3 cb-text-sm cb-tracking-wide">
-          <span class="cb-text-green-700 cb-capitalize">
+          <span class="cb-capitalize cb-text-green-700">
             {{ post.authorName }}
           </span>
 
           <div>
             <span>{{ post.published_on }}</span>
-            <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
+            <span class="after:cb-mx-1 after:cb-content-['\00B7']" />
             <span>{{ post.reading_time }} min read </span>
 
-            <span v-if="post.published_on == null">
-              <span class="after:cb-content-['\00B7'] after:cb-mx-1" />
-              <span class="cb-text-green-700 cb-capitalize"> draft </span>
+            <span v-if="!post.is_published">
+              <span class="after:cb-mx-1 after:cb-content-['\00B7']" />
+              <span class="cb-capitalize cb-text-green-700"> draft </span>
             </span>
           </div>
         </div>

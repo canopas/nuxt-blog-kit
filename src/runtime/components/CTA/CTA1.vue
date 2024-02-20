@@ -2,7 +2,7 @@
   <section
     class="cb-relative cb-bg-[#FDE0E2] cb-bg-gradient-background md:cb-mt-0 md:cb-bg-none"
   >
-    <div class="md:cb-hidden cb-mb-[-15px] sm:cb-mb-0">
+    <div class="cb-mb-[-15px] sm:cb-mb-0 md:cb-hidden">
       <img
         :src="background400w"
         alt="background-image"
@@ -31,10 +31,10 @@
         </p>
         <nuxt-link :to="'/contact'">
           <div
-            class="cb-flex cb-items-center cb-mt-10 cb-mx-auto md:cb-mx-0 cb-w-max cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-center cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-font-inter-semibold cb-tracking-normal cb-text-white cb-active:scale-[0.98]"
+            class="cb-active:scale-[0.98] cb-mx-auto cb-mt-10 cb-flex cb-w-max cb-items-center cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-center cb-font-inter-semibold cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-tracking-normal cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-mx-0"
           >
             <span
-              class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block"
+              class="cb-hoverable-text cb-inline-block cb-px-[1.2rem] cb-py-4"
             >
               Get Free Consultation
             </span>
@@ -51,7 +51,7 @@
         loading="lazy"
       />
       <div
-        class="cb-blog-container cb-sticky z-[1] cb-flex cb-flex-col cb-items-center cb-justify-center cb-py-20 4xl:cb-py-32"
+        class="z-[1] cb-blog-container cb-sticky cb-flex cb-flex-col cb-items-center cb-justify-center cb-py-20 4xl:cb-py-32"
       >
         <p
           class="cb-gradient-text cb-text-center cb-font-inter-medium cb-text-lg cb-leading-[1.375rem] xl:cb-text-xl xl:cb-leading-[1.513rem]"
@@ -59,12 +59,12 @@
           Get started today
         </p>
         <p
-          class="cb-mt-4 4xl:cb-mt-6 cb-text-center cb-font-inter-bold cb-text-[2.813rem] cb-leading-[3.438rem] cb-text-black-core/[0.85] xl:cb-text-[3.438rem] xl:cb-leading-[4.16rem]"
+          class="cb-mt-4 cb-text-center cb-font-inter-bold cb-text-[2.813rem] cb-leading-[3.438rem] cb-text-black-core/[0.85] xl:cb-text-[3.438rem] xl:cb-leading-[4.16rem] 4xl:cb-mt-6"
         >
           Let&apos;s build the next big thing!
         </p>
         <p
-          class="cb-mt-4 4xl:cb-mt-6 w-[75%] cb-text-center cb-font-inter-regular cb-text-[1.063rem] cb-leading-[1.625rem] cb-text-black-core/[0.75] xl:cb-text-xl xl:cb-leading-[1.875rem]"
+          class="w-[75%] cb-mt-4 cb-text-center cb-font-inter-regular cb-text-[1.063rem] cb-leading-[1.625rem] cb-text-black-core/[0.75] xl:cb-text-xl xl:cb-leading-[1.875rem] 4xl:cb-mt-6"
         >
           Let&apos;s improve your business&apos;s digital strategy and implement
           robust mobile apps to achieve your business objectives. Schedule Your
@@ -72,10 +72,10 @@
         </p>
         <nuxt-link :to="'/contact'">
           <div
-            class="cb-flex cb-items-center cb-mt-10 cb-mx-auto md:cb-mx-0 cb-w-max cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-center cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-font-inter-semibold cb-tracking-normal cb-text-white active:cb-scale-[0.98]"
+            class="cb-mx-auto cb-mt-10 cb-flex cb-w-max cb-items-center cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-center cb-font-inter-semibold cb-text-[1.1875rem] cb-leading-[1.1875rem] cb-tracking-normal cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] active:cb-scale-[0.98] md:cb-mx-0"
           >
             <span
-              class="cb-py-4 cb-px-[1.2rem] cb-hoverable-text cb-inline-block"
+              class="cb-hoverable-text cb-inline-block cb-px-[1.2rem] cb-py-4"
             >
               Get Free Consultation
             </span>

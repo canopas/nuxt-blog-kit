@@ -1,35 +1,35 @@
 <template>
   <div
-    class="cb-relative cb-overflow-hidden cb-px-0 cb-font-inter-medium cb-z-[1] cb-footer-section"
+    class="cb-footer-section cb-relative cb-z-[1] cb-overflow-hidden cb-px-0 cb-font-inter-medium"
   >
     <img
       height="200"
       width="200"
-      class="cb-absolute cb-top-[15px] sm:cb-top-0 cb-left-0 cb-w-full cb-h-full xl2:cb-h-[unset] -cb-z-[1] cb-object-cover xl2:cb-object-fill"
+      class="xl2:cb-h-[unset] xl2:cb-object-fill cb-absolute cb-left-0 cb-top-[15px] -cb-z-[1] cb-h-full cb-w-full cb-object-cover sm:cb-top-0"
       :src="bg"
       alt="footer"
     />
     <div class="cb-blog-container lg:cb-px-20 2xl:cb-px-32">
       <div
-        class="cb-grid cb-grid-rows-2 xl:cb-grid-rows-none xl:cb-grid-cols-2 cb-justify-items-stretch cb-mt-7 md:cb-mt-11 cb-mb-8 md:cb-mb-12 xl:cb-mb-[60px]"
+        class="cb-mb-8 cb-mt-7 cb-grid cb-grid-rows-2 cb-justify-items-stretch md:cb-mb-12 md:cb-mt-11 xl:cb-mb-[60px] xl:cb-grid-cols-2 xl:cb-grid-rows-none"
       >
         <div
-          class="cb-max-h-1 cb-justify-self-center xl:cb-justify-self-end xl:cb-order-last"
+          class="cb-max-h-1 cb-justify-self-center xl:cb-order-last xl:cb-justify-self-end"
         >
           <div
-            class="cb-mt-5 cb-text-[1.375rem] cb-leading-[1.6875rem] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem] cb-text-white/[.87] cb-font-inter-bold"
+            class="cb-mt-5 cb-font-inter-bold cb-text-[1.375rem] cb-leading-[1.6875rem] cb-text-white/[.87] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem]"
           >
             Subscribe Here!
           </div>
           <form
-            class="cb-flex cb-flex-row cb-space-x-2 cb-m-auto cb-mt-6 xl:cb-mt-8 cb-items-center"
+            class="cb-m-auto cb-mt-6 cb-flex cb-items-center cb-space-x-2 xl:cb-mt-8"
             @submit="handleSubscription"
           >
             <div class="cb-w-56 md:cb-w-72">
               <input
                 id="subscribeEmail"
                 v-model="email"
-                class="cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 md:cb-py-3 cb-pl-3 cb-text-white cb-floating-input focus:cb-outline-none"
+                class="cb-floating-input cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 cb-pl-3 cb-text-white focus:cb-outline-none md:cb-py-3"
                 placeholder="Enter Your E-mail"
                 type="email"
                 required
@@ -38,22 +38,22 @@
             </div>
 
             <button
-              class="cb-hidden md:cb-block cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] cb-text-white"
+              class="cb-hidden cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-block"
             >
               <div
-                class="cb-py-[0.63rem] cb-px-2 md:cb-px-[1.1rem] cb-text-md md:cb-text-xl cb-hoverable-text cb-inline-block"
+                class="cb-text-md cb-hoverable-text cb-inline-block cb-px-2 cb-py-[0.63rem] md:cb-px-[1.1rem] md:cb-text-xl"
               >
                 Subscribe
               </div>
             </button>
             <button
-              class="md:cb-hidden cb-w-[45px] cb-h-[45px] cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff]"
+              class="cb-h-[45px] cb-w-[45px] cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-hidden"
               aria-label="SubscribeBtn"
             >
-              <div class="cb-w-[21px] cb-h-[21px] cb-inline-block">
+              <div class="cb-inline-block cb-h-[21px] cb-w-[21px]">
                 <Icon
                   name="fa6-solid:bell"
-                  class="fab cb-footer-icon cb-w-full cb-h-full cb-hoverable-text cb-mt-0.5"
+                  class="fab cb-footer-icon cb-hoverable-text cb-mt-0.5 cb-h-full cb-w-full"
                 />
               </div>
             </button>
@@ -68,94 +68,110 @@
         </div>
         <div class="cb-justify-self-center xl:cb-justify-self-start">
           <div
-            class="cb-mt-8 xl:cb-mt-5 cb-text-[1.375rem] cb-leading-[1.6875rem] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem] cb-text-white/[.87] cb-font-inter-bold"
+            class="cb-mt-8 cb-font-inter-bold cb-text-[1.375rem] cb-leading-[1.6875rem] cb-text-white/[.87] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem] xl:cb-mt-5"
           >
             Follow us on
           </div>
           <ul
-            class="cb-flex cb-flex-wrap cb-justify-center cb-w-full cb-m-auto cb-mt-6 xl:cb-mt-8 cb-pl-0 cb-cursor-pointer cb-list-none"
+            class="cb-m-auto cb-mt-6 cb-flex cb-w-full cb-cursor-pointer cb-list-none cb-flex-wrap cb-justify-center cb-pl-0 xl:cb-mt-8"
           >
             <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mr-1 md:cb-mr-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
+              class="cb-gradient-border-btn cb-mr-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mr-1.5 md:cb-h-[62px] md:cb-w-[62px]"
             >
               <nuxt-link
                 :href="socialMediaData.facebook"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_facebook')"
               >
                 <Icon
                   name="fa6-brands:facebook-f"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 />
               </nuxt-link>
             </li>
 
             <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
+              class="cb-gradient-border-btn cb-mx-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mx-1.5 md:cb-h-[62px] md:cb-w-[62px]"
             >
               <nuxt-link
                 :href="socialMediaData.instagram"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_instagram')"
               >
                 <Icon
                   name="fa6-brands:instagram"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 />
               </nuxt-link>
             </li>
 
             <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
+              class="cb-gradient-border-btn cb-mx-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mx-1.5 md:cb-h-[62px] md:cb-w-[62px]"
             >
               <nuxt-link
                 :href="socialMediaData.twitter"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_twitter')"
               >
                 <Icon
                   name="fa6-brands:x-twitter"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 />
               </nuxt-link>
             </li>
 
             <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
+              class="cb-gradient-border-btn cb-mx-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mx-1.5 md:cb-h-[62px] md:cb-w-[62px]"
             >
               <nuxt-link
                 :href="socialMediaData.linkedin"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_linkedin')"
               >
                 <Icon
                   name="fa-brands:linkedin-in"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 />
               </nuxt-link>
             </li>
 
             <li
-              class="cb-flex cb-justify-center !cb-items-center cb-w-10 cb-h-10 md:cb-w-[62px] md:cb-h-[62px] cb-mx-1 md:cb-mx-1.5 !cb-rounded-full cb-text-center cb-cursor-pointer cb-gradient-border-btn !cb-border-0"
+              class="cb-gradient-border-btn cb-mx-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mx-1.5 md:cb-h-[62px] md:cb-w-[62px]"
             >
               <nuxt-link
                 :href="socialMediaData.youtube"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_youtube')"
               >
                 <Icon
                   name="fa-brands:youtube"
-                  class="fab cb-footer-icon cb-w-5 cb-h-5 md:cb-w-8 md:cb-h-8"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                />
+              </nuxt-link>
+            </li>
+            <li
+              class="cb-gradient-border-btn cb-mx-1 cb-flex cb-h-10 cb-w-10 cb-cursor-pointer !cb-items-center cb-justify-center !cb-rounded-full !cb-border-0 cb-text-center md:cb-mx-1.5 md:cb-h-[62px] md:cb-w-[62px]"
+            >
+              <nuxt-link
+                :href="socialMediaData.github"
+                target="_blank"
+                aria-label="footerLink"
+                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                @click="handleIconClick('tap_footer_github')"
+              >
+                <Icon
+                  name="fa-brands:github"
+                  class="fab cb-footer-icon cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 />
               </nuxt-link>
             </li>
@@ -164,12 +180,12 @@
       </div>
 
       <div
-        class="cb-mb-8 md:cb-mb-9 cb-text-xs cb-leading-[0.9375rem] md:cb-text-[0.84375rem] md:cb-leading-[1.03125rem] lg:cb-text-[0.9375rem] lg:cb-leading-[1.125rem] cb-text-white/[.87] cb-text-center"
+        class="cb-mb-8 cb-text-center cb-text-xs cb-leading-[0.9375rem] cb-text-white/[.87] md:cb-mb-9 md:cb-text-[0.84375rem] md:cb-leading-[1.03125rem] lg:cb-text-[0.9375rem] lg:cb-leading-[1.125rem]"
       >
-        <div class="cb-w-3 cb-h-3 md:cb-w-4 md:cb-h-4 cb-mr-1 cb-inline-block">
+        <div class="cb-mr-1 cb-inline-block cb-h-3 cb-w-3 md:cb-h-4 md:cb-w-4">
           <Icon
             name="fa-regular:copyright"
-            class="cb-w-full cb-h-full cb-mt-0.5"
+            class="cb-mt-0.5 cb-h-full cb-w-full"
           />
         </div>
         {{ new Date().getFullYear() }} {{ companyName }} All rights reserved.
@@ -185,13 +201,13 @@
 
     <div
       v-if="showAlert"
-      class="cb-fixed cb-bottom-[5%] cb-inset-x-[5%] sm:cb-inset-x-[20%] xl:vinset-x-[27%] cb-flex cb-flex-rows cb-justify-between cb-items-center cb-w-[90%] sm:cb-w-7/12 xl:cb-w-5/12 cb-z-[500] cb-rounded-[10px] cb-from-[#ff835b] cb-to-[#f2709c] cb-bg-gradient-to-r cb-py-5 cb-font-inter-semibold cb-text-center cb-text-white md:cb-text-xl"
+      class="xl:vinset-x-[27%] cb-fixed cb-inset-x-[5%] cb-bottom-[5%] cb-z-[500] cb-flex cb-w-[90%] cb-items-center cb-justify-between cb-rounded-[10px] cb-bg-gradient-to-r cb-from-[#ff835b] cb-to-[#f2709c] cb-py-5 cb-text-center cb-font-inter-semibold cb-text-white sm:cb-inset-x-[20%] sm:cb-w-7/12 md:cb-text-xl xl:cb-w-5/12"
       role="alert"
     >
-      <p class="cb-block sm:cb-inline cb-mx-7">Subscribe Successfully!</p>
+      <p class="cb-mx-7 cb-block sm:cb-inline">Subscribe Successfully!</p>
       <Icon
         name="fa6-solid:xmark"
-        class="cb-w-5 cb-h-5 cb-mr-5 hover:cb-cursor-pointer"
+        class="cb-mr-5 cb-h-5 cb-w-5 hover:cb-cursor-pointer"
         @click="showAlert = false"
       />
     </div>

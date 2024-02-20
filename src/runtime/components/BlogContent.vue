@@ -9,36 +9,30 @@
 
   <div
     ref="contentRef"
-    class="cb-prose lg:cb-prose-lg cb-scroll-smooth"
+    class="cb-prose cb-scroll-smooth lg:cb-prose-lg"
     :class="
       post.is_resource
         ? 'xl:cb-w-full 2xl:cb-w-auto'
-        : 'xl:cb-w-[75%] cb-w-full cb-max-w-[85ch]'
+        : 'cb-w-full cb-max-w-[85ch] xl:cb-w-[75%]'
     "
   >
     <div
-      class="!cb-tracking-wide cb-text-black-core/[0.80] cb-font-comme-light cb-select-text"
+      class="cb-select-text cb-font-comme-light !cb-tracking-wide cb-text-black-core/[0.80]"
       v-html="newContent"
     />
-    <div class="cb-flex cb-flex-row cb-flex-wrap cb-mt-11">
+    <div class="cb-mt-11 cb-flex cb-flex-wrap">
       <tag-section :tags="post.tags" :mixpanel="mixpanel" />
     </div>
-    <author-detail v-if="post.authorBio" :data="post" />
+    <author-detail v-if="post.authorBio" :post="post" />
   </div>
 </template>
 
 <script setup>
 import { toRefs, onMounted, onUnmounted, ref } from "vue";
+import mediumZoom from "medium-zoom/dist/pure";
+import "medium-zoom/dist/style.css";
 
 const props = defineProps({
-  content: {
-    type: String,
-    required: true,
-  },
-  indexContent: {
-    type: String,
-    required: true,
-  },
   post: {
     type: Object,
     required: true,
@@ -46,23 +40,26 @@ const props = defineProps({
   mixpanel: Object,
 });
 
-const { content, indexContent, post, mixpanel } = toRefs(props);
+const { post, mixpanel } = toRefs(props);
 const contentRef = ref({});
 const headerHeight = ref(0);
 
+const content = post.value?.content;
+const indexContent = post.value?.toc;
+
 let firstHeadingId;
 
-const newContent = content.value
+const newContent = content
   ?.replace(
     /<img/g,
-    '<img class="cb-mx-auto cb-aspect-w-2 sm:cb-object-cover" style="width:min-content;height:min-content"'
+    '<img class="cb-mx-auto cb-aspect-w-2 sm:cb-object-cover" style="width:min-content;height:min-content"',
   )
   .replace(/color:rgb\(14,16,26\);/g, "")
   .replace(/<a /g, '<a target="_blank"');
 
 // table of contents formation
 let tocIndex = -1;
-const newIndexContent = indexContent.value?.replace(
+const newIndexContent = indexContent?.replace(
   /<a\s+href="(.*?)"/g,
   (match, href) => {
     const match2 = /#([^\n]+-0)\b/g.exec(href);
@@ -75,7 +72,7 @@ const newIndexContent = indexContent.value?.replace(
 
     tocIndex++;
     return `<a id="${"link-" + tocIndex}" href="${href}" class="${classes}"`;
-  }
+  },
 );
 
 const classes = [
@@ -130,15 +127,7 @@ onMounted(() => {
     element.style.marginTop = "0";
   }
 
-  document.querySelectorAll("oembed[url]").forEach((element) => {
-    if (
-      typeof iframely !== "undefined" &&
-      !element.getAttribute("data-loaded")
-    ) {
-      iframely.load(element, element.attributes.url.value);
-      element.setAttribute("data-loaded", true);
-    }
-  });
+  mediumZoom(document.querySelectorAll(".cb-prose img"));
 
   window.addEventListener("scroll", handleScroll);
 });

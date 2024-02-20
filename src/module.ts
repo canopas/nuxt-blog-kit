@@ -28,6 +28,7 @@ export default defineNuxtModule<ModuleOptions>({
       "@nuxtjs/tailwindcss",
       "@pinia/nuxt",
       "nuxt-icon",
+      "medium-zoom",
     );
 
     nuxt.hook("nitro:config", async (nitroConfig) => {

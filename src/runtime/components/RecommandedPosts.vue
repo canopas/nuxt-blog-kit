@@ -1,7 +1,7 @@
 <template>
   <div>
     <span
-      class="cb-text-[1.6875rem] lg:cb-text-[2rem] xl:cb-text-[1.5625rem] cb-capitalize cb-font-inter-medium"
+      class="cb-font-inter-medium cb-text-[1.6875rem] cb-capitalize lg:cb-text-[2rem] xl:cb-text-[1.5625rem]"
     >
       Recommended for you
     </span>
@@ -12,30 +12,31 @@
         :to="'/' + post.slug"
       >
         <div
-          class="cb-grid cb-grid-cols-3 xl:cb-grid-cols-2 cb-gap-5 xl:cb-gap-2 2xl:cb-gap-5 cb-items-end cb-mb-10 xl:cb-mb-6 2xl:cb-mb-8"
+          class="cb-mb-10 cb-grid cb-grid-cols-3 cb-items-end cb-gap-5 xl:cb-mb-6 xl:cb-grid-cols-2 xl:cb-gap-2 2xl:cb-mb-8 2xl:cb-gap-5"
         >
-          <div class="cb-flex cb-flex-col cb-col-span-2 cb-space-y-2">
-            <div
-              class="cb-flex cb-flex-row cb-space-x-2 cb-items-center cb-text-[0.8125rem] md:cb-text-[0.875rem] xl:cb-text-[0.8125rem] cb-capitalize"
+          <div class="cb-col-span-2 cb-flex cb-flex-col cb-space-y-2">
+            <nuxt-link
+              :to="'/author/' + post.author.username"
+              class="cb-flex cb-items-center cb-space-x-2 cb-text-[0.8125rem] cb-capitalize md:cb-text-[0.875rem] xl:cb-text-[0.8125rem]"
             >
               <div
-                class="cb-relative cb-w-6 cb-h-6 md:cb-w-[30px] md:cb-h-[30px] xl:cb-w-6 xl:cb-h-6 cb-max-w-full cb-max-h-full cb-overflow-hidden"
+                class="cb-relative cb-h-6 cb-max-h-full cb-w-6 cb-max-w-full cb-overflow-hidden md:cb-h-[30px] md:cb-w-[30px] xl:cb-h-6 xl:cb-w-6"
               >
                 <img
                   width="30"
                   height="30"
-                  class="cb-absolute cb-top-2/4 cb-left-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
+                  class="cb-absolute cb-left-2/4 cb-top-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
                   :src="post.author.image.url"
-                  :alt="post.authorAltText"
+                  :alt="post.author.name"
                 />
               </div>
               <span class="cb-font-inter-medium cb-tracking-wide">
-                {{ post.authorName }}
+                {{ post.author.name }}
               </span>
-            </div>
+            </nuxt-link>
 
             <div
-              class="cb-text-base sm:cb-text-[1.0625rem] md:cb-text-xl xl:cb-text-[1rem] sm:cb-leading-[1.45rem] md:cb-leading-[1.7rem] xl:cb-leading-[1.35rem] xl:cb-line-clamp-3 cb-text-black-core/[0.87] cb-font-inter-medium"
+              class="cb-font-inter-medium cb-text-base cb-text-black-core/[0.87] sm:cb-text-[1.0625rem] sm:cb-leading-[1.45rem] md:cb-text-xl md:cb-leading-[1.7rem] xl:cb-line-clamp-3 xl:cb-text-[1rem] xl:cb-leading-[1.35rem]"
               @click="
                 mixpanel?.track('tap_blog_title', {
                   Title: post.title,
@@ -45,23 +46,23 @@
               {{ post.title }}
             </div>
             <div
-              class="xl:cb-hidden cb-text-black-core/[0.65] cb-text-sm md:cb-text-base md:cb-leading-7 !cb-tracking-wide"
+              class="cb-text-sm !cb-tracking-wide cb-text-black-core/[0.65] md:cb-text-base md:cb-leading-7 xl:cb-hidden"
             >
               <span class="cb-line-clamp-2">{{ post.summary }}</span>
             </div>
             <div
-              class="cb-font-inter-regular cb-hidden xl:cb-block cb-text-black-core/[0.65] cb-text-[0.875rem] !cb-tracking-wide"
+              class="cb-hidden cb-font-inter-regular cb-text-[0.875rem] !cb-tracking-wide cb-text-black-core/[0.65] xl:cb-block"
             >
               <span>{{ post.reading_time }} min read | </span>
               <span>Published on {{ post.published_on }}</span>
             </div>
           </div>
           <div
-            class="xl:cb-hidden cb-mb-1.5 xl:cb-mt-2 cb-max-w-xs xl:cb-h-16"
+            class="cb-mb-1.5 cb-max-w-xs xl:cb-mt-2 xl:cb-hidden xl:cb-h-16"
             :class="
               post.image == null
-                ? 'cb-h-[5.084rem] md:cb-h-[6.96rem] lg:cb-h-[8.9rem] cb-bg-black-900'
-                : 'cb-aspect-w-2 md:cb-aspect-h-1 cb-h-[5.084rem] cb-border cb-border-1'
+                ? 'cb-h-[5.084rem] cb-bg-black-900 md:cb-h-[6.96rem] lg:cb-h-[8.9rem]'
+                : 'cb-border-1 cb-aspect-w-2 cb-h-[5.084rem] cb-border md:cb-aspect-h-1'
             "
           >
             <img
@@ -72,8 +73,8 @@
               loading="eager"
               :class="
                 post.image == null
-                  ? 'cb-w-auto cb-h-4/5 cb-mx-auto cb-my-[5%] xl:cb-my-[7%]'
-                  : 'cb-w-full cb-h-full'
+                  ? 'cb-mx-auto cb-my-[5%] cb-h-4/5 cb-w-auto xl:cb-my-[7%]'
+                  : 'cb-h-full cb-w-full'
               "
               class="cb-object-cover"
             />
