@@ -3,6 +3,7 @@ import {
   createResolver,
   installModule,
   addComponentsDir,
+  addPlugin
 } from "@nuxt/kit";
 
 // Module options TypeScript interface definition
@@ -52,5 +53,10 @@ export default defineNuxtModule<ModuleOptions>({
       prefix: "",
       global: true,
     });
+
+    addPlugin({
+      src: resolver.resolve('./runtime/plugins/medium-zoom'),
+      mode: 'client'
+    })
   },
 });

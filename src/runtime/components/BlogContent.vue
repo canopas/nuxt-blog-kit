@@ -29,8 +29,6 @@
 
 <script setup>
 import { toRefs, onMounted, onUnmounted, ref } from "vue";
-import mediumZoom from "medium-zoom/dist/pure";
-import "medium-zoom/dist/style.css";
 
 const props = defineProps({
   post: {
@@ -126,8 +124,6 @@ onMounted(() => {
   if (element) {
     element.style.marginTop = "0";
   }
-
-  mediumZoom(document.querySelectorAll(".cb-prose img"));
 
   window.addEventListener("scroll", handleScroll);
 });

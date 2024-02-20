@@ -2957,9 +2957,9 @@ depd@~1.1.2:
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
 destr@^2.0.0, destr@^2.0.1, destr@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/destr/-/destr-2.0.2.tgz#8d3c0ee4ec0a76df54bc8b819bca215592a8c218"
-  integrity sha512-65AlobnZMiCET00KaFFjUefxDX0khFA/E4myqZ7a6Sq1yZtR8+FVIvilVX66vF2uobSumxooYZChiRPCKNqhmg==
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/destr/-/destr-2.0.3.tgz#7f9e97cb3d16dbdca7be52aca1644ce402cfe449"
+  integrity sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==
 
 destroy@1.2.0, destroy@^1.0.4:
   version "1.2.0"
