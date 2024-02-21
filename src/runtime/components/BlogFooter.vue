@@ -1,6 +1,7 @@
 <template>
   <div
-    class="cb-footer-section cb-relative cb-z-[1] cb-overflow-hidden cb-px-0 cb-font-inter-medium"
+    class="cb-z-[1] cb-overflow-hidden cb-px-0 cb-font-inter-medium"
+    :class="footerClasses"
   >
     <img
       height="200"
@@ -220,6 +221,7 @@ import { isValidEmail } from "./../utils";
 import axios from "axios";
 import bg from "../assets/images/footer/new-bg.svg";
 
+const footerClasses =  ref('')
 const props = defineProps({
   mixpanel: Object,
   apiUrl: {
@@ -245,6 +247,29 @@ const showValidEmailError = ref(false);
 const handleIconClick = (icon) => {
   mixpanel?.value?.track(icon);
 };
+
+onMounted(() => {
+  onDevicePixelChange()
+});
+
+const listenOnDevicePixelRatio = () => {
+  matchMedia(
+    `(resolution: ${window.devicePixelRatio}dppx)`
+  ).addEventListener("change", onDevicePixelChange, { once: true });
+}
+
+const onDevicePixelChange = () => {
+  setFooterPosition()
+  listenOnDevicePixelRatio();
+}
+
+const setFooterPosition = () => {
+  footerClasses.value = 'cb-relative'
+  const documentHeight = Math.round(window.devicePixelRatio * document.body.clientHeight)
+  if(window.screen.height > documentHeight){
+    footerClasses.value = 'cb-absolute cb-bottom-0 cb-w-full'
+  }
+}
 
 const handleSubscription = async (event) => {
   event.preventDefault();
