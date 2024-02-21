@@ -216,7 +216,7 @@
 </template>
 
 <script setup>
-import { ref, toRefs } from "vue";
+import { ref, toRefs, onMounted } from "vue";
 import { isValidEmail } from "./../utils";
 import axios from "axios";
 import bg from "../assets/images/footer/new-bg.svg";
