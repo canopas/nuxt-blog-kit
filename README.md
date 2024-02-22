@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 
 That's it! You can now use module in your Nuxt app ✨
 
-[Read full documentation of all components](https://github.com/canopas/canopas-website/blob/master/COMPONENTS.md)
+[Read full documentation of all components](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md)
 
 # Credits
 
