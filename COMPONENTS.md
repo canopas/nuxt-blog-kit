@@ -36,20 +36,20 @@
 
 # Table of contents
 
-- [Alert](https://github.com/canopas/nuxt-blog-kit#alert)
-- [Author detail](https://github.com/canopas/nuxt-blog-kit#author-detail)
-- [Blog content](https://github.com/canopas/nuxt-blog-kit#blog-content)
-- [Blog detail](https://github.com/canopas/nuxt-blog-kit#blog-detail)
-- [Blog detail header](https://github.com/canopas/nuxt-blog-kit#blog-detail-header)
-- [Blog footer](https://github.com/canopas/nuxt-blog-kit#blog-footer)
-- [Blog list](https://github.com/canopas/nuxt-blog-kit#blog-list)
-- [Blog tile](https://github.com/canopas/nuxt-blog-kit#blog-tile)
-- [Featured blog tile](https://github.com/canopas/nuxt-blog-kit#featured-blog-tile)
-- [Post list for tag and author UI](https://github.com/canopas/nuxt-blog-kit#post-list-for-tag-and-author-ui)
-- [Recommended posts](https://github.com/canopas/nuxt-blog-kit#Recommended-posts)
-- [Table of contents](https://github.com/canopas/nuxt-blog-kit#table-of-contents)
-- [Tags](https://github.com/canopas/nuxt-blog-kit#tags)
-- [Unsubscribe](https://github.com/canopas/nuxt-blog-kit#unsubscribe)
+- [Alert](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#alert)
+- [Author detail](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#author-detail)
+- [Blog content](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-content)
+- [Blog detail](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-detail)
+- [Blog detail header](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-detail-header)
+- [Blog footer](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-footer)
+- [Blog list](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-list)
+- [Blog tile](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-tile)
+- [Featured blog tile](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#featured-blog-tile)
+- [Post list for tag and author UI](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#post-list-for-tag-and-author-ui)
+- [Recommended posts](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#Recommended-posts)
+- [Table of contents](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#table-of-contents)
+- [Tags](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#tags)
+- [Unsubscribe](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#unsubscribe)
 
 ---
 
