@@ -11,8 +11,6 @@
 </template>
 
 <script setup>
-import { toRefs } from "vue";
-
 const props = defineProps({
   tags: {
     type: Object,
@@ -20,6 +18,4 @@ const props = defineProps({
   },
   mixpanel: Object,
 });
-
-const { tags, mixpanel } = toRefs(props);
 </script>

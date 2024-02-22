@@ -12,7 +12,7 @@
           width="100"
           height="100"
           :src="post.image_url || ''"
-          :alt="post.alternativeText || ''"
+          :alt="post.alternative_text || ''"
           loading="lazy"
           class="object-cover"
           :class="
@@ -36,10 +36,10 @@
             </span>
           </div>
           <nuxt-link
-            :to="'/author/' + post.authorSlug"
+            :to="'/author/' + post.author.username"
             class="cb-line-clamp-1 cb-capitalize cb-text-green-700"
           >
-            {{ post.authorName }}
+            {{ post.author.name }}
           </nuxt-link>
         </div>
         <div
@@ -58,8 +58,6 @@
 </template>
 
 <script setup>
-import { toRefs } from "vue";
-
 const props = defineProps({
   post: {
     type: Object,
@@ -67,5 +65,4 @@ const props = defineProps({
   },
   mixpanel: Object,
 });
-const { post, mixpanel } = toRefs(props);
 </script>

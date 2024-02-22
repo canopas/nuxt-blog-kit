@@ -58,7 +58,7 @@
       </div>
       <div class="cb-grid cb-grid-cols-2 cb-items-center cb-text-sm">
         <nuxt-link
-          :to="'/author/' + post.authorSlug"
+          :to="'/author/' + post.author.username"
           class="cb-flex cb-items-center cb-space-x-4"
         >
           <div
@@ -68,14 +68,14 @@
               width="45"
               height="45"
               class="cb-absolute cb-left-2/4 cb-top-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
-              :src="post.authorImage"
-              :alt="post.authorAltText"
+              :src="post.author.image"
+              :alt="post.author.alt_text || post.author.name"
             />
           </div>
           <div
             class="cb-text-base cb-tracking-wide md:cb-text-[1.09rem] xl:cb-text-[1.125rem]"
           >
-            {{ post.authorName }}
+            {{ post.author.name }}
           </div>
         </nuxt-link>
 
@@ -163,7 +163,7 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-  websiteUrl: {
+  "website-url": {
     type: String,
     required: true,
   },

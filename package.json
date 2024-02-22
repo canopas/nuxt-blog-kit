@@ -1,17 +1,18 @@
 {
-  "name": "@canopassoftware/blog-components",
-  "version": "1.2.4",
-  "description": "Blog components",
+  "name": "@canopassoftware/nuxt-blog-kit",
+  "version": "1.0.1",
+  "description": "Nuxt blog component library",
   "keywords": [
     "components",
     "component library",
     "nuxt library",
     "nuxt module",
+    "nuxt3",
     "canopas"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/canopas/blog-components.git"
+    "url": "git+https://github.com/canopas/nuxt-blog-kit.git"
   },
   "license": "MIT",
   "type": "module",
@@ -62,9 +63,9 @@
     "vitest": "^0.33.0"
   },
   "bugs": {
-    "url": "https://github.com/canopas/blog-components/issues"
+    "url": "https://github.com/canopas/nuxt-blog-kit/issues"
   },
-  "homepage": "https://github.com/canopas/blog-components#readme",
+  "homepage": "https://github.com/canopas/nuxt-blog-kit#readme",
   "directories": {
     "test": "test"
   },

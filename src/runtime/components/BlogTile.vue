@@ -16,7 +16,7 @@
         width="100"
         height="100"
         :src="post.image_url || ''"
-        :alt="post.alternativeText || ''"
+        :alt="post.alternative_text || ''"
         :loading="index === 0 && count && count % 3 === 1 ? 'eager' : 'lazy'"
         :class="
           post.image == null
@@ -70,16 +70,16 @@
             width="40"
             height="40"
             class="cb-absolute cb-left-2/4 cb-top-2/4 cb-translate-x-[-50%] cb-translate-y-[-50%] cb-rounded-full cb-object-cover"
-            :src="post.authorImage"
-            :alt="post.authorAltText"
+            :src="post.author.image"
+            :alt="post.author.alt_text || post.author.image"
             loading="lazy"
           />
         </nuxt-link>
       </div>
-      <nuxt-link :to="'/author/' + post.authorSlug">
+      <nuxt-link :to="'/author/' + post.author.username">
         <div class="cb-pl-3 cb-text-sm cb-tracking-wide">
           <span class="cb-capitalize cb-text-green-700">
-            {{ post.authorName }}
+            {{ post.author.name }}
           </span>
 
           <div>
@@ -110,7 +110,7 @@ const props = defineProps({
   },
   index: {
     type: Number,
-    required: true,
+    default: 0,
   },
   mixpanel: Object,
 });

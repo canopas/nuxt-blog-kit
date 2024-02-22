@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "blog-components-playground",
+  "name": "nuxt-blog-kit-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",

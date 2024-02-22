@@ -10,22 +10,22 @@
             width="150"
             height="100"
             class="cb-absolute cb-inset-x-5 !cb-my-0 cb-rounded-full cb-object-cover"
-            :src="post.authorImage"
-            :alt="post.authorAltText"
+            :src="author.image"
+            :alt="author.alt_text || author.name"
           />
         </div>
         <div class="cb-flex cb-flex-col cb-items-center cb-space-y-3">
           <nuxt-link
-            :to="'/author/' + post.authorSlug"
+            :to="'/author/' + author.username"
             class="!cb-font-inter-semibold !cb-text-[1.6875rem] !cb-font-semibold !cb-tracking-normal !cb-text-black-core/[0.87] cb-no-underline"
           >
-            {{ post.authorName }}
+            {{ author.name }}
           </nuxt-link>
 
           <div
             class="cb-text-center cb-text-base cb-leading-normal cb-tracking-normal"
           >
-            {{ post.authorBio }}
+            {{ author.bio }}
           </div>
         </div>
       </div>
@@ -38,22 +38,22 @@
           width="100"
           height="100"
           class="cb-rounded-full cb-object-cover"
-          :src="post.authorImage"
-          :alt="post.authorAltText"
+          :src="author.image"
+          :alt="author.alt_text || author.name"
         />
         <div
           class="cb-flex cb-flex-col sm:cb-col-span-2"
-          :class="post.authorBio ? 'cb-space-y-4' : 'cb-space-y-1'"
+          :class="author.bio ? 'cb-space-y-4' : 'cb-space-y-1'"
         >
           <nuxt-link
-            :to="'/author/' + post.authorSlug"
+            :to="'/author/' + author.username"
             class="!cb-font-inter-semibold !cb-text-[1.6875rem] !cb-font-semibold !cb-tracking-normal !cb-text-black-core/[0.87] cb-no-underline"
           >
-            {{ post.authorName }}
+            {{ author.name }}
           </nuxt-link>
 
           <div class="cb-text-base cb-leading-normal cb-tracking-normal">
-            {{ post.authorBio }}
+            {{ author.bio }}
           </div>
         </div>
       </div>
@@ -62,15 +62,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { toRefs } from "vue";
-
+<script setup>
 const props = defineProps({
-  post: {
+  author: {
     type: Object,
     required: true,
   },
 });
-
-const { post } = toRefs(props);
 </script>

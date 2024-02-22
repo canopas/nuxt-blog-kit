@@ -3,7 +3,6 @@ import {
   createResolver,
   installModule,
   addComponentsDir,
-  addPlugin
 } from "@nuxt/kit";
 
 // Module options TypeScript interface definition

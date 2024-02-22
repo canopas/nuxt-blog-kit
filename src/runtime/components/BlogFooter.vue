@@ -221,18 +221,18 @@ import { isValidEmail } from "./../utils";
 import axios from "axios";
 import bg from "../assets/images/footer/new-bg.svg";
 
-const footerClasses =  ref('')
+const footerClasses = ref("cb-relative");
 const props = defineProps({
   mixpanel: Object,
-  apiUrl: {
+  "api-url": {
     type: String,
     required: true,
   },
-  socialMediaData: {
+  "social-media-data": {
     type: Object,
     required: true,
   },
-  companyName: {
+  "company-name": {
     type: String,
     required: true,
   },
@@ -249,27 +249,30 @@ const handleIconClick = (icon) => {
 };
 
 onMounted(() => {
-  onDevicePixelChange()
+  onDevicePixelChange();
 });
 
 const listenOnDevicePixelRatio = () => {
-  matchMedia(
-    `(resolution: ${window.devicePixelRatio}dppx)`
-  ).addEventListener("change", onDevicePixelChange, { once: true });
-}
+  matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener(
+    "change",
+    onDevicePixelChange,
+    { once: true },
+  );
+};
 
 const onDevicePixelChange = () => {
-  setFooterPosition()
+  setFooterPosition();
   listenOnDevicePixelRatio();
-}
+};
 
 const setFooterPosition = () => {
-  footerClasses.value = 'cb-relative'
-  const documentHeight = Math.round(window.devicePixelRatio * document.body.clientHeight)
-  if(window.screen.height > documentHeight){
-    footerClasses.value = 'cb-absolute cb-bottom-0 cb-w-full'
+  footerClasses.value = "cb-relative";
+  const documentHeight =
+    Math.round(window.devicePixelRatio * document.body.clientHeight) + 50;
+  if (window.screen.height > documentHeight) {
+    footerClasses.value = "cb-absolute cb-bottom-0 cb-w-full";
   }
-}
+};
 
 const handleSubscription = async (event) => {
   event.preventDefault();

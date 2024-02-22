@@ -69,11 +69,11 @@ import emailTemplate from "../assets/images/emailTemplate.webp";
 import axios from "axios";
 import { ref, onMounted, toRefs } from "vue";
 const props = defineProps({
-  companyTitle: {
+  "company-title": {
     type: String,
     required: true,
   },
-  apiUrl: {
+  "api-url": {
     type: String,
     required: true,
   },
