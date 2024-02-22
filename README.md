@@ -1,180 +1,71 @@
-# Blog Components
+<p align="center"><a href="https://canopas.com/contact"><img src="./assets/banner.png"></a></p>
 
-Welcome to the `blog-components` library, a component library for [**canopas blogs website**](https://canopas.com/resources).
+# Nuxt Blog Kit
+
+`Nuxt Blog Kit` is a component library for [**blogs website**](https://canopas.com/blog).
 
 ## About
 
-The `blog-components` is an open-source library developed and maintained by Canopas. Crafted using `vue.js` and `tailwindcss` a lightweight and highly efficient CSS platform on top of `Nuxt 3` framework, showcasing a commitment to robust and advanced web development practices. For preview visit [**_canopas blogs page_**](https://canopas.com/resources) .
+The `nuxt-blog-kit` is an open-source library developed and maintained by Canopas. It is developed using `Nuxt 3` framework and `tailwindcss`. For preview visit [**_canopas blogs page_**](https://canopas.com/blog) .
 
 ## Showcase
 
-#### Blogs List UI
+#### Blogs List
 
-![Blog List UI](https://github.com/canopas/canopas-blog/assets/69897605/10747407-ada8-40fc-b23c-fa965c0bc33a)
+<p align="center"><a href="https://canopas.com/resources"><img src="./assets/blog-list.gif" /></a></p>
 
-#### Blogs Detail UI
+#### Blogs Detail
 
-![Blog Detail UI](https://github.com/canopas/canopas-blog/assets/69897605/bf24fbb5-9771-495a-a553-1c54e0b271d7)
+<p align="center"><a href="https://canopas.com/resources"><img src="./assets/blog-detail.gif" /></a></p>
+
+#### Blogs by Tag
+
+<p align="center"><a href="https://canopas.com/tag/mobile-app"><img src="./assets/tag.gif" /></a></p>
+
+#### Blogs by Author
+
+<p align="center"><a href="https://canopas.com/author/Darpan"><img src="./assets/author.gif" /></a></p>
 
 ## Prerequisites
 
-Prior to integrating `blog-components` into your project, please ensure that `tailwindcss` is installed and properly configured within your project environment.
+For integrating `nuxt-blog-kit` into your project, please ensure that `tailwindcss` is installed and properly configured within your project environment.
 
 ## Quick Setup
 
-1. Add `blog-components` dependency to your project .
+1. Add `nuxt-blog-kit` dependency to your project .
 
 ### Using yarn :
 
 ```bash
-yarn add --dev @canopassoftware/blog-components
+yarn add --dev @canopassoftware/nuxt-blog-kit
 ```
 
 ### Using npm :
 
 ```bash
-npm install --save-dev @canopassoftware/blog-components
+npm install --save-dev @canopassoftware/nuxt-blog-kit
 ```
 
 <br>
 
-2. Add `blog-components` to the `modules` section of `nuxt.config.ts`
+1. Add `nuxt-blog-kit` to the `modules` of `nuxt.config.ts`
 
 ```js
 export default defineNuxtConfig({
-  modules: ["@canopassoftware/blog-components"],
+  modules: ["@canopassoftware/nuxt-blog-kit"],
 });
 ```
 
 That's it! You can now use module in your Nuxt app ✨
 
-Here are the examples,
+[Read full documentation of all components](https://github.com/canopas/canopas-website/blob/master/COMPONENTS.md)
 
-### Blog list
+# Credits
 
-Blog list component to show all blogs.
+This repository is owned and maintained by the [Canopas team](https://canopas.com/). If you are interested in building web applications or designing products, please let us know. We'd love to hear from you!
 
-```js
-  <BlogList
-      :posts="posts"
-      :featurePosts="featurePosts"
-      :count="count"
-      :status="status"
-    />
-```
-
-- **:posts="posts"**
-
-  - required
-  - posts to be dispayed
-
-- **:featurePosts="featuredPosts"**
-
-  - featured blog posts
-
-- **:count="count"**
-
-  - Number of posts for UI adjustment
-
-- **:status="status"**
-  - status of API response
-
-<br>
-
-### Blog list by tag
-
-Tag list component to show posts by given tag.
-
-```js
-  <TagList
-    :slug="slug"
-    :posts="posts"
-  />
-```
-
-- **:slug:"slug"**
-  - required
-  - tag name
-- **:posts="posts"**
-  - required
-  - posts by given tag
-
-<br>
-
-### Blog details
-
-Component to show blog detail by slug
-
-```js
-
-  <BlogDetail
-      :slug="slug"
-      :post="post"
-      :recommandedPosts="recommandedPosts"
-      :websiteUrl="your-website-url"
-      :contactApiUrl="your-contact-api-url"
-    />
-
-```
-
-- **:post="post"**
-  - required
-  - slug of post
-- **:post="post"**
-
-  - required
-  - post detail of given slug
-
-- **:recommandedPosts="recommandedPosts"**
-
-  - recommanded posts, which are similar to given post
-
-- **:websiteUrl="websiteUrl"**
-
-  - For sharing on social media, you can pass your website's url
-
-- **:contactApiUrl="contactApiUrl"**
-  - This api is used for CTA forms. It is not required, if you don't want to add CTAs.
-
-<br>
-
-### Blog footer
-
-Footer component
-
-```js
-
-    <BlogFooter
-      :socialMediaData="socialMediaData"
-      :apiUrl="subscription-api-url"
-      :companyName="your-company-name"
-    />
-
-```
-
-- **:socialMediaData="socialMediaData"**
-  - required
-  - JSON object of your social media handles
-    ```
-    const socialMediaData = {
-        facebook: your-facebook-url,
-        instagram: your-instagram-url,
-        twitter: your-twitter-url,
-        blog: your-blog-url,
-        linkedin: your-linkedin-url,
-        youtube: your-youtube-url,
-    };
-    ```
-- **:apiUrl="subscription-api-url"**
-
-  - required
-  - Subscription api url
-
-- **:companyName="companyName"**
-  - your companyName
-
-<br>
+<a href="https://canopas.com/contact"><img src="./assets/cta.png" width=300></a>
 
 # LICENSE
 
-This repository licenced under [MIT](https://github.com/canopas/canopas-blog-components/blob/main/LICENSE).
+This repository licenced under [MIT](https://github.com/canopas/nuxt-blog-kit/blob/main/LICENSE).

@@ -8,18 +8,18 @@
     >
       <div class="cb-flex cb-flex-col cb-gap-4 md:cb-basis-8/12">
         <nuxt-link
-          :to="'/author/' + post.authorSlug"
+          :to="'/author/' + post.author.username"
           class="cb-relative cb-flex cb-items-center cb-gap-4 cb-overflow-hidden"
         >
           <img
             width="30"
             height="30"
             class="cb-rounded-full cb-object-cover"
-            :src="post.authorImage"
-            :alt="post.authorAltText"
+            :src="post.author.image"
+            :alt="post.author.alt_text"
           />
           <span class="cb-font-inter-medium">
-            {{ post.authorName }}
+            {{ post.author.name }}
           </span>
         </nuxt-link>
         <nuxt-link :to="'/' + post.slug">
@@ -56,18 +56,11 @@
               {{ post.reading_time }} min read
             </span>
           </div>
-          <div class="cb-flex cb-flex-wrap cb-gap-x-2 cb-gap-y-8">
-            <div
-              v-for="tag in post.tags.filter((tag) => tag.slug !== slug)"
-              :key="tag.id"
-            >
-              <nuxt-link
-                :to="'/tag/' + tag.slug"
-                class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-p-3 cb-font-normal cb-capitalize cb-no-underline"
-              >
-                {{ tag.name }}
-              </nuxt-link>
-            </div>
+          <div class="cb-flex cb-flex-wrap">
+            <TagSection
+              :tags="post.tags.filter((tag) => tag.slug !== slug)"
+              :mixpanel="mixpanel"
+            />
           </div>
         </div>
       </div>
@@ -78,7 +71,7 @@
           width="300"
           height="300"
           :src="post.image_url || ''"
-          :alt="post.alternativeText || ''"
+          :alt="post.alternative_text || ''"
           loading="lazy"
           class="cb-border cb-object-cover"
         />

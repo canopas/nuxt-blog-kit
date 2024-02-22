@@ -1,7 +1,7 @@
 <template>
   <div
     class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
-    :class="is_resource ? 'xl:cb-w-[45%]' : 'xl:cb-w-[25%]'"
+    :class="showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[25%]'"
   >
     <div class="cb-top-[7.5rem] cb-flex cb-flex-col xl:cb-sticky">
       <div
@@ -40,19 +40,19 @@ const props = defineProps({
   },
   "content-ref": {
     type: Object,
-    required: true,
   },
   "header-height": {
     type: Number,
-    required: true,
+    default: 0,
   },
-  is_resource: {
+  "show-recommended-posts": {
     type: Boolean,
-    required: true,
+    default: true,
   },
 });
 
-const { indexContent, contentRef, headerHeight, is_resource } = toRefs(props);
+const { indexContent, contentRef, headerHeight, showRecommendedPosts } =
+  toRefs(props);
 
 function handleClick(event) {
   event.preventDefault();

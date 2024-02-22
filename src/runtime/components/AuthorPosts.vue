@@ -32,15 +32,8 @@
           </div>
         </nuxt-link>
         <div class="cb-flex cb-flex-col cb-justify-center cb-gap-4">
-          <div class="cb-flex cb-flex-wrap cb-gap-x-2 cb-gap-y-8">
-            <div v-for="tag in post.tags.slice(0, 2)" :key="tag.id">
-              <nuxt-link
-                :to="'/tag/' + tag.slug"
-                class="cb-my-1 cb-rounded-full cb-bg-[#f2f2f2] cb-p-3 cb-font-normal cb-capitalize cb-no-underline"
-              >
-                {{ tag.name }}
-              </nuxt-link>
-            </div>
+          <div class="cb-flex cb-flex-wrap">
+            <TagSection :tags="post.tags.slice(0, 2)" :mixpanel="mixpanel" />
           </div>
           <span class="cb-text-black-core/[0.65]">
             {{ post.reading_time }} min read
@@ -54,7 +47,7 @@
           width="300"
           height="300"
           :src="post.image_url || ''"
-          :alt="post.alternativeText || ''"
+          :alt="post.alternative_text || post.name"
           loading="lazy"
           class="cb-border cb-object-cover"
         />

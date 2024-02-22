@@ -22,7 +22,7 @@
             :key="featurePost.slug"
             class="cb-space-y-2"
           >
-            <featured-blog-tile :post="featurePost" :mixpanel="mixpanel" />
+            <FeaturedBlogTile :post="featurePost" :mixpanel="mixpanel" />
           </div>
         </div>
         <div
@@ -61,7 +61,7 @@
               : ''
           "
         >
-          <blog-tile
+          <BlogTile
             :post="post"
             :index="index"
             :count="count"
@@ -74,7 +74,6 @@
 </template>
 
 <script setup>
-import { toRefs } from "vue";
 import config from "../config";
 
 const props = defineProps({
@@ -84,18 +83,17 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-  featurePosts: {
+  "feature-posts": {
     type: Object,
+    default: [],
   },
   count: {
     type: Number,
-    default: 1,
+    default: 10,
   },
   status: {
     type: Number,
     default: 200,
   },
 });
-
-const { mixpanel, posts, featurePosts, count, status } = toRefs(props);
 </script>

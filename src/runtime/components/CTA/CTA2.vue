@@ -239,11 +239,11 @@ const showLoader = ref(false);
 const showErrorMessage = ref(false);
 
 const props = defineProps({
-  recaptchaKey: {
+  "recaptcha-key": {
     type: String,
     required: true,
   },
-  contactApiUrl: {
+  "contact-api-url": {
     type: String,
     required: true,
   },

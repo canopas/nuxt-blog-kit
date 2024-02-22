@@ -14,14 +14,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { toRefs } from "vue";
+<script setup>
 const props = defineProps({
   message: {
     type: String,
     required: true,
   },
 });
-
-const { message } = toRefs(props);
 </script>
