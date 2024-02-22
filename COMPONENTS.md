@@ -53,17 +53,17 @@
 
 ---
 
-### Alert
+## Alert
 
 This component is used for showing alerts. In this library it is used by `BlogDetailHeader`
 
 <p align="center"><img src="./assets/alert.png" /></p>
 
-#### Properties
+### Properties
 
 - **:message="message"** (`required`): Message to be shown on alert
 
-#### Example
+### Example
 
 ```js
   <Alert :message="message" />
@@ -71,17 +71,17 @@ This component is used for showing alerts. In this library it is used by `BlogDe
 
 <br/>
 
-### Author detail
+## Author detail
 
 <p align="center"><img src="./assets/author-detail.png" /></p>
 
 This component shows detail of author
 
-#### Properties
+### Properties
 
 - **:author="author"** (`required`): Object of author containing author's fields from post's object
 
-#### Example
+### Example
 
 ```js
   <AuthorDetail :author="author" />
@@ -89,19 +89,19 @@ This component shows detail of author
 
 <br/>
 
-### Blog content
+## Blog content
 
 This component will render blog's content
 
 <p align="center"><img src="./assets/blog-detail.gif" /></p>
 
-#### Properties
+### Properties
 
 - **:content="content"**(`required`): Content in html format.
 
 **Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/main/src/runtime/components/BlogDetail.vue#L135).
 
-#### Example
+### Example
 
 ```js
     <BlogContent :content="content" />
@@ -109,20 +109,20 @@ This component will render blog's content
 
 <br/>
 
-### Blog detail
+## Blog detail
 
 This component contains a whole blog detail page including `BlogHeader`, `TableOfContents`, `RecommendedPosts`, `Tags`, `AuthorDetails`, `CTA` and `Footer`
 
 <p align="center"><img src="./assets/blog-detail.gif" /></p>
 
-#### Properties
+### Properties
 
 - **:post="post"**(`required`): Post details
 - **:websiteUrl="websiteUrl"**: For sharing on social media, you can pass your website's url. Required for Header and Footer
 - **:contact-api-url="your-contact-api-url"**: Required if you want to add CTA form component in your blog detail.
 - **:recaptcha-key="recaptcha-key"**: Requried for protecting CTA forms from malicious requests.
 
-#### Example
+### Example
 
 ```js
   <BlogDetail
@@ -135,18 +135,18 @@ This component contains a whole blog detail page including `BlogHeader`, `TableO
 
 <br/>
 
-### Blog detail header
+## Blog detail header
 
 This component contains Blog's prior details along with social media sharing.
 
 <p align="center"><img src="./assets/blog-detail-header.png" /></p>
 
-#### Properties
+### Properties
 
 - **:post="post"**(`required`): Post details
 - **:websiteUrl="websiteUrl"**: For sharing on social media, you can pass your website's url.
 
-#### Example
+### Example
 
 ```js
     <BlogDetailHeader :post="post" :websiteUrl="your-website-url" />
@@ -154,11 +154,11 @@ This component contains Blog's prior details along with social media sharing.
 
 <br/>
 
-### Blog footer
+## Blog footer
 
 <p align="center"><img src="./assets/footer.png" /></p>
 
-#### Properties
+### Properties
 
 - **:socialMediaData="socialMediaData"**(`required`)
   - JSON object of your social media handles
@@ -175,7 +175,7 @@ This component contains Blog's prior details along with social media sharing.
 - **:apiUrl="subscription-api-url"**(`required`): Subscription api url
 - **:companyName="companyName"**: your companyName
 
-#### Example
+### Example
 
 ```js
     <BlogFooter
@@ -188,11 +188,11 @@ This component contains Blog's prior details along with social media sharing.
 
 <br/>
 
-### Blog list
+## Blog list
 
 <p align="center"><img src="./assets/blog-list.gif" /></p>
 
-#### Properties
+### Properties
 
 - **:posts="posts"** (`required`): posts to be displayed
 
@@ -202,7 +202,7 @@ This component contains Blog's prior details along with social media sharing.
 
 - **:status="status"**: Status of API response
 
-#### Example
+### Example
 
 ```js
   <BlogList
@@ -215,19 +215,19 @@ This component contains Blog's prior details along with social media sharing.
 
 <br/>
 
-### Blog tile
+## Blog tile
 
 Single blog card
 
 <p align="center"><img src="./assets/blog-tile.png" /></p>
 
-#### Properties
+### Properties
 
 - **:post="post"**(`required`): Post details
 - **:count="count"**: Total number of posts. Default value is 1.
 - **:index="index"**: blog index from for loop. Default is 0.
 
-#### Example
+### Example
 
 ```js
     <BlogTile :post="post" :count="count" :index="index" />
@@ -235,17 +235,17 @@ Single blog card
 
 <br/>
 
-### Featured blog tile
+## Featured blog tile
 
 Single featured blog card
 
 <p align="center"><img src="./assets/featured-blog-tile.png" /></p>
 
-#### Properties
+### Properties
 
 - **:post="post"**(`required`): Featured post details
 
-#### Example
+### Example
 
 ```js
     <FeaturedBlogTile :post="post" />
@@ -253,22 +253,22 @@ Single featured blog card
 
 <br/>
 
-### Post list for tag and author UI
+## Post list for tag and author UI
 
-#### Tags list
+### Tags list
 
 <p align="center"><img src="./assets/tag-post.png" /></p>
 
-#### Authors list
+### Authors list
 
 <p align="center"><img src="./assets/author-post.png" /></p>
 
-#### Properties
+### Properties
 
 - **:slug="slug"**(`required for PostList`): Slug or id of tag
 - **:posts="posts"**(`required`): List of posts for given tag or author
 
-#### Example
+### Example
 
 ```js
   <PostList :slug="slug" :posts="posts" />
@@ -278,15 +278,15 @@ Single featured blog card
 
 <br/>
 
-### Recommended posts
+## Recommended posts
 
 <p align="center"><img src="./assets/recommended.png" /></p>
 
-#### Properties
+### Properties
 
 - **:posts="posts"**(`required`): Recommended posts list
 
-#### Example
+### Example
 
 ```js
     <RecommendedPosts :posts="posts" />
@@ -294,11 +294,11 @@ Single featured blog card
 
 <br/>
 
-### Table of contents
+## Table of contents
 
 <p align="center"><img src="./assets/toc.png" /></p>
 
-#### Properties
+### Properties
 
 - **:index-content="newIndexContent"**(`required`): Index content in HTML form.
 - **:header-height="headerHeight"**: Height of the top header. Required for scrolling behaviour if this component is used with `BlogContent`. Default is 0.
@@ -306,7 +306,7 @@ Single featured blog card
 
 **Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/main/src/runtime/components/BlogDetail.vue#L144).
 
-#### Example
+### Example
 
 ```js
     <TableOfContents
@@ -318,15 +318,15 @@ Single featured blog card
 
 <br/>
 
-### Tags
+## Tags
 
 <p align="center"><img src="./assets/tags.png" /></p>
 
-#### Properties
+### Properties
 
 - **:tags="tags"**(`required`): Tag list
 
-#### Example
+### Example
 
 ```js
     <TagSection :tags="tags" />
@@ -334,16 +334,16 @@ Single featured blog card
 
 <br/>
 
-### Unsubscribe
+## Unsubscribe
 
 This component contains email tempalate of Unsubscription.
 
-#### Properties
+### Properties
 
 - **:company-title="your-company-name"**(`required`): Your company's name
 - **:api-url="unsubscribe-api-url"**: API url to unsubscribe
 
-#### Example
+### Example
 
 ```js
     <Unsubscribe :company-title="your-company-name" :api-url="unsubscribe-api-url" />
