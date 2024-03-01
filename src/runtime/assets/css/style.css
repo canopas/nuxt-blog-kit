@@ -177,7 +177,7 @@
 
   .cb-prose h2,
   .cb-prose h2 strong {
-    @apply !cb-mb-4 !cb-font-comme-semibold !cb-tracking-tight cb-text-[#000] xl:cb-text-[2.0625rem];
+    @apply !cb-mb-4 !cb-font-comme-semibold !cb-tracking-tight cb-text-[#000] xl:cb-text-[1.65rem];
   }
 
   .cb-prose hr {

@@ -179,7 +179,9 @@ const handleScroll = () => {
   if (window.innerWidth > 1200) {
     let id = "";
     if (contentRef.value) {
-      const headers = contentRef.value.querySelectorAll("h1, h2");
+      const headers = contentRef.value.querySelectorAll(
+        "h1:not(figure h1), h2:not(figure h2)",
+      );
       const indices = document.querySelectorAll(".cb-index-content");
 
       indices.forEach((element) => {
