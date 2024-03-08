@@ -1,10 +1,8 @@
 <template>
   <div
-    class="cb-grid cb-h-full cb-w-full cb-grid-flow-row cb-gap-10 cb-rounded-3xl md:cb-bg-[#14161E] md:cb-px-10 md:cb-py-20 xl:cb-grid-flow-col xl:cb-gap-8 xl:cb-px-8 xl:cb-py-14"
+    class="cb-flex cb-h-full cb-w-full cb-flex-col cb-gap-10 cb-rounded-3xl md:cb-bg-[#14161E] md:cb-px-10 md:cb-py-20 xl:cb-flex-row xl:cb-gap-8 xl:cb-px-8 xl:cb-py-14"
   >
-    <div
-      class="cb-h-auto cb-w-full md:cb-blog-container sm:cb-h-72 md:cb-h-[21rem] lg:cb-h-[30rem] xl:cb-h-[19rem] xl:cb-w-[35rem] 2xl:cb-h-[23rem] 2xl:cb-w-[42rem]"
-    >
+    <div class="cb-h-full cb-w-full md:cb-blog-container xl:cb-w-1/2">
       <img
         width="200"
         height="200"
@@ -23,16 +21,16 @@
     </div>
 
     <div
-      class="cb-flex cb-flex-col cb-justify-between cb-space-y-5 md:cb-text-white"
+      class="cb-flex cb-w-full cb-flex-col cb-justify-between cb-space-y-5 md:cb-text-white xl:cb-w-1/2"
     >
       <div class="cb-flex cb-flex-col cb-space-y-5 cb-font-inter-regular">
         <h1
-          class="cb-tracking-none cb-text-[2rem] cb-font-normal cb-leading-tight lg:cb-text-[2.50rem] xl:cb-text-[2.6875rem]"
+          class="cb-tracking-none cb-break-words cb-text-[2rem] cb-font-normal cb-leading-tight lg:cb-text-[2.50rem] xl:cb-text-[2.6875rem]"
         >
           {{ post.title }}
         </h1>
         <div
-          class="cb-text-base cb-tracking-wide md:cb-text-[1.09rem] md:cb-leading-7 md:cb-text-white/[0.87] xl:cb-text-[1.125rem]"
+          class="cb-break-words cb-text-base cb-tracking-wide md:cb-text-[1.09rem] md:cb-leading-7 md:cb-text-white/[0.87] xl:cb-text-[1.125rem]"
         >
           {{ post.summary }}
         </div>

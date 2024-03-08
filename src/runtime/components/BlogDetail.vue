@@ -13,7 +13,7 @@
 
         <div
           class="cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-rounded-3xl cb-text-lg lg:cb-mx-24 xl:cb-mx-0 xl:cb-flex-row xl:cb-space-x-6 xl:cb-space-y-0 2xl:cb-space-x-8 3xl:cb-space-x-12"
-          :class="post.is_resource ? '' : 'sm:px-10'"
+          :class="post.is_resource ? '' : 'sm:cb-pr-10'"
         >
           <!-- Table of Contents  -->
           <TableOfContents
@@ -30,7 +30,7 @@
             :class="
               post.is_resource
                 ? 'xl:cb-w-full 2xl:cb-w-auto'
-                : 'cb-w-full cb-max-w-[85ch] xl:cb-w-[75%]'
+                : 'cb-w-full cb-max-w-[75ch] xl:cb-w-[75%]'
             "
           >
             <BlogContent :content="newContent" :mixpanel="mixpanel" />

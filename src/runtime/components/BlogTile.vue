@@ -32,7 +32,7 @@
     :class="index === 0 && count && count % 3 === 1 ? '' : 'cb-justify-between'"
   >
     <div
-      class="cb-tracking-none cb-font-inter-semibold cb-text-[1.3125rem] cb-leading-7 cb-text-black-core/[0.87] cb-underline-offset-4 cb-transition-all hover:cb-scale-[0.96] hover:cb-underline sm:cb-text-[1.375rem] sm:cb-leading-[1.875rem]"
+      class="cb-tracking-none cb-break-words cb-font-inter-semibold cb-text-[1.3125rem] cb-leading-7 cb-text-black-core/[0.87] cb-underline-offset-4 cb-transition-all hover:cb-scale-[0.96] hover:cb-underline sm:cb-text-[1.375rem] sm:cb-leading-[1.875rem]"
       :class="
         index === 0 && count && count % 3 === 1
           ? 'md:cb-text-2xl md:cb-font-bold xl:cb-text-3xl xl:cb-leading-10'
