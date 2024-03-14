@@ -30,7 +30,7 @@
               <input
                 id="subscribeEmail"
                 v-model="email"
-                class="cb-floating-input cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 cb-pl-3 cb-text-white focus:cb-outline-none md:cb-py-3"
+                class="cb-floating-input cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 cb-pl-3 cb-text-xs cb-text-white focus:cb-outline-none sm:cb-text-base md:cb-py-3"
                 placeholder="Enter Your E-mail"
                 type="email"
                 required
@@ -51,10 +51,10 @@
               class="cb-h-[45px] cb-w-[45px] cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-hidden"
               aria-label="SubscribeBtn"
             >
-              <div class="cb-inline-block cb-h-[21px] cb-w-[21px]">
+              <div class="cb-flex cb-items-center cb-justify-center">
                 <Icon
                   name="fa6-solid:bell"
-                  class="fab cb-footer-icon cb-hoverable-text cb-mt-0.5 cb-h-full cb-w-full"
+                  class="fab cb-footer-icon cb-hoverable-text cb-mt-0.5 cb-h-[21px] cb-w-[21px]"
                 />
               </div>
             </button>
@@ -62,7 +62,7 @@
 
           <span
             v-if="email.trim().length != 0 && showValidEmailError"
-            class="cb-error"
+            class="cb-error cb-gradient-text cb-text-xs sm:cb-text-base"
           >
             Please enter valid email address
           </span>
@@ -83,7 +83,7 @@
                 :href="socialMediaData.facebook"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_facebook')"
               >
                 <Icon
@@ -100,7 +100,7 @@
                 :href="socialMediaData.instagram"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_instagram')"
               >
                 <Icon
@@ -117,7 +117,7 @@
                 :href="socialMediaData.twitter"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_twitter')"
               >
                 <Icon
@@ -134,7 +134,7 @@
                 :href="socialMediaData.linkedin"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_linkedin')"
               >
                 <Icon
@@ -151,7 +151,7 @@
                 :href="socialMediaData.youtube"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_youtube')"
               >
                 <Icon
@@ -167,7 +167,7 @@
                 :href="socialMediaData.github"
                 target="_blank"
                 aria-label="footerLink"
-                class="cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
+                class="flex cb-h-5 cb-w-5 md:cb-h-8 md:cb-w-8"
                 @click="handleIconClick('tap_footer_github')"
               >
                 <Icon
@@ -184,10 +184,7 @@
         class="cb-mb-8 cb-text-center cb-text-xs cb-leading-[0.9375rem] cb-text-white/[.87] md:cb-mb-9 md:cb-text-[0.84375rem] md:cb-leading-[1.03125rem] lg:cb-text-[0.9375rem] lg:cb-leading-[1.125rem]"
       >
         <div class="cb-mr-1 cb-inline-block cb-h-3 cb-w-3 md:cb-h-4 md:cb-w-4">
-          <Icon
-            name="fa-regular:copyright"
-            class="cb-mt-0.5 cb-h-full cb-w-full"
-          />
+          <Icon name="fa-regular:copyright" class="cb-h-full cb-w-full" />
         </div>
         {{ new Date().getFullYear() }} {{ companyName }} All rights reserved.
       </div>

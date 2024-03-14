@@ -76,23 +76,6 @@
       <!-- alerts  -->
       <AlertSection v-if="showAlert" :message="message" />
     </div>
-
-    <!-- CTA -->
-    <div class="cb-cta-section">
-      <CTA1 v-if="CTACompName == 'CTA1'" />
-      <CTA2
-        v-if="CTACompName == 'CTA2'"
-        :recaptcha-key="recaptchaKey"
-        :contact-api-url="contactApiUrl"
-      />
-      <CTA3
-        v-if="CTACompName == 'CTA3'"
-        :recaptcha-key="recaptchaKey"
-        :contact-api-url="contactApiUrl"
-      />
-      <CTA4 v-if="CTACompName == 'CTA4'" />
-      <CTA5 v-if="CTACompName == 'CTA5'" />
-    </div>
   </section>
 </template>
 
