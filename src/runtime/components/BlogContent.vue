@@ -20,6 +20,15 @@ const props = defineProps({
   width: 100% !important;
 }
 
+.image.image_resized {
+  width: 60% !important;
+  margin: auto;
+}
+
+figcaption {
+  text-align: center;
+}
+
 code {
   user-select: text;
 }
