@@ -189,6 +189,8 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+  mixpanel.value?.track("view_blog_page", { Title: post.value.title });
+
   setTimeout(() => {
     headerHeight.value =
       document.getElementsByTagName("header")[0].clientHeight;
