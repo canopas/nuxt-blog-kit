@@ -33,7 +33,7 @@
               yes
             </div>
           </button>
-          <nuxt-link :href="'/resources'" @click="handleLogout">
+          <nuxt-link :href="'/blog'" @click="handleLogout">
             <button
               class="cb-w-auto cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-[1.1rem] cb-font-semibold cb-text-white hover:cb-cursor-pointer hover:cb-shadow-[inset_2px_1000px_1px_#fff]"
             >
@@ -49,7 +49,7 @@
     </div>
 
     <div
-      v-if="alerts"
+      v-if="showAlert"
       class="cb-absolute cb-inset-x-[5%] cb-bottom-10 cb-z-10 cb-flex cb-w-[90%] cb-items-center cb-justify-between cb-rounded-[10px] cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-py-5 cb-text-white sm:cb-inset-x-[20%] sm:cb-w-7/12 md:cb-inset-x-[25%] md:cb-w-6/12 xl:cb-inset-x-[30%] xl:cb-w-5/12"
     >
       <p class="cb-mx-7 cb-font-medium cb-tracking-wider md:cb-text-xl">
@@ -83,12 +83,17 @@ const showAlert = ref(false);
 const email = ref("");
 
 const userUnsubscribe = async (e) => {
-  if (e.target.innerHTML == "yes") {
+  if (e.target.innerHTML == " yes ") {
     if (email.value) {
       await axios
-        .put(`${apiUrl}/v1/user/unSubscribeUser?email=${email.value}`)
+        .put(`${apiUrl.value}/v1/user/unSubscribeUser?email=${email.value}`)
         .then(() => {
-          showAlert.value = false;
+          localStorage.removeItem("userEmail");
+          showAlert.value = true;
+          setTimeout(() => {
+            showAlert.value = false;
+            window.location.href = "/blog";
+          }, 2000);
         });
     }
   }
