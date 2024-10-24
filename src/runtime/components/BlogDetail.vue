@@ -12,8 +12,8 @@
         />
 
         <div
-          class="cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-rounded-3xl cb-text-lg lg:cb-mx-24 xl:cb-mx-0 xl:cb-flex-row xl:cb-space-x-6 xl:cb-space-y-0 2xl:cb-space-x-8 3xl:cb-space-x-12"
-          :class="post.is_resource ? '' : 'sm:cb-pr-10'"
+          class="cb-mx-2 cb-flex cb-flex-col xl:cb-flex-row cb-text-lg cb-space-y-20 lg:cb-mx-24 xl:cb-space-y-0"
+          :class="post.is_resource ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12' : 'xl:cb-justify-between xl:cb-w-full xl:cb-max-w-[1170px] xl:cb-mx-auto'"
         >
           <!-- Table of Contents  -->
           <TableOfContents
@@ -26,11 +26,11 @@
           <!-- main article  -->
           <div
             ref="contentRef"
-            class="cb-prose cb-scroll-smooth lg:cb-prose-lg"
+            class="cb-prose cb-scroll-smooth lg:cb-prose-lg !cb-mt-0"
             :class="
               post.is_resource
                 ? 'xl:cb-w-full 2xl:cb-w-auto'
-                : 'cb-w-full cb-max-w-[75ch] xl:cb-w-[75%]'
+                : 'cb-w-full'
             "
           >
             <BlogContent :content="newContent" :mixpanel="mixpanel" />

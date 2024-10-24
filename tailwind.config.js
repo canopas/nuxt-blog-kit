@@ -28,6 +28,9 @@ module.exports = {
         "comme-regular": ["Comme-Regular"],
         "comme-medium": ["Comme-Medium"],
         "comme-semibold": ["Comme-SemiBold"],
+        "helvetica-light": ["Helvetica-Light"],
+        "helvetica-regular": ["Helvetica-Regular"],
+        "helvetica-bold": ["Helvetica-Bold"],
       },
       colors: {
         black: {

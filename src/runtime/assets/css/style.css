@@ -93,7 +93,7 @@
 
   b,
   strong {
-    @apply !cb-font-comme-medium cb-text-[1.0625rem] !cb-font-medium cb-tracking-[0.01em] !cb-text-black-core/[1] md:cb-text-[1.15625rem];
+    @apply cb-font-helvetica-bold cb-tracking-wide cb-text-base cb-text-[#14161e];
   }
 
   /* HighlightJS */
@@ -170,14 +170,18 @@
     @apply cb-content-none !important;
   }
 
+  .cb-prose p {
+    @apply cb-mt-5 cb-mb-0 cb-leading-[1.66];
+  }
+
   .cb-prose h1,
   .cb-prose h1 strong {
-    @apply !-cb-mb-2.5 cb-mt-[3.75rem] !cb-font-comme-semibold cb-text-[1.6875rem] !cb-leading-snug !cb-tracking-tight cb-text-[#000] md:cb-text-[1.78125rem] lg:cb-text-[1.95rem] xl:cb-text-[2.0625rem];
+    @apply cb-mt-12 cb-mb-0 cb-font-helvetica-regular cb-font-normal cb-leading-[1.25] cb-text-[1.75rem] md:cb-text-[2rem];
   }
 
   .cb-prose h2,
   .cb-prose h2 strong {
-    @apply !cb-mb-4 !cb-font-comme-semibold !cb-tracking-tight cb-text-[#000] xl:cb-text-[1.65rem];
+    @apply cb-mt-12 cb-mb-0 cb-font-helvetica-regular cb-font-normal cb-leading-[1.25] cb-text-2xl;
   }
 
   .cb-prose hr {
@@ -190,7 +194,7 @@
 
   .cb-prose i,
   .cb-prose a {
-    @apply !cb-font-comme-regular cb-text-lg cb-tracking-[0.03rem] cb-text-black-core/[0.87];
+    @apply cb-font-helvetica-regular cb-text-[17px] cb-tracking-[0.03rem] cb-text-black-core/[0.87];
   }
 
   .cb-prose span a {
@@ -210,11 +214,11 @@
 
   .cb-prose
     :where(blockquote, blockquote i):not(:where([class~="not-prose"] *)) {
-    @apply !cb-font-inter-extralight !cb-text-[1.4rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-[1.755rem];
+    @apply !cb-font-inter-extralight !cb-text-[1.375rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-2xl;
   }
 
   .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
-    @apply !cb-font-inter-regular !cb-text-[1.4rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-[1.755rem];
+    @apply !cb-font-inter-regular !cb-text-[1.375rem] cb-not-italic !cb-leading-[2.3rem] cb-tracking-wide !cb-text-black-core/[0.75] lg:!cb-text-2xl;
   }
 
   .cb-prose
