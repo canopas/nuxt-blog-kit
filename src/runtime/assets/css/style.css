@@ -184,12 +184,21 @@
     @apply cb-mt-12 cb-mb-0 cb-font-helvetica-regular cb-font-normal cb-leading-[1.25] cb-text-2xl;
   }
 
+  .cb-prose h3,
+  .cb-prose h3 strong {
+    @apply cb-mt-12 cb-mb-0 cb-font-helvetica-regular cb-font-normal cb-leading-[1.25] cb-text-xl;
+  }
+
   .cb-prose hr {
     @apply !cb-my-6;
   }
 
   .cb-prose h4 {
     @apply !cb-font-comme-semibold;
+  }
+
+  .cb-prose pre {
+    @apply !cb-mt-4 cb-mb-0;
   }
 
   .cb-prose i,
@@ -230,5 +239,9 @@
 
   .grecaptcha-badge {
     @apply cb-invisible;
+  }
+
+  .table-content ul li {
+    @apply !cb-my-2;
   }
 }
