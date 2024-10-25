@@ -93,7 +93,7 @@
 
   b,
   strong {
-    @apply cb-font-helvetica-bold cb-tracking-wide cb-text-base cb-text-[#14161e];
+    @apply cb-font-helvetica-bold cb-tracking-wide cb-text-[17px] cb-text-[#14161e];
   }
 
   /* HighlightJS */
@@ -218,7 +218,7 @@
   }
 
   .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
-    @apply !cb-break-normal cb-bg-transparent cb-leading-normal cb-tracking-[-0.022em] cb-text-[#dbe0e0];
+    @apply !cb-break-normal cb-bg-transparent cb-leading-normal cb-tracking-[-0.022em] cb-text-[#dbe0e0] !cb-text-[15px];
   }
 
   .cb-prose

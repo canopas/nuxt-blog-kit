@@ -1,6 +1,6 @@
 <template>
   <div
-    class="cb-select-text cb-font-helvetica-regular cb-tracking-wide cb-text-base !cb-text-[#14161e]"
+    class="cb-select-text cb-font-helvetica-regular cb-tracking-wide cb-text-[17px] !cb-text-[#14161e]"
     v-html="content"
   />
 </template>

@@ -13,7 +13,7 @@
 
         <div
           class="cb-relative cb-mx-2 cb-flex cb-flex-col xl:cb-flex-row cb-text-lg cb-space-y-20 lg:cb-mx-24 xl:cb-space-y-0"
-          :class="post.is_resource ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12' : 'xl:cb-justify-between xl:cb-w-full xl:cb-max-w-[947px] 2xl:cb-max-w-[1100px] xl:cb-mx-8 2xl:cb-mx-auto'"
+          :class="post.is_resource ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12' : 'xl:cb-justify-between xl:cb-w-full xl:cb-max-w-[947px] 2xl:cb-max-w-[1080px] 3xl:cb-max-w-[1100px] xl:cb-mx-8 3xl:cb-mx-auto'"
         >
           <!-- Table of Contents  -->
           <TableOfContents
