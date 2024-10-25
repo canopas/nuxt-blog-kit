@@ -3,7 +3,7 @@
     class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
     :class="showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[28%] 2xl:cb-w-[30%]'"
   >
-    <div class="cb-top-[7.5rem] cb-flex cb-flex-col xl:cb-sticky">
+    <div class="cb-top-12 cb-flex cb-flex-col xl:cb-sticky">
       <div
         v-if="indexContent != null"
         class="cb-border-1 cb-h-fit cb-w-full cb-rounded-[12px] cb-border cb-border-black-900"

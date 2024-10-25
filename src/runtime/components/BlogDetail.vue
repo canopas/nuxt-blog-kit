@@ -46,7 +46,7 @@
             class="cb-hidden cb-absolute cb-h-full cb-right-[-10.5rem] 2xl:cb-right-[-11rem] xl:cb-block cb-max-w-[150px]"
           >
             <div
-              class="cb-flex cb-flex-col cb-top-28 xl:cb-sticky cb-gap-1.5"
+              class="cb-flex cb-flex-col cb-top-12 xl:cb-sticky cb-gap-1.5"
             >
               <div class="mr-4 mt-2 whitespace-nowrap text-[1.25rem] no-underline">
                 <img
