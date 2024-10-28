@@ -1,9 +1,9 @@
 <template>
   <div
     class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
-    :class="showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[25%]'"
+    :class="showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[28%] 2xl:cb-w-[30%]'"
   >
-    <div class="cb-top-[7.5rem] cb-flex cb-flex-col xl:cb-sticky">
+    <div class="cb-top-12 cb-flex cb-flex-col xl:cb-sticky">
       <div
         v-if="indexContent != null"
         class="cb-border-1 cb-h-fit cb-w-full cb-rounded-[12px] cb-border cb-border-black-900"
@@ -17,9 +17,9 @@
           class="hidden-scrollbar cb-h-fit cb-overflow-y-scroll cb-pl-5 cb-pr-6 cb-leading-relaxed lg:cb-pl-4 lg:cb-pr-4 2xl:cb-pl-5 2xl:cb-pr-6"
           style="max-height: calc(100vh - 14rem)"
         >
-          <div class="cb-mt-4 cb-list-none cb-text-[1.0625rem]">
+          <div class="cb-mt-4 cb-list-none cb-text-base">
             <div
-              class="cb-my-3 cb-font-comme-light !cb-tracking-normal"
+              class="table-content cb-my-3 cb-font-inter-regular !cb-text-[#14161e]"
               @click="handleClick"
               v-html="indexContent"
             />
@@ -51,7 +51,7 @@ const props = defineProps({
   },
 });
 
-const { indexContent, contentRef, headerHeight, showRecommendedPosts } =
+const { indexContent, contentRef, showRecommendedPosts } =
   toRefs(props);
 
 function handleClick(event) {
@@ -60,7 +60,7 @@ function handleClick(event) {
   const element = contentRef.value.querySelector(linkHref);
   if (element) {
     window.scrollTo({
-      top: element.offsetTop - (headerHeight.value ?? 0),
+      top: element.offsetTop,
       behavior: "smooth",
     });
   }

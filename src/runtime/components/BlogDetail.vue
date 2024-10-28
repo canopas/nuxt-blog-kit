@@ -12,8 +12,8 @@
         />
 
         <div
-          class="cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-rounded-3xl cb-text-lg lg:cb-mx-24 xl:cb-mx-0 xl:cb-flex-row xl:cb-space-x-6 xl:cb-space-y-0 2xl:cb-space-x-8 3xl:cb-space-x-12"
-          :class="post.is_resource ? '' : 'sm:cb-pr-10'"
+          class="cb-relative cb-mx-2 cb-flex cb-flex-col xl:cb-flex-row cb-text-lg cb-space-y-20 lg:cb-mx-24 xl:cb-space-y-0"
+          :class="post.is_resource ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12' : 'xl:cb-justify-between xl:cb-w-full xl:cb-max-w-[947px] 2xl:cb-max-w-[1080px] 3xl:cb-max-w-[1100px] xl:cb-mx-8 3xl:cb-mx-auto'"
         >
           <!-- Table of Contents  -->
           <TableOfContents
@@ -26,11 +26,11 @@
           <!-- main article  -->
           <div
             ref="contentRef"
-            class="cb-prose cb-scroll-smooth lg:cb-prose-lg"
+            class="cb-prose cb-scroll-smooth lg:cb-prose-lg !cb-mt-0"
             :class="
               post.is_resource
                 ? 'xl:cb-w-full 2xl:cb-w-auto'
-                : 'cb-w-full cb-max-w-[75ch] xl:cb-w-[75%]'
+                : 'cb-w-full cb-max-w-[645px] 2xl:cb-max-w-[692px]'
             "
           >
             <BlogContent :content="newContent" :mixpanel="mixpanel" />
@@ -40,6 +40,36 @@
             </div>
             <AuthorDetail v-if="post.author.bio" :author="author" />
           </div>
+
+          <div
+            v-if="!post.is_resource"
+            class="cb-hidden cb-absolute cb-h-full cb-right-[-10.5rem] 2xl:cb-right-[-11rem] xl:cb-block cb-max-w-[150px]"
+          >
+            <div
+              class="cb-flex cb-flex-col cb-top-12 xl:cb-sticky cb-gap-1.5"
+            >
+              <div class="mr-4 mt-2 whitespace-nowrap text-[1.25rem] no-underline">
+                <img
+                  src="@/assets/images/logo/logo-header-black.svg"
+                  class="cb-h-auto cb-w-[140px]"
+                  alt="canopas-logo"
+                />
+              </div>
+         
+              <div class="cb-font-helvetica-regular cb-text-base cb-text-[#14161e]">We build products that customers can't help but love!</div>
+              <nuxt-link
+                :to="'/contact'"
+                @click="mixpanel?.track('tap_blog_cta_right_contact')"
+                class="flex gap-2 group relative m-0 px-2.5 pt-2 gradient-btn primary-btn sub-h3-semibold lg:sub-h1-semibold mt-1"
+              >
+                <span
+                  class="hover:v2-canopas-gradient-text"
+                >
+                  Get in touch
+                </span>
+              </nuxt-link>
+          </div>
+        </div>
 
           <!-- Recommended Posts Section Desktop View -->
           <div
@@ -127,7 +157,7 @@ const newIndexContent = indexContent?.replace(
     const match2 = /#([^\n]+-0)\b/g.exec(href);
 
     const classes =
-      "cb-index-content cb-text-ellipsis hover:cb-bg-gradient-to-r cb-from-pink-300 cb-to-orange-300 hover:cb-text-transparent hover:cb-bg-clip-text";
+      "cb-my-3 cb-index-content cb-text-ellipsis hover:cb-bg-gradient-to-r cb-from-pink-300 cb-to-orange-300 hover:cb-text-transparent hover:cb-bg-clip-text";
     if (match2 && match2[1]) {
       firstHeadingId.value = match2[1].replace("#", "");
     }
