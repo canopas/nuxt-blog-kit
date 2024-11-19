@@ -1,7 +1,9 @@
 <template>
   <div
     class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
-    :class="showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[28%] 2xl:cb-w-[30%]'"
+    :class="
+      showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[28%] 2xl:cb-w-[30%]'
+    "
   >
     <div class="cb-top-12 cb-flex cb-flex-col xl:cb-sticky">
       <div
@@ -51,16 +53,19 @@ const props = defineProps({
   },
 });
 
-const { indexContent, contentRef, showRecommendedPosts } =
-  toRefs(props);
+const { indexContent, contentRef, showRecommendedPosts } = toRefs(props);
 
 function handleClick(event) {
   event.preventDefault();
   const linkHref = event.target.getAttribute("href");
   const element = contentRef.value.querySelector(linkHref);
+
   if (element) {
+    const scrollToPosition =
+      element.getBoundingClientRect().top + window.pageYOffset;
+
     window.scrollTo({
-      top: element.offsetTop,
+      top: scrollToPosition,
       behavior: "smooth",
     });
   }

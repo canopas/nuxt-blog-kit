@@ -12,8 +12,12 @@
         />
 
         <div
-          class="cb-relative cb-mx-2 cb-flex cb-flex-col xl:cb-flex-row cb-text-lg cb-space-y-20 lg:cb-mx-24 xl:cb-space-y-0"
-          :class="post.is_resource ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12' : 'xl:cb-justify-between xl:cb-w-full xl:cb-max-w-[947px] 2xl:cb-max-w-[1080px] 3xl:cb-max-w-[1100px] xl:cb-mx-8 3xl:cb-mx-auto'"
+          class="cb-relative cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-text-lg lg:cb-mx-24 xl:cb-flex-row xl:cb-space-y-0"
+          :class="
+            post.is_resource
+              ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12'
+              : 'xl:cb-mx-8 xl:cb-w-full xl:cb-max-w-[947px] xl:cb-justify-between 2xl:cb-max-w-[1080px] 3xl:cb-ml-[3.7rem] 3xl:cb-mr-auto 3xl:cb-max-w-[1100px]'
+          "
         >
           <!-- Table of Contents  -->
           <TableOfContents
@@ -26,7 +30,7 @@
           <!-- main article  -->
           <div
             ref="contentRef"
-            class="cb-prose cb-scroll-smooth lg:cb-prose-lg !cb-mt-0"
+            class="cb-prose !cb-mt-0 cb-scroll-smooth lg:cb-prose-lg"
             :class="
               post.is_resource
                 ? 'xl:cb-w-full 2xl:cb-w-auto'
@@ -38,38 +42,41 @@
             <div class="cb-mt-11 cb-flex cb-flex-wrap">
               <TagSection :tags="post.tags" :mixpanel="mixpanel" />
             </div>
+            <SubscriptionSection :api-url="apiUrl" />
             <AuthorDetail v-if="post.author.bio" :author="author" />
           </div>
 
           <div
             v-if="!post.is_resource"
-            class="cb-hidden cb-absolute cb-h-full cb-right-[-10.5rem] 2xl:cb-right-[-11rem] xl:cb-block cb-max-w-[150px]"
+            class="cb-absolute cb-right-[-10.5rem] cb-hidden cb-h-full cb-max-w-[150px] xl:cb-block 2xl:cb-right-[-13rem]"
           >
-            <div
-              class="cb-flex cb-flex-col cb-top-12 xl:cb-sticky cb-gap-1.5"
-            >
-              <div class="mr-4 mt-2 whitespace-nowrap text-[1.25rem] no-underline">
+            <div class="cb-top-12 cb-flex cb-flex-col cb-gap-1.5 xl:cb-sticky">
+              <div
+                class="mr-4 mt-2 whitespace-nowrap text-[1.25rem] no-underline"
+              >
                 <img
                   src="@/assets/images/logo/logo-header-black.svg"
                   class="cb-h-auto cb-w-[140px]"
                   alt="canopas-logo"
                 />
               </div>
-         
-              <div class="cb-font-helvetica-regular cb-text-base cb-text-[#14161e]">We build products that customers can't help but love!</div>
+
+              <div
+                class="cb-font-helvetica-regular cb-text-base cb-text-[#14161e]"
+              >
+                We build products that customers can't help but love!
+              </div>
               <nuxt-link
                 :to="'/contact'"
                 @click="mixpanel?.track('tap_blog_cta_right_contact')"
                 class="flex gap-2 group relative m-0 px-2.5 pt-2 gradient-btn primary-btn sub-h3-semibold lg:sub-h1-semibold mt-1"
               >
-                <span
-                  class="hover:v2-canopas-gradient-text"
-                >
+                <span class="hover:v2-canopas-gradient-text">
                   Get in touch
                 </span>
               </nuxt-link>
+            </div>
           </div>
-        </div>
 
           <!-- Recommended Posts Section Desktop View -->
           <div
@@ -111,6 +118,7 @@
 
 <script setup>
 import { toRefs, ref, onMounted, onUnmounted } from "vue";
+import SubscriptionSection from "./SubscriptionSection.vue";
 const props = defineProps({
   post: {
     type: Object,
@@ -122,9 +130,13 @@ const props = defineProps({
   },
   "website-url": String,
   "contact-api-url": String,
+  "api-url": {
+    type: String,
+    required: true,
+  },
 });
 
-const { mixpanel, recaptchaKey, post, websiteUrl, contactApiUrl } =
+const { mixpanel, recaptchaKey, post, websiteUrl, contactApiUrl, apiUrl } =
   toRefs(props);
 
 const contentRef = ref({});
@@ -190,29 +202,32 @@ const classes = [
 
 const handleScroll = () => {
   if (window.innerWidth > 1200) {
-    let id = "";
     if (contentRef.value) {
       const headers = contentRef.value.querySelectorAll(
         "h1:not(figure h1), h2:not(figure h2)",
       );
       const indices = document.querySelectorAll(".cb-index-content");
 
+      // Remove the highlight from all indices
       indices.forEach((element) => {
         element.classList.remove(...classes);
       });
 
+      let activeIndex = -1;
       headers.forEach((header, index) => {
-        const documentHeight = document.body.scrollHeight;
-        const currentScroll = window.scrollY + window.innerHeight;
-        if (
-          currentScroll > documentHeight ||
-          header.offsetTop - window.pageYOffset <= 200
-        ) {
-          id = "link-" + index;
+        const headerBottom = header.getBoundingClientRect().bottom;
+
+        if (headerBottom < 100) {
+          activeIndex = index;
         }
       });
-      if (id !== "") {
-        document.getElementById(id).classList.add(...classes);
+
+      if (activeIndex !== -1) {
+        // Highlight the active index
+        const activeElement = document.getElementById(`link-${activeIndex}`);
+        if (activeElement) {
+          activeElement.classList.add(...classes);
+        }
       }
     }
   }
@@ -224,7 +239,7 @@ onMounted(() => {
       document.getElementsByTagName("header")[0].clientHeight;
   }, 100);
 
-  const element = document.getElementById(firstHeadingId);
+  const element = document.getElementById(firstHeadingId.value);
   if (element) {
     element.style.marginTop = "0";
   }

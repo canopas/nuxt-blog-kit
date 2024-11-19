@@ -12,64 +12,11 @@
     />
     <div class="cb-blog-container lg:cb-px-20 2xl:cb-px-32">
       <div
-        class="cb-mb-8 cb-mt-7 cb-grid cb-grid-rows-2 cb-justify-items-stretch md:cb-mb-12 md:cb-mt-11 xl:cb-mb-[60px] xl:cb-grid-cols-2 xl:cb-grid-rows-none"
+        class="cb-mb-8 cb-mt-7 cb-grid cb-justify-items-stretch md:cb-mb-12 md:cb-mt-11 xl:cb-mb-[60px]"
       >
-        <div
-          class="cb-max-h-1 cb-justify-self-center xl:cb-order-last xl:cb-justify-self-end"
-        >
+        <div class="cb-justify-self-center">
           <div
-            class="cb-mt-5 cb-font-inter-bold cb-text-[1.375rem] cb-leading-[1.6875rem] cb-text-white/[.87] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem]"
-          >
-            Subscribe Here!
-          </div>
-          <form
-            class="cb-m-auto cb-mt-6 cb-flex cb-items-center cb-space-x-2 xl:cb-mt-8"
-            @submit="handleSubscription"
-          >
-            <div class="cb-w-56 md:cb-w-72">
-              <input
-                id="subscribeEmail"
-                v-model="email"
-                class="cb-floating-input cb-w-full cb-rounded-full cb-border cb-border-white cb-bg-transparent cb-py-2 cb-pl-3 cb-text-xs cb-text-white focus:cb-outline-none sm:cb-text-base md:cb-py-3"
-                placeholder="Enter Your E-mail"
-                type="email"
-                required
-                @blur="showValidEmailError = isValidEmail(email)"
-              />
-            </div>
-
-            <button
-              class="cb-hidden cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] cb-text-white hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-block"
-            >
-              <div
-                class="cb-text-md cb-hoverable-text cb-inline-block cb-px-2 cb-py-[0.63rem] md:cb-px-[1.1rem] md:cb-text-xl"
-              >
-                Subscribe
-              </div>
-            </button>
-            <button
-              class="cb-h-[45px] cb-w-[45px] cb-rounded-full cb-border cb-border-solid cb-border-transparent cb-bg-gradient-to-r cb-from-[#f2709c] cb-to-[#ff9472] hover:cb-shadow-[inset_2px_1000px_1px_#fff] md:cb-hidden"
-              aria-label="SubscribeBtn"
-            >
-              <div class="cb-flex cb-items-center cb-justify-center">
-                <Icon
-                  name="fa6-solid:bell"
-                  class="fab cb-footer-icon cb-hoverable-text cb-mt-0.5 cb-h-[21px] cb-w-[21px]"
-                />
-              </div>
-            </button>
-          </form>
-
-          <span
-            v-if="email.trim().length != 0 && showValidEmailError"
-            class="cb-error cb-gradient-text cb-text-xs sm:cb-text-base"
-          >
-            Please enter valid email address
-          </span>
-        </div>
-        <div class="cb-justify-self-center xl:cb-justify-self-start">
-          <div
-            class="cb-mt-8 cb-font-inter-bold cb-text-[1.375rem] cb-leading-[1.6875rem] cb-text-white/[.87] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem] xl:cb-mt-5"
+            class="cb-mt-8 cb-text-center cb-font-inter-bold cb-text-[1.375rem] cb-leading-[1.6875rem] cb-text-white/[.87] md:cb-text-[1.5rem] md:cb-leading-[1.8125rem] lg:cb-text-[1.75rem] lg:cb-leading-[1.9375rem] xl:cb-mt-5"
           >
             Follow us on
           </div>
@@ -196,35 +143,16 @@
         </linearGradient>
       </svg>
     </div>
-
-    <div
-      v-if="showAlert"
-      class="xl:vinset-x-[27%] cb-fixed cb-inset-x-[5%] cb-bottom-[5%] cb-z-[500] cb-flex cb-w-[90%] cb-items-center cb-justify-between cb-rounded-[10px] cb-bg-gradient-to-r cb-from-[#ff835b] cb-to-[#f2709c] cb-py-5 cb-text-center cb-font-inter-semibold cb-text-white sm:cb-inset-x-[20%] sm:cb-w-7/12 md:cb-text-xl xl:cb-w-5/12"
-      role="alert"
-    >
-      <p class="cb-mx-7 cb-block sm:cb-inline">Subscribe Successfully!</p>
-      <Icon
-        name="fa6-solid:xmark"
-        class="cb-mr-5 cb-h-5 cb-w-5 hover:cb-cursor-pointer"
-        @click="showAlert = false"
-      />
-    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, toRefs, onMounted } from "vue";
-import { isValidEmail } from "./../utils";
-import axios from "axios";
 import bg from "../assets/images/footer/new-bg.svg";
 
 const footerClasses = ref("cb-relative");
 const props = defineProps({
   mixpanel: Object,
-  "api-url": {
-    type: String,
-    required: true,
-  },
   "social-media-data": {
     type: Object,
     required: true,
@@ -235,11 +163,7 @@ const props = defineProps({
   },
 });
 
-const { mixpanel, apiUrl, socialMediaData, companyName } = toRefs(props);
-
-const email = ref("");
-const showAlert = ref(false);
-const showValidEmailError = ref(false);
+const { mixpanel, socialMediaData, companyName } = toRefs(props);
 
 const handleIconClick = (icon) => {
   mixpanel?.value?.track(icon);
@@ -268,28 +192,6 @@ const setFooterPosition = () => {
     Math.round(window.devicePixelRatio * document.body.clientHeight) + 50;
   if (window.screen.height > documentHeight) {
     footerClasses.value = "cb-absolute cb-bottom-0 cb-w-full";
-  }
-};
-
-const handleSubscription = async (event) => {
-  event.preventDefault();
-
-  if (!showValidEmailError.value) {
-    await axios
-      .post(apiUrl.value + "/v1/user/subscribeUser?populate=deep", {
-        email: email.value,
-      })
-      .then(() => {
-        showAlert.value = true;
-        setTimeout(() => {
-          showAlert.value = false;
-        }, 2000);
-      })
-      .catch((err) => {
-        console.error("Error: ", err);
-      });
-
-    email.value = "";
   }
 };
 </script>
