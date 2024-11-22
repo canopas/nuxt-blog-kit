@@ -1,9 +1,7 @@
 <template>
   <div
     class="cb-relative cb-w-full cb-tracking-tight cb-text-black-core/[0.87]"
-    :class="
-      showRecommendedPosts ? 'xl:cb-w-[45%]' : 'xl:cb-w-[28%] 2xl:cb-w-[30%]'
-    "
+    :class="showRecommendedPosts ? 'xl:cb-w-[16%]' : 'xl:cb-w-[28%]'"
   >
     <div class="cb-top-12 cb-flex cb-flex-col xl:cb-sticky">
       <div

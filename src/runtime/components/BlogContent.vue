@@ -1,17 +1,24 @@
 <template>
   <div
-    class="cb-select-text cb-font-helvetica-regular cb-text-[17px] cb-tracking-wide !cb-text-black-core/[0.80]"
+    class="cb-select-text cb-font-charter-regular cb-text-[20px] !cb-font-normal cb-tracking-[-0.003em] !cb-text-[#000000bb]"
     v-html="content"
   />
 </template>
 
 <script setup>
+import hljs from "highlight.js";
+
 const props = defineProps({
   content: {
     type: Object,
     required: true,
   },
   mixpanel: Object,
+});
+
+onMounted(() => {
+  // Highlight all code blocks after component is mounted
+  hljs.highlightAll();
 });
 </script>
 
