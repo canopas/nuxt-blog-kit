@@ -239,7 +239,7 @@
     @apply !cb-pt-0;
   }
 
-  .cb-prose :where(code, code strong, ):not(:where([class~="not-prose"])) {
+  .cb-prose :where(code, code strong, blockquote code):not(:where([class~="not-prose"])) {
     @apply cb-rounded cb-bg-[#F2F2F2] cb-px-1 cb-py-0.5 cb-font-source-codepro !cb-text-[15px] cb-font-normal cb-tracking-[-0.003em] cb-text-[#000000bb];
   }
 
