@@ -31,6 +31,10 @@ module.exports = {
         "helvetica-light": ["Helvetica-Light"],
         "helvetica-regular": ["Helvetica-Regular"],
         "helvetica-bold": ["Helvetica-Bold"],
+        "charter-regular": ["Charter-Regular"],
+        "charter-bold": ["Charter-Bold"],
+        "charter-regular-italic": ["Charter-Regular-Italic"],
+        "charter-bold-italic": ["Charter-Bold-Italic"],
       },
       colors: {
         black: {

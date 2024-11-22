@@ -12,11 +12,11 @@
         />
 
         <div
-          class="cb-relative cb-mx-2 cb-flex cb-flex-col cb-space-y-20 cb-text-lg lg:cb-mx-24 xl:cb-flex-row xl:cb-space-y-0"
+          class="cb-relative cb-mx-2 cb-flex cb-flex-col cb-gap-10 cb-text-lg lg:cb-mx-32 xl:cb-flex-row xl:cb-gap-0"
           :class="
             post.is_resource
-              ? 'xl:cb-mx-0 xl:cb-space-x-6 2xl:cb-space-x-8 3xl:cb-space-x-12'
-              : 'xl:cb-mx-8 xl:cb-w-full xl:cb-max-w-[947px] xl:cb-justify-between 2xl:cb-max-w-[1080px] 3xl:cb-ml-[3.7rem] 3xl:cb-mr-auto 3xl:cb-max-w-[1100px]'
+              ? 'cb-w-max xl:cb-mx-0 xl:cb-gap-6 2xl:cb-gap-8 3xl:cb-ml-[-3.5rem] 3xl:cb-gap-20'
+              : 'xl:cb-mx-8 xl:cb-ml-[-1rem] xl:cb-w-full xl:cb-max-w-[970px] xl:cb-justify-between 2xl:cb-ml-[-2rem] 2xl:cb-max-w-[1110px] 3xl:cb-ml-[-3.7rem] 3xl:cb-mr-auto 3xl:cb-max-w-[1150px]'
           "
         >
           <!-- Table of Contents  -->
@@ -30,12 +30,7 @@
           <!-- main article  -->
           <div
             ref="contentRef"
-            class="cb-prose !cb-mt-0 cb-scroll-smooth lg:cb-prose-lg"
-            :class="
-              post.is_resource
-                ? 'xl:cb-w-full 2xl:cb-w-auto'
-                : 'cb-w-full cb-max-w-[645px] 2xl:cb-max-w-[692px]'
-            "
+            class="cb-prose !cb-mt-0 cb-w-full cb-max-w-[645px] cb-scroll-smooth lg:cb-prose-lg 2xl:cb-max-w-[692px]"
           >
             <BlogContent :content="newContent" :mixpanel="mixpanel" />
 
@@ -48,7 +43,7 @@
 
           <div
             v-if="!post.is_resource"
-            class="cb-absolute cb-right-[-10.5rem] cb-hidden cb-h-full cb-max-w-[150px] xl:cb-block 2xl:cb-right-[-13rem]"
+            class="cb-absolute cb-right-[-12.5rem] cb-hidden cb-h-full cb-max-w-[150px] xl:cb-block 2xl:cb-right-[-16rem] 3xl:cb-right-[-18rem]"
           >
             <div class="cb-top-12 cb-flex cb-flex-col cb-gap-1.5 xl:cb-sticky">
               <div
@@ -81,7 +76,7 @@
           <!-- Recommended Posts Section Desktop View -->
           <div
             v-if="post.is_resource && post.recommended_posts"
-            class="cb-relative cb-w-2/5"
+            class="cb-relative cb-w-[17%]"
           >
             <div
               v-if="post.recommended_posts.length != 0"
