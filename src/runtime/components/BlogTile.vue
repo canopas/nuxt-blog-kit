@@ -65,7 +65,7 @@
       <div
         class="cb-relative cb-h-10 cb-max-h-full cb-w-10 cb-max-w-full cb-overflow-hidden md:cb-w-[41px]"
       >
-        <nuxt-link :to="'/' + post.slug">
+      <nuxt-link :to="'/author/' + post.author.username">
           <img
             width="40"
             height="40"
