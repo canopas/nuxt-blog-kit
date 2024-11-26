@@ -7,6 +7,7 @@
 
 <script setup>
 import hljs from "highlight.js";
+import { onMounted } from "vue";
 
 const props = defineProps({
   content: {
