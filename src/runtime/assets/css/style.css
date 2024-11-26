@@ -93,7 +93,7 @@
 
   b,
   strong {
-    @apply cb-font-charter-bold cb-text-xl cb-text-[#000000bb];
+    @apply cb-font-charter-bold cb-text-xl !cb-text-[#000000dd];
   }
 
   /* HighlightJS */
@@ -103,7 +103,7 @@
   /* https://jmblog.github.io/color-themes-for-google-code-highlightjs */
 
   pre .hljs-title.class_ {
-    @apply cb-text-[#000000bb];
+    @apply cb-text-[#000000dd];
   }
 
   pre .hljs-title,
@@ -208,19 +208,19 @@
 
   .cb-prose h1,
   .cb-prose h1 strong {
-    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-[1.75rem] cb-leading-[1.25] md:cb-text-[2rem];
+    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-[1.75rem] cb-leading-[1.25] md:cb-text-[2rem] cb-text-[#000000dd];
   }
 
   .cb-prose h2,
   .cb-prose h2 strong {
-    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-2xl cb-leading-[1.25] cb-tracking-[-0.04em];
+    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-2xl cb-leading-[1.25] cb-tracking-[-0.04em] cb-text-[#000000dd];
   }
 
   .cb-prose h3,
   .cb-prose h4,
   .cb-prose h3 strong,
   .cb-prose h4 strong {
-    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-xl cb-leading-[1.25] !cb-text-[#000000bb];
+    @apply -cb-mb-5 cb-mt-12 cb-font-helvetica-bold cb-text-xl cb-leading-[1.25] cb-text-[#000000dd];
   }
 
   .cb-prose hr {
@@ -240,7 +240,7 @@
   }
 
   .cb-prose :where(code, code strong, blockquote code):not(:where([class~="not-prose"])) {
-    @apply cb-rounded cb-bg-[#F2F2F2] cb-px-1 cb-py-0.5 cb-font-source-codepro !cb-text-[15px] cb-font-normal cb-tracking-[-0.003em] cb-text-[#000000bb];
+    @apply cb-rounded cb-bg-[#F2F2F2] cb-px-1 cb-py-0.5 cb-font-source-codepro !cb-text-[15px] cb-font-normal cb-tracking-[-0.003em] cb-text-[#000000dd];
   }
 
   .cb-prose :where(pre):not(:where([class~="not-prose"] *)) {
@@ -248,7 +248,7 @@
   }
 
   .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
-    @apply !cb-break-normal cb-bg-transparent !cb-text-[15px] cb-leading-normal cb-tracking-[-0.022em];
+    @apply !cb-break-normal cb-bg-transparent !cb-text-[15px] cb-leading-normal cb-tracking-[-0.022em] !cb-text-[#000000dd];
   }
 
   .cb-prose
@@ -257,7 +257,7 @@
   }
 
   .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
-    @apply !cb-font-charter-bold-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-black-core lg:!cb-text-xl;
+    @apply !cb-font-charter-bold-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-[#000000dd] lg:!cb-text-xl;
   }
 
   .cb-prose
