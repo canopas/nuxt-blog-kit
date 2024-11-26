@@ -47,7 +47,7 @@
     "pinia": "^2.1.7"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^1.6.1",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/module-builder": "^0.5.2",
     "@nuxt/schema": "^3.7.4",
