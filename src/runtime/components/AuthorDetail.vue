@@ -43,7 +43,7 @@
           />
         </div>
 
-        <div class="cb-mt-1 cb-flex cb-w-[70%] cb-flex-col sm:cb-col-span-2">
+        <div class="cb-mt-1 cb-flex cb-w-[80%] cb-flex-col sm:cb-col-span-2">
           <nuxt-link
             :to="'/author/' + author.username"
             class="!cb-font-inter-semibold !cb-text-[1.6875rem] !cb-font-semibold !cb-tracking-normal !cb-text-black-core/[0.87] cb-no-underline"

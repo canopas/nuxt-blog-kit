@@ -253,11 +253,11 @@
 
   .cb-prose
     :where(blockquote, blockquote i):not(:where([class~="not-prose"] *)) {
-    @apply cb-mt-6 !cb-font-charter-regular-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-[#000000bb] lg:!cb-text-xl;
+    @apply cb-mt-6 !cb-font-charter-regular-italic cb-tracking-[-0.003em] !cb-text-[#000000bb];
   }
 
   .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
-    @apply !cb-font-charter-bold-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-[#000000dd] lg:!cb-text-xl;
+    @apply !cb-font-charter-bold-italic cb-tracking-[-0.003em] !cb-text-[#000000dd];
   }
 
   .cb-prose

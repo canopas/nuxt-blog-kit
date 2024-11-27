@@ -76,7 +76,7 @@
           <!-- Recommended Posts Section Desktop View -->
           <div
             v-if="post.is_resource && post.recommended_posts"
-            class="cb-relative cb-w-[17%]"
+            class="cb-relative cb-w-[15%]"
           >
             <div
               v-if="post.recommended_posts.length != 0"
@@ -151,7 +151,7 @@ CTACompName.value = CTAData?.attributes.component_name;
 const newContent = content
   ?.replace(
     /<img/g,
-    '<img class="cb-mx-auto cb-aspect-w-2 sm:cb-object-cover" style="width:min-content;height:min-content"',
+    '<img class="cb-mx-auto cb-aspect-w-2 cb-object-cover"',
   )
   .replace(/color:rgb\(14,16,26\);/g, "")
   .replace(/<a /g, '<a target="_blank"');
