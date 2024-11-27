@@ -244,7 +244,7 @@
   }
 
   .cb-prose :where(pre):not(:where([class~="not-prose"] *)) {
-    @apply !cb-my-10 cb-rounded cb-border cb-border-solid cb-border-[#E5E5E5] cb-bg-[#F9F9F9] !cb-leading-normal;
+    @apply !cb-my-8 lg:!cb-my-10 cb-rounded cb-border cb-border-solid cb-border-[#E5E5E5] cb-bg-[#F9F9F9] !cb-leading-normal;
   }
 
   .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
