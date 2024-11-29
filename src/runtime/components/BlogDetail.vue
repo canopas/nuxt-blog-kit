@@ -16,7 +16,7 @@
           :class="
             post.is_resource
               ? 'xl:cb-ml-[-1.8rem] xl:cb-max-w-[890px] 2xl:cb-max-w-[1025px] 3xl:cb-max-w-[1100px] 3xl:cb-ml-[-4.7rem]'
-              : 'xl:cb-ml-[-1rem] xl:cb-max-w-[900px] 2xl:cb-max-w-[1110px] 3xl:cb-max-w-[1150px] 3xl:cb-ml-[-3.7rem]'
+              : 'xl:cb-ml-[-1rem] xl:cb-max-w-[970px] 2xl:cb-max-w-[1110px] 3xl:cb-max-w-[1150px] 3xl:cb-ml-[-3.7rem]'
           "
         >
           <!-- Table of Contents  -->
