@@ -20,27 +20,33 @@ const props = defineProps({
 const processedContent = ref("");
 
 function processContent(html) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, "text/html");
-  const oembeds = doc.querySelectorAll("oembed[url]");
+  // Check if we're in the browser (client-side) before using DOMParser
+  if (typeof window !== 'undefined' && window.DOMParser) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const oembeds = doc.querySelectorAll("oembed[url]");
 
-  oembeds.forEach((oembed) => {
-    const url = oembed.getAttribute("url");
+    oembeds.forEach((oembed) => {
+      const url = oembed.getAttribute("url");
 
-    // Check if URL is a video (i.e., ends with .webm or .mp4)
-    if (url && (url.endsWith(".webm") || url.endsWith(".mp4"))) {
-      const videoHTML = `
-        <video style="margin:auto;max-height:70vh" autoplay loop muted playsinline>
-          <source src="${url}" type="video/webm">
-          <source src="${url.replace(".webm", ".mp4")}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>`;
-      oembed.insertAdjacentHTML("afterend", videoHTML);
-      oembed.remove();
-    }
-  });
+      // Check if URL is a video (i.e., ends with .webm or .mp4)
+      if (url && (url.endsWith(".webm") || url.endsWith(".mp4"))) {
+        const videoHTML = `
+          <video style="margin:auto;max-height:70vh" autoplay loop muted playsinline>
+            <source src="${url}" type="video/webm">
+            <source src="${url.replace(".webm", ".mp4")}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>`;
+        oembed.insertAdjacentHTML("afterend", videoHTML);
+        oembed.remove();
+      }
+    });
 
-  return doc.body.innerHTML;
+    return doc.body.innerHTML;
+  } else {
+    // Return the original HTML if running server-side (or handle appropriately)
+    return html;
+  }
 }
 
 watch(
