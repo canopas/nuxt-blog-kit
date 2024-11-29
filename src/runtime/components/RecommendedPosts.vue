@@ -62,7 +62,7 @@
             :class="
               post.image == null
                 ? 'cb-h-[5.084rem] cb-bg-black-900 md:cb-h-[6.96rem] lg:cb-h-[8.9rem]'
-                : 'cb-border-1 cb-aspect-w-2 cb-h-[5.084rem] cb-border md:cb-aspect-h-1'
+                : 'cb-border-1 cb-aspect-w-2 cb-h-[5.084rem] cb-border md:cb-h-[7.5rem] lg:cb-h-[10.084rem]'
             "
           >
             <img
