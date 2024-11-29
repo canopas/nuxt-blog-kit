@@ -93,7 +93,7 @@
 
   b,
   strong {
-    @apply cb-font-charter-bold cb-text-xl !cb-text-[#000000dd];
+    @apply !cb-font-comme-medium cb-text-[1.0625rem] !cb-font-medium cb-tracking-[0.01em] !cb-text-black-core/[1] md:cb-text-[1.15625rem];
   }
 
   /* HighlightJS */
@@ -198,6 +198,11 @@
     @apply cb-mb-0 cb-mt-7 cb-leading-[32px];
   }
 
+  .cb-prose strong,
+  .cb-prose b {
+    @apply !cb-font-charter-bold !cb-text-xl !cb-text-[#000000dd];
+  }
+
   .cb-prose figure h2 {
     @apply cb-mb-0 cb-mt-12 !cb-font-helvetica-bold cb-font-normal cb-leading-[1.25] !cb-tracking-wide;
   }
@@ -244,7 +249,7 @@
   }
 
   .cb-prose :where(pre):not(:where([class~="not-prose"] *)) {
-    @apply !cb-my-10 cb-rounded cb-border cb-border-solid cb-border-[#E5E5E5] cb-bg-[#F9F9F9] !cb-leading-normal;
+    @apply !cb-my-8 lg:!cb-my-10 cb-rounded cb-border cb-border-solid cb-border-[#E5E5E5] cb-bg-[#F9F9F9] !cb-leading-normal;
   }
 
   .cb-prose :where(pre code):not(:where([class~="not-prose"] *)) {
@@ -253,11 +258,11 @@
 
   .cb-prose
     :where(blockquote, blockquote i):not(:where([class~="not-prose"] *)) {
-    @apply cb-mt-6 !cb-font-charter-regular-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-[#000000bb] lg:!cb-text-xl;
+    @apply cb-mt-6 !cb-font-charter-regular-italic cb-tracking-[-0.003em] !cb-text-[#000000bb];
   }
 
   .cb-prose :where(blockquote strong):not(:where([class~="not-prose"] *)) {
-    @apply !cb-font-charter-bold-italic !cb-text-lg cb-tracking-[-0.003em] !cb-text-[#000000dd] lg:!cb-text-xl;
+    @apply !cb-font-charter-bold-italic cb-tracking-[-0.003em] !cb-text-[#000000dd];
   }
 
   .cb-prose

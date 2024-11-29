@@ -12,11 +12,11 @@
         />
 
         <div
-          class="cb-relative cb-mx-2 cb-flex cb-flex-col cb-gap-10 cb-text-lg lg:cb-mx-32 xl:cb-flex-row xl:cb-gap-0"
+          class="cb-relative cb-mx-2 cb-flex cb-flex-col cb-gap-10 cb-text-lg lg:cb-mx-32 xl:cb-flex-row xl:cb-gap-0 xl:cb-mx-8 xl:cb-w-full xl:cb-justify-between 2xl:cb-ml-[-2rem] 3xl:cb-mr-auto"
           :class="
             post.is_resource
-              ? 'cb-w-max xl:cb-mx-0 xl:cb-gap-6 2xl:cb-gap-8 3xl:cb-ml-[-3.5rem] 3xl:cb-gap-20'
-              : 'xl:cb-mx-8 xl:cb-ml-[-1rem] xl:cb-w-full xl:cb-max-w-[970px] xl:cb-justify-between 2xl:cb-ml-[-2rem] 2xl:cb-max-w-[1110px] 3xl:cb-ml-[-3.7rem] 3xl:cb-mr-auto 3xl:cb-max-w-[1150px]'
+              ? 'xl:cb-ml-[-1.8rem] xl:cb-max-w-[890px] 2xl:cb-max-w-[1025px] 3xl:cb-max-w-[1100px] 3xl:cb-ml-[-4.7rem]'
+              : 'xl:cb-ml-[-1rem] xl:cb-max-w-[970px] 2xl:cb-max-w-[1110px] 3xl:cb-max-w-[1150px] 3xl:cb-ml-[-3.7rem]'
           "
         >
           <!-- Table of Contents  -->
@@ -30,7 +30,9 @@
           <!-- main article  -->
           <div
             ref="contentRef"
-            class="cb-prose !cb-mt-0 cb-w-full cb-max-w-[645px] cb-scroll-smooth lg:cb-prose-lg 2xl:cb-max-w-[692px]"
+            class="cb-prose !cb-mt-0 cb-w-full cb-scroll-smooth lg:cb-prose-lg cb-max-w-[645px] 2xl:cb-max-w-[692px]"
+            :class="
+            post.is_resource ? 'xl:cb-max-w-[600px]' : ''"
           >
             <BlogContent :content="newContent" :mixpanel="mixpanel" />
 
@@ -76,11 +78,11 @@
           <!-- Recommended Posts Section Desktop View -->
           <div
             v-if="post.is_resource && post.recommended_posts"
-            class="cb-relative cb-w-[17%]"
+            class="cb-absolute cb-right-[-18rem] cb-hidden cb-h-full xl:cb-block cb-max-w-[245px] xl:cb-max-w-[250px] 2xl:cb-max-w-[280px] 2xl:cb-right-[-20.5rem] 3xl:cb-right-[-23rem] 3xl:cb-max-w-[283px]"
           >
             <div
               v-if="post.recommended_posts.length != 0"
-              class="cb-top-28 xl:cb-sticky"
+              class="cb-top-12 xl:cb-sticky"
             >
               <div class="cb-hidden cb-h-fit cb-w-full xl:cb-block">
                 <RecommendedPosts
@@ -151,7 +153,7 @@ CTACompName.value = CTAData?.attributes.component_name;
 const newContent = content
   ?.replace(
     /<img/g,
-    '<img class="cb-mx-auto cb-aspect-w-2 sm:cb-object-cover" style="width:min-content;height:min-content"',
+    '<img class="cb-mx-auto cb-aspect-w-2 cb-object-cover"',
   )
   .replace(/color:rgb\(14,16,26\);/g, "")
   .replace(/<a /g, '<a target="_blank"');
