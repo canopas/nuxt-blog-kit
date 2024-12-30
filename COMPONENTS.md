@@ -36,20 +36,20 @@
 
 # Table of contents
 
-- [Alert](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#alert)
-- [Author detail](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#author-detail)
-- [Blog content](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-content)
-- [Blog detail](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-detail)
-- [Blog detail header](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-detail-header)
-- [Blog footer](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-footer)
-- [Blog list](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-list)
-- [Blog tile](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#blog-tile)
-- [Featured blog tile](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#featured-blog-tile)
-- [Post list for tag and author UI](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#post-list-for-tag-and-author-ui)
-- [Recommended posts](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#Recommended-posts)
-- [Table of contents](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#table-of-contents)
-- [Tags](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#tags)
-- [Unsubscribe](https://github.com/canopas/nuxt-blog-kit/blob/main/COMPONENTS.md#unsubscribe)
+- [Alert](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#alert)
+- [Author detail](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#author-detail)
+- [Blog content](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-content)
+- [Blog detail](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-detail)
+- [Blog detail header](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-detail-header)
+- [Blog footer](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-footer)
+- [Blog list](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-list)
+- [Blog tile](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#blog-tile)
+- [Featured blog tile](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#featured-blog-tile)
+- [Post list for tag and author UI](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#post-list-for-tag-and-author-ui)
+- [Recommended posts](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#Recommended-posts)
+- [Table of contents](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#table-of-contents)
+- [Tags](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#tags)
+- [Unsubscribe](https://github.com/canopas/nuxt-blog-kit/blob/master/COMPONENTS.md#unsubscribe)
 
 ---
 
@@ -99,7 +99,7 @@ This component will render blog's content
 
 - **:content="content"**(`required`): Content in html format.
 
-**Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/main/src/runtime/components/BlogDetail.vue#L135).
+**Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/master/src/runtime/components/BlogDetail.vue#L135).
 
 ### Example
 
@@ -304,7 +304,7 @@ Single featured blog card
 - **:header-height="headerHeight"**: Height of the top header. Required for scrolling behaviour if this component is used with `BlogContent`. Default is 0.
 - **:content-ref="contentRef"**: Reference of blog content. Required for scrolling behaviour if this component is used with `BlogContent`.
 
-**Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/main/src/runtime/components/BlogDetail.vue#L144).
+**Note:** If you want to use this component directly, you should do some html refactoring for UI. You can take reference from [blog detail component](https://github.com/canopas/nuxt-blog-kit/blob/master/src/runtime/components/BlogDetail.vue#L144).
 
 ### Example
 
